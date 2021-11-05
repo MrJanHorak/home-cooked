@@ -1,72 +1,48 @@
-# MEN Stack with OAuth Template
+Home Cooked.
+============
+Background:
+-----------
+When I first started being the stay home dad in a Pandemic stricken world I was faced with a new challenge. Cooking. For many years I was too busy to step into this part of my family life. I was nervous. My kids were ... nervous.  And my wife ... she said I needed a plan.
 
-This is a MEN Stack template that includes OAuth.
+I wanted something fancy and available online, yet found nothing for free. I ended up using paper and weekly questioning of my wife and kids to see what they wanted, when they wanted it and had to watch the reactions during mealtime to see if they liked it or not. After several weeks of cooking I ended up with a stack of papers flying loosly around and decided to enter the info into a googlesheets speadsheet. 
 
-Use this to go build things! 🚀
+That is where the idea for this app was concieved and dreamt up. Standing in the kitchen painstakingly trying to figure out what to cook each week.
 
-## To Use This Template
+So this is a journey to make my life (hopefully) easier.
 
-__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
 
-Once you are in the project directory:
 
-```bash
-rm -rf .git
-```
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+Screenshots
+===========
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+Technologies Used
+HTML
+MongoDB
+Mongoose
+EJS
+NodeJS
+CSS
+JavaScript
+Bootstrap
+Git
 
-Re-initialize a git repository:
+Next Steps
+==========
+Track my progress on Trello: 
 
-```bash
-git init
-```
+https://trello.com/b/1yHdfZOS/unit-2-project
 
-Use the GitHub CLI to create a new project repository on GitHub:
+Original Wireframe
 
-```bash
-gh repo create <name-of-your-app-here>
-```
+https://wireframe.cc/76Ld4g
+https://wireframe.cc/1MV9pq
+https://wireframe.cc/QoKlIW
+https://wireframe.cc/76Ld4g
+https://wireframe.cc/wo8rdx
+https://wireframe.cc/wo8rdx
 
-Run npm i to fetch the template's dependencies:
+Credits
 
-```bash
-npm i
-```
-
-Then, make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
-
-touch a .env file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CALLBACK=http://localhost:3000/auth/google/oauth2callback
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
-
-Delete this README.md
-
-You're done!
+Google Fonts: 
