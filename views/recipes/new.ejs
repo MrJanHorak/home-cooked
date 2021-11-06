@@ -1,0 +1,35 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+    <% if (user?.profile.avatar) { %>
+      <div id="createRecipe">
+        <form action="recipes" method="POST">
+          <label>Recipe Title:
+            <input type="text" name="name" placeholder="Recipe Name" required>
+          </label>
+          <label>Preperation Time: 
+            <input type="number" name="prepTime">
+          </label>
+          <label>Cooking Time:
+            <input type="number" name="cookTime" required>
+          </label>
+          <label>Cooking Temprature: 
+            <input type="number" name="temp"  id="">
+          </label>
+          <label>Number of portions: 
+            <input type="number" name="yield" min=1 required>
+          </label>
+          <label>Preperation Instructions: 
+            <textarea name="instructions" cols="50" rows="15" required spellcheck="true"></textarea>
+          </label>
+          <button type="submit">Add Recipe</button>
+        </form>
+      </div>
+    <% } else{ %>
+      <h1>You must be Logged in to add recipes!</h1>
+    <% } %>
+</main>
+
+<%- include('../partials/footer') %>

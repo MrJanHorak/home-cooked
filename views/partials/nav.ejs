@@ -6,26 +6,27 @@
   <div class='nav'>
     <nav>
       <% if (user) { %>
-        <a href="/auth/logout">
-          <button type="submit">Logout</button>
-        </a>
         <a href="/">HOME</a>
         <a href="/recipes">Recipes</a>
         <a href="/mealplans">Mealplans</a>
         <a href="/profiles">All Cooks</a>
         <div>
-
+          
           <a href="/profile">        
             <img src="<%= user.profile.avatar %>" 
             alt="<%= user.profile.name %> avatar">
           </a>
+        </div>
+          <a href="/auth/logout">
+            <button type="submit">Logout</button>
+          </a>
+        <% } else { %>
+          <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+            </button>
+          </a>
+          <% } %>
+        </nav>
       </div>
-      <% } else { %>
-        <a href="/auth/google" class="siwg-link">
-          <button type="submit" class="siwg">
-            <img id="siwg-image" alt="Sign in with Google" />
-          </button>
-        </a>
-      <% } %>
-    </nav>
-</div>
+      

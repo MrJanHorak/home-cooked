@@ -6,6 +6,7 @@ const router = Router()
 
 // localhost:3000/recipes/
 router.get('/' , isLoggedIn, recipeCtrl.index)
+router.get('/new', recipeCtrl.new)
 
 export {
   router

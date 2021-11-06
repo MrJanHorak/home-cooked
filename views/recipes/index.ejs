@@ -6,10 +6,9 @@
     <h1>Welcome Chef, <%= user ? user.profile.name : "" %></h1>
     <% if (user?.profile.avatar) { %>
       <div>
-        <img 
-          src="<%= user.profile.avatar %>" 
-          alt="<%= user.profile.name %> avatar"
-        >
+        <a href="/recipes/new">
+          <input value="add recipe" type="submit"/>
+        </a>
       </div>
     <% } %>
 </main>
