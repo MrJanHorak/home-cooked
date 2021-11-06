@@ -1,22 +1,24 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const mealPlanComment = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const mealplanComment = new Schema({
   author:  {type: Schema.Types.ObjectId, ref:"Profile"},
   content: String,
 })
 
-const mealSuggestion = new mongoose.Schema({
+const mealSuggestion = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
   recipes: {type: Schema.Types.ObjectId, ref:"Recipe"},
 },{
   timestamps: true
 })
 
-const mealplanSchema = new mongoose.Schema({
+const mealplanSchema = new Schema({
   weekOf: Date,
   recipes: [{type: Schema.Types.ObjectId, ref: "Recipe"}],
   owner: String,
-  comments: [mealPlanComment],
+  comments: [mealplanComment],
   isCurrent: String,
   highlighted: Boolean,
   suggestions: [mealSuggestion],
@@ -24,8 +26,8 @@ const mealplanSchema = new mongoose.Schema({
   timestamps: true
 })
 
-const MealPlan = mongoose.model('MealPlan', mealplanSchema)
+const Mealplan = mongoose.model('Mealplan', mealplanSchema)
 
 export {
-  MealPlan
+  Mealplan
 }

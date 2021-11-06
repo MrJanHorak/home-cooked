@@ -10,10 +10,15 @@
           <button type="submit">Logout</button>
         </a>
         <a href="/">HOME</a>
-        <a href="/recipes/">Recipes</a>
-        <a href="/mealplans/">Mealplans</a>
-        <a href="/profile">profile</a>
-        
+        <a href="/recipes">Recipes</a>
+        <a href="/mealplans">Mealplans</a>
+        <div>
+
+          <a href="/profile">        
+            <img src="<%= user.profile.avatar %>" 
+            alt="<%= user.profile.name %> avatar">
+          </a>
+      </div>
       <% } else { %>
         <a href="/auth/google" class="siwg-link">
           <button type="submit" class="siwg">

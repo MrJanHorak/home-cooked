@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const ingredientSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const ingredientSchema = new Schema({
   ammount: Number,
   measurement: String,
   itemName: String,

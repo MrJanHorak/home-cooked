@@ -1,10 +1,12 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const profileSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const profileSchema = new Schema({
   name: String,
   avatar: String,
   recipes: [{type: Schema.Types.ObjectId, ref: "Recipe"}],
-  mealplans: [{type: Schema.Types.ObhjectIs, ref: "MealPlan"}] ,
+  mealplans: [{type: Schema.Types.ObjectId, ref: "MealPlan"}] ,
   likeLevel: Number,
 }, {
   timestamps: true

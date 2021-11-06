@@ -1,13 +1,15 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const recipeComment = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const recipeComment = new Schema({
   author: {type: Schema.Types.ObjectId, ref: "Profile"},
   content: String,
 }, {
   timestamps: true
 })
 
-const recipeSchema = new mongoose.Schema({
+const recipeSchema = new Schema({
   name: String,
   ingredients: [{type: Schema.Types.ObjectId, ref: "Ingredient"}],
   instructions: String,
