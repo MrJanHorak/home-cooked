@@ -5,6 +5,20 @@
   <h1><%= title %></h1>
     <h1>Welcome Chef, <%= user ? user.profile.name : "" %></h1>
     <% if (user?.profile.avatar) { %>
+      <div id="recipesIndexView">
+        <% recipes.forEach(recipe =>{ %>
+          <div id="recipeIndexCard">
+            <h2><%=recipe.name%></h2><br/>
+            <p>
+              Preperation Time: <%=recipe.PrepTime%><br/>
+              Cooking Time: <%=recipe.cookTime%><br/>
+              Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
+              Number of Portions: <%=recipe.yield%><br/>
+              Cooking Instructions: <%=recipe.instructions%><br/>
+            </p>
+          </div>
+        <%})%>
+      </div>
       <div>
         <a href="/recipes/new">
           <input value="add recipe" type="submit"/>
