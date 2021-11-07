@@ -1,11 +1,13 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/recipes/new.css">
 <%- include('../partials/nav') %>
 
 <main>
+  <div id="newRecipe">
   <h1><%= title %></h1>
-    <% if (user?.profile.avatar) { %>
+    <% if (user?.profile._id) { %>
       <div id="createRecipe">
-        <form action="recipes" method="POST">
+        <form action="/recipes" method="POST">
           <label>Recipe Title:
             <input type="text" name="name" placeholder="Recipe Name" required>
           </label>
@@ -30,6 +32,7 @@
     <% } else{ %>
       <h1>You must be Logged in to add recipes!</h1>
     <% } %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

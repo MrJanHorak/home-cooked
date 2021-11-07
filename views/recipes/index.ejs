@@ -1,14 +1,15 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/recipes/index.css">
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
-    <h1>Welcome Chef, <%= user ? user.profile.name : "" %></h1>
-    <% if (user?.profile.avatar) { %>
+    
       <div id="recipesIndexView">
         <% recipes.forEach(recipe =>{ %>
+          <a href="/recipes/<%= recipe._id %>">
           <div id="recipeIndexCard">
-            <h2><%=recipe.name%></h2><br/>
+            <h2><%=recipe.name%></h2>
             <p>
               Preperation Time: <%=recipe.PrepTime%><br/>
               Cooking Time: <%=recipe.cookTime%><br/>
@@ -17,14 +18,17 @@
               Cooking Instructions: <%=recipe.instructions%><br/>
             </p>
           </div>
-        <%})%>
+          <%})%>
       </div>
       <div>
+        <% if (user?.profile._id) { %>
         <a href="/recipes/new">
           <input value="add recipe" type="submit"/>
         </a>
-      </div>
-    <% } %>
+        <% } else { %>
+          <h1>You must be Logged in to add recipes!</h1>
+          <% } %>
+        </div>
 </main>
 
 <%- include('../partials/footer') %>

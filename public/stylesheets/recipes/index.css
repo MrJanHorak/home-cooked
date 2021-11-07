@@ -1,0 +1,30 @@
+
+#recipesIndexView {
+  display:flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  background-color: blueviolet;
+  flex-wrap: wrap;
+  
+}
+
+#recipeIndexCard {
+  width: 250px;
+  height: 150px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  overflow:hidden;
+  background-color: blanchedalmond;
+}
+
+p {
+  line-height:15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

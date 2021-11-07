@@ -1,0 +1,43 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/recipes/new.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <div id="newRecipe">
+  <h1><%= title %></h1>
+    <% if (user?.profile._id) { %>
+      <div id="createRecipe">
+        <form action="recipes" method="POST">
+          <label>Recipe Title:
+            <input type="text" name="name" value="<%=recipe.name%>">
+          </label>
+          <label>Preperation Time: 
+            <input type="number" name="prepTime" value="<%=recipe.prepTime%>">
+          </label>
+          <label>Cooking Time:
+            <input type="number" name="cookTime" value="<%=recipe.cookTime%>">
+          </label>
+          <label>Cooking Temperature: 
+            <input type="number" name="temp"  value="<%=recipe.temp%>">
+          </label>
+          <label>Number of portions: 
+            <input type="number" name="yield" min=1 value="<%=recipe.yield%>" required>
+          </label>
+          <label>Preperation Instructions: 
+            <textarea name="instructions" cols="55" rows="20"><%=recipe.instructions%></textarea>
+          </label>
+          <button type="submit">Update Recipe</button>
+          <% if (recipe.owner.equals(user?.profile._id)) { %>
+            <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+              <button class="btn" type="submit">Delete</button>
+            </form>
+          <% } %>
+        </form>
+      </div>
+    <% } else{ %>
+      <h1>You must be Logged in to add recipes!</h1>
+    <% } %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

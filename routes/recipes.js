@@ -6,8 +6,12 @@ const router = Router()
 
 // localhost:3000/recipes/
 router.get('/' , isLoggedIn, recipeCtrl.index)
-router.get('/new', recipeCtrl.new)
-router.post('/recipes', recipeCtrl.create)
+router.get('/new', isLoggedIn, recipeCtrl.new)
+router.get('/:id', isLoggedIn, recipeCtrl.show)
+router.get('/:id/edit',isLoggedIn, recipeCtrl.edit)
+router.post('/', isLoggedIn, recipeCtrl.create)
+router.put('/:id', isLoggedIn, recipeCtrl.update)
+router.delete('/:id', isLoggedIn, recipeCtrl.delete)
 
 export {
   router

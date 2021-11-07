@@ -34,8 +34,76 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    res.render('recipes/show', {
+      recipe,
+      title: ''
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
+
+function edit (req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    res.render('recipes/edit', {
+      recipe,
+      title: ""
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
+
+function update (req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    if(recipe.owner.equals(req.user.profile._id)) {
+      recipe.updateOne(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/recipes/${recipe._id}`)
+      })
+    } else {
+      throw new Error ('🚫 You are absolutely NOT authorised to even try that!!! 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
+
+function deleteRecipe(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    if(recipe.owner.equals(req.user.profile._id)) {
+      recipe.delete()
+      .then(() => {
+        res.redirect('/recipes')
+      })
+    } else {
+      throw new Error ('🚫 You are absolutely NOT authorised to even try that!!! 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
+
 export {
   index,
   newRecipe as new,
-  create
+  create,
+  show,
+  edit,
+  update,
+  deleteRecipe as delete
 }
