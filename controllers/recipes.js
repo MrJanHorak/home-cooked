@@ -98,6 +98,38 @@ function deleteRecipe(req, res) {
   })
 }
 
+function addComment(req,res){
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    recipe.comments.push(req.body)
+    recipe.save()
+    .then(() => {
+      res.redirect(`/recipes/${recipe._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/recipes/${recipe._id}`)
+  })
+}
+
+function deleteComment(req, res) {
+  console.log('deleting')
+  console.log(req.params)
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    recipe.comments.remove({_id: req.params.commentId})
+    recipe.save()
+    .then(()=> {
+      res.redirect(`/recipes/${req.params.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/recipes/${req.params.id}`)
+  })
+}
+
 export {
   index,
   newRecipe as new,
@@ -105,5 +137,7 @@ export {
   show,
   edit,
   update,
-  deleteRecipe as delete
+  deleteRecipe as delete,
+  addComment,
+  deleteComment
 }

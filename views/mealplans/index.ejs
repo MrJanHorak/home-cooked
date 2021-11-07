@@ -8,6 +8,9 @@
         <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealplanIndexCard">
           <h2><%=mealplan.name%></h2>
+          <a href="/mealplans/<%= mealplan._id %>/edit">
+            <input value="Edit Mealplan" type="submit"/>
+          </a>
           <p>
             mealplan content goes here.
           </p>
@@ -15,6 +18,16 @@
         <%})%>
     </div>
     <% if (user?.profile._id) { %>
+      <div id="createMealplan">
+        <form action="/mealplans" method="POST">
+          <label>Week of:
+            <input type="date" name="weekOf" required>
+          </label>
+          <label>Monday Breakfast
+          </label>
+          <button type="submit">Add Mealplan</button>
+        </form>
+      </div>
       <a href="/mealplans/new">
         <input value="add mealplan" type="submit"/>
       </a>

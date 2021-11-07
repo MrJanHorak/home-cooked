@@ -7,7 +7,7 @@
   <h1><%= title %></h1>
     <% if (user?.profile._id) { %>
       <div id="createRecipe">
-        <form action="recipes" method="POST">
+        <form action="/recipes/<%= recipe._id%>?_method=PUT" method="POST">
           <label>Recipe Title:
             <input type="text" name="name" value="<%=recipe.name%>">
           </label>
@@ -26,16 +26,16 @@
           <label>Preperation Instructions: 
             <textarea name="instructions" cols="55" rows="20"><%=recipe.instructions%></textarea>
           </label>
-          <form>
-            <input type="button" value="Go back!" onclick="history.back()">
-          </form>
           <% if (recipe.owner.equals(user?.profile._id)) { %>
             <button type="submit">Update Recipe</button>
+          </form>
             <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
               <button class="btn" type="submit">Delete</button>
             </form>
-          <% } %>
-        </form>
+            <% } %>
+            <form>
+              <input type="button" value="Go back!" onclick="history.back()">
+            </form>
       </div>
     <% } else{ %>
       <h1>You must be Logged in to add recipes!</h1>

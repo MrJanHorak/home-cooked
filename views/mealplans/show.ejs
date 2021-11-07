@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/mealplans/new.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <div id="viewMealplan">
+  <h1><%= title %></h1>
+    <% if (user?.profile._id) { %>
+      <div id="showMealplan">
+        <h2><%=recipe.name%></h2>
+        
+    <% } else{ %>
+      <h1>You must be Logged in to add mealplans!</h1>
+    <% } %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

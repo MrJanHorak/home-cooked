@@ -16,7 +16,7 @@
         </p>
         <form>
           <input type="button" value="Go back" onclick="history.back()">
-         </form>
+        </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
           <a href="/recipes/<%= recipe._id %>/edit">
             <input value="Edit Recipe" type="submit"/>
@@ -25,6 +25,29 @@
             <button class="btn" type="submit">Delete</button>
           </form>
         <% } %>
+      </div>
+      <div id="ratingBox">
+        Rate Don't Hate!
+      </div>
+      <% recipe.comments.forEach(comment => { %>
+      <div id="recipeComment">
+          <%=comment.content %>
+            <form 
+              action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit">remove comment</button>
+            </form>
+          </div>
+      <% }) %> 
+      <div id="addRecipeComment">
+        <form action="/recipes/<%=recipe._id%>/comments" method="post">
+        <label>Leave a comment:<br/>
+          <textarea name="content"  cols="40" rows="15"></textarea>
+        </label>
+        <br/>
+        <button type="submit">Add Comment</button>
+      </form>
       </div>
     <% } %>  
 </main>
