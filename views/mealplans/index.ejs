@@ -1,17 +1,25 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/mealplans/index.css">
 <%- include('../partials/nav') %>
-
-<main>
-  <h1><%= title %></h1>
-    <h1>Welcome Chef, <%= user ? user.profile.name : "" %></h1>
-    <% if (user?.profile.avatar) { %>
-      <div>
-        <img 
-          src="<%= user.profile.avatar %>" 
-          alt="<%= user.profile.name %> avatar"
-        >
-      </div>
-    <% } %>
+<h1><%= title %></h1>
+  <main>
+    <div id="mealplanIndexView">
+      <% mealplans.forEach(mealplan =>{ %>
+        <a href="/mealplans/<%= mealplan._id %>">
+        <div id="mealplanIndexCard">
+          <h2><%=mealplan.name%></h2>
+          <p>
+            mealplan content goes here.
+          </p>
+        </div>
+        <%})%>
+    </div>
+    <% if (user?.profile._id) { %>
+      <a href="/mealplans/new">
+        <input value="add mealplan" type="submit"/>
+      </a>
+      <% } else { %>
+        <h1>You must be Logged in to add mealplans!</h1>
+        <% } %>
 </main>
-
 <%- include('../partials/footer') %>

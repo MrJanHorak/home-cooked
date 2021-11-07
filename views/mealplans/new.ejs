@@ -1,17 +1,26 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/mealplans/new.css">
 <%- include('../partials/nav') %>
 
 <main>
+  <div id="newMeaslplan">
   <h1><%= title %></h1>
-    <h1>Welcome Chef, <%= user ? user.profile.name : "" %></h1>
-    <% if (user?.profile.avatar) { %>
-      <div>
-        <img 
-          src="<%= user.profile.avatar %>" 
-          alt="<%= user.profile.name %> avatar"
-        >
+    <% if (user?.profile._id) { %>
+      <div id="createMealplan">
+        <form action="/mealplans" method="POST">
+          <label>Week of:
+            <input type="date" name="weekOf" required>
+          </label>
+          <label>Monday Breakfast
+
+          </label>
+          <button type="submit">Add Mealplan</button>
+        </form>
       </div>
+    <% } else{ %>
+      <h1>You must be Logged in to add mealplans!</h1>
     <% } %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

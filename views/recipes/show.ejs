@@ -14,6 +14,9 @@
           Number of Portions: <%=recipe.yield%><br/>
           Cooking Instructions: <%=recipe.instructions%><br/>
         </p>
+        <form>
+          <input type="button" value="Go back" onclick="history.back()">
+         </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
           <a href="/recipes/<%= recipe._id %>/edit">
             <input value="Edit Recipe" type="submit"/>

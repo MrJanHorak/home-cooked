@@ -26,8 +26,11 @@
           <label>Preperation Instructions: 
             <textarea name="instructions" cols="55" rows="20"><%=recipe.instructions%></textarea>
           </label>
-          <button type="submit">Update Recipe</button>
+          <form>
+            <input type="button" value="Go back!" onclick="history.back()">
+          </form>
           <% if (recipe.owner.equals(user?.profile._id)) { %>
+            <button type="submit">Update Recipe</button>
             <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
               <button class="btn" type="submit">Delete</button>
             </form>
