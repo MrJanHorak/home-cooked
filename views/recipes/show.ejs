@@ -40,8 +40,10 @@
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
           <%=comment.content %>
-          <%- console.log(comment) %>
-          <% if (isSelf) { %>
+          <% console.log("comment",comment) %>
+          <% console.log("comment owner",comment.owner) %>
+
+          <% if (comment.owner.equals(user?.profile._id)) { %>
             <form 
               action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
               method="POST"

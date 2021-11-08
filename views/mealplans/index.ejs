@@ -8,7 +8,9 @@
         <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealplanIndexCard">
           <h2><%=mealplan.name%></h2>
-          
+          <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
+            <button class="btn" type="submit">Delete</button>
+          </form>
           <p>
             mealplan content goes here.
           </p>

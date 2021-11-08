@@ -37,6 +37,7 @@ function create(req, res) {
 
 function show(req, res) {
   Recipe.findById(req.params.id)
+  .populate("comments").exec()
   .then(recipe => {
     Profile.findById(req.user.profile._id)
     .then(self => {
@@ -104,10 +105,11 @@ function deleteRecipe(req, res) {
 }
 
 function addComment(req,res){
+  console.log(req.params.id)
+  req.body.owner = req.user.profile._id
   Recipe.findById(req.params.id)
   .then(recipe => {
     recipe.comments.push(req.body)
-    // recipe.comments.author=req.user
     recipe.save()
     .then(() => {
       res.redirect(`/recipes/${recipe._id}`)
