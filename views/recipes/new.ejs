@@ -1,3 +1,4 @@
+<script defer src="/js/recipes/addIngredient.js"></script>
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/recipes/new.css">
 <%- include('../partials/nav') %>
@@ -24,22 +25,15 @@
             <input type="number" name="yield" min=1 required>
           </label>
           <br/>
+
           <div id="ingredienList">
-            <input type="text" name="ingredient1">
-            <input type="text" name="ingredient2">
-            <input type="text" name="ingredient3">
-            <input type="text" name="ingredient4">
-            <input type="text" name="ingredient5">
-            <input type="text" name="ingredient6">
-            <input type="text" name="ingredient7">
-            <input type="text" name="ingredient8">
-            <input type="text" name="ingredient9">
-            <input type="text" name="ingredient10">
-            <input type="text" name="ingredient11">
-            <input type="text" name="ingredient12">
-            <input type="text" name="ingredient13">
-            <input type="text" name="ingredient14">
-            <input type="text" name="ingredient15">
+            <input type="text" name="ingredient"><br/>
+            <input type="text" name="ingredient"><br/>
+            <input type="text" name="ingredient"><br/>
+            <input type="text" name="ingredient"><br/>
+            <input type="text" name="ingredient"><br/> 
+            <a href="#" id="addIngredientLink" onclick="addFields()">Add more Ingredients</a>
+            <div id="container"></div>
           </div>
           <label>Preperation Instructions: 
             <textarea name="instructions" cols="50" rows="15" required spellcheck="true"></textarea>

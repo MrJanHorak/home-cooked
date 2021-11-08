@@ -14,21 +14,7 @@
           Number of Portions: <%=recipe.yield%><br/>
           <div id="ingredienList">
             <% if (recipe.ingredient1!=='') {%><%=recipe.ingredient1%> <br/> <%}%>
-            <% if (recipe.ingredient2!=='') {%><%=recipe.ingredient2%> <br/> <%}%>
-            <% if (recipe.ingredient3!=='') {%><%=recipe.ingredient3%> <br/> <%}%>
-            <% if (recipe.ingredient4!=='') {%><%=recipe.ingredient4%> <br/> <%}%>
-            <% if (recipe.ingredient5!=='') {%><%=recipe.ingredient5%> <br/> <%}%>
-            <% if (recipe.ingredient6!=='') {%><%=recipe.ingredient6%> <br/> <%}%>
-            <% if (recipe.ingredient7!=='') {%><%=recipe.ingredient7%> <br/> <%}%>
-            <% if (recipe.ingredient8!=='') {%><%=recipe.ingredient8%> <br/> <%}%>
-            <% if (recipe.ingredient9!=='') {%><%=recipe.ingredient9%> <br/> <%}%>
-            <% if (recipe.ingredient10!=='') {%><%=recipe.ingredient10%> <br/> <%}%>
-            <% if (recipe.ingredient11!=='') {%><%=recipe.ingredient11%> <br/> <%}%>
-            <% if (recipe.ingredient12!=='') {%><%=recipe.ingredient12%> <br/> <%}%>
-            <% if (recipe.ingredient13!=='') {%><%=recipe.ingredient13%> <br/> <%}%>
-            <% if (recipe.ingredient14!=='') {%><%=recipe.ingredient14%> <br/> <%}%>
-            <% if (recipe.ingredient15!=='') {%><%=recipe.ingredient15%> <br/> <%}%>
-            <%console.log(recipe.ingredient11!=='')%>
+            
           </div>
           Cooking Instructions: <%=recipe.instructions%><br/>
         </p>
@@ -45,7 +31,10 @@
         <% } %>
       </div>
       <div id="ratingBox">
-        Rate Don't Hate!
+        Average Rating<br/>
+        <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
+        <br/>Your Rating<br/>
+        <div class="Stars" style="--rating: 4;" aria-label="Rating of this product is 2.3 out of 5."></div>
       </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
