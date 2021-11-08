@@ -44,10 +44,12 @@ function show(req, res) {
     .then(self => {
       const isSelf = self._id.equals(req.user.profile._id)
       const name = self.name
+      const avatar = self.avatar
       res.render('recipes/show', {
         recipe,
         self,
         isSelf,
+        avatar,
         name,
         // date,
         title: ''

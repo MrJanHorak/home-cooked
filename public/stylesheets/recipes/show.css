@@ -70,6 +70,12 @@ textarea {
   font-size: 1.5em;
 }
 
+#commentProfilePic {
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 0px;
+  }
 
 .Stars {
   --percent: calc(var(--rating) / 5 * 100%);

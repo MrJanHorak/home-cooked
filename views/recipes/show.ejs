@@ -40,12 +40,10 @@
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
           <%=comment.content %><br/>
+          <img id="commentProfilePic" src="<%=comment.avatar%>">
           <%=comment.name %> left a message on 
           <%=comment.createdAt.toString().substring(0,15) %> at
           <%=comment.createdAt.toString().substring(16, 21) %>
-          <% console.log("comment created At logged",comment.createdAt) %>
-          <% console.log("comment created At logged",comment.createdAt) %>
-
           <% if (comment.owner.equals(user?.profile._id)) { %>
             <form 
               action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
@@ -63,6 +61,7 @@
         </label>
         <br/>
         <input hidden name="name" value="<%=name%>">
+        <input hidden name="avatar" value="<%=avatar%>">
         <button type="submit">Add Comment</button>
       </form>
       </div>
