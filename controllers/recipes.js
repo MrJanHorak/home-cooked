@@ -18,40 +18,59 @@ function index(req, res) {
 }
 
 function newRecipe(req, res) {
-  res.render('recipes/new',{
-  title: "New Recipes",
+  Profile.findById(req.user.profile._id)
+  .then(self => {
+    const owner = self._id
+    const isSelf = self._id.equals(req.user.profile._id)
+    const ownerName = self.name
+    const ownerAvatar = self.avatar
+    res.render('recipes/new',{
+    title: "New Recipes",
+    self,
+    isSelf,
+    owner,
+    ownerName,
+    ownerAvatar
+})
+})
+.catch(err => {
+  console.log(err)
+  res.redirect('/recipes')
 })
 }
 
+
 function create(req, res) {
-  req.body.owner = req.user.profile._id
-  Recipe.create(req.body)
-  .then(recipe => {
-    res.redirect('/recipes')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/recipes')
-  })
+  
+    Recipe.create(req.body)
+    .then(recipe => {
+      res.redirect('/recipes')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/recipes')
+    })
 }
 
 function show(req, res) {
   Recipe.findById(req.params.id)
   .populate("comments").exec()
   .then(recipe => {
-    console.log(recipe.comment)
+    const ownerName = recipe.ownerName
+    const ownerAvatar = recipe.ownerAvatar
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(req.user.profile._id)
       const name = self.name
       const avatar = self.avatar
       res.render('recipes/show', {
+        ownerName,
+        ownerAvatar,
         recipe,
         self,
         isSelf,
         avatar,
         name,
-        // date,
         title: ''
       })
     })

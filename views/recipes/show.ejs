@@ -18,7 +18,8 @@
             <%});%>
           </div>
           Cooking Instructions: <%=recipe.instructions%><br/>
-        </p>
+          Created by: <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
+                </p>
         <form>
           <input type="button" value="Go back" onclick="history.back()">
         </form>

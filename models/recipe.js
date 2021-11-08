@@ -20,6 +20,8 @@ const recipeSchema = new Schema({
   yield: Number,
   comments: [recipeComment],
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
+  ownerName: String,
+  ownerAvatar: String,
   freaquency: Number,
   datesUsed: Date,
   requested: [{type: Schema.Types.ObjectId, ref: "Profile"}],

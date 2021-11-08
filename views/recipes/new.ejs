@@ -28,16 +28,15 @@
 
           <div id="ingredienList">
             <input type="text" name="ingredients"><br/>
-            <input type="text" name="ingredients"><br/>
-            <input type="text" name="ingredients"><br/>
-            <input type="text" name="ingredients"><br/>
-            <input type="text" name="ingredients"><br/> 
             <a href="#" id="addIngredientLink" onclick="addFields()">Add more Ingredients</a>
             <div id="container"></div>
           </div>
           <label>Preperation Instructions: 
             <textarea name="instructions" cols="50" rows="15" required spellcheck="true"></textarea>
           </label>
+          <input hidden name="owner" value="<%=owner%>">
+          <input hidden name="ownerName" value="<%=ownerName%>">
+          <input hidden name="ownerAvatar" value="<%=ownerAvatar%>">
           <button type="submit">Add Recipe</button>
         </form>
       </div>

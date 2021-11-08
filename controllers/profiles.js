@@ -7,6 +7,7 @@ function index(req, res) {
   Profile.find({})
   // When we have all the profiles
   .then(profiles => {
+    console.log(profiles)
     res.render("profiles/index", {
       title: "Profiles",
       profiles,
@@ -20,6 +21,7 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate("recipes").exec()
   .then((profile) => {
     Profile.findById(req.user.profile._id)
     .then(self => {
