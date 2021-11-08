@@ -3,24 +3,10 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div id="newMeaslplan">
+  <div id="Measlplan">
   <h1><%= title %></h1>
     <% if (user?.profile._id) { %>
-      <div id="createMealplan">
-        <form action="/mealplans" method="POST">
-          <label>Week of:
-            <input type="date" name="weekOf" required>
-          </label>
-          <div class="weekdayBox">
-          <label>Monday Breakfast
-            <select name="monday" id="mondayMeals">
-              <option value="<%=recipe._id%>"><%=recipe.name%></option>
-            </select>
-          </label>
-        </div>
-          <button type="submit">Add Mealplan</button>
-        </form>
-      </div>
+     
     <% } else{ %>
       <h1>You must be Logged in to add mealplans!</h1>
     <% } %>

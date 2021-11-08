@@ -40,12 +40,15 @@
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
           <%=comment.content %>
+          <%- console.log(comment) %>
+          <% if (isSelf) { %>
             <form 
               action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
               method="POST"
             >
               <button type="submit">remove comment</button>
             </form>
+            <% } %>
           </div>
       <% }) %> 
       <div id="addRecipeComment">
@@ -54,6 +57,7 @@
           <textarea name="content"  cols="40" rows="5"></textarea>
         </label>
         <br/>
+        <input hidden name="author" value="<%=self._id%>">
         <button type="submit">Add Comment</button>
       </form>
       </div>

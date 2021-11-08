@@ -37,19 +37,7 @@ function create(req, res) {
 
 function show(req, res) {
   Mealplan.findById(req.params.id)
-  .populate(monday)
-  .populate(tuesday)
-  .populate(wednesday)
-  .populate(thursday)
-  .populate(friday)
-  .populate(saturday)
-  .populate(sunday)
-  .exec(function(err, recipe){
-    if(err) throw err;
-    if(recipe) {
-      console.log(recipe)
-    }
-  })
+  Recipe.find({ name: Object.id })
   .then(mealplan => {
     res.render('mealplans/show', {
       mealplan,

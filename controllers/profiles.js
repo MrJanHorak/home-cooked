@@ -1,4 +1,6 @@
-import { Profile } from "../models/profile.js";
+import { Profile } from "../models/profile.js"
+import { Recipe } from "../models/recipe.js"
+import { Mealplan } from "../models/mealplan.js"
 
 function index(req, res) {
   // Find all profiles

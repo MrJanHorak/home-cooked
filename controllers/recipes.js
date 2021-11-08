@@ -1,5 +1,5 @@
 import { Recipe } from "../models/recipe.js";
-import { Ingredient } from '../models/ingredient.js'
+import { Profile } from "../models/profile.js";
 
 function index(req, res) {
   // Find all recipes
@@ -38,9 +38,15 @@ function create(req, res) {
 function show(req, res) {
   Recipe.findById(req.params.id)
   .then(recipe => {
-    res.render('recipes/show', {
-      recipe,
-      title: ''
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(req.user.profile._id)
+      res.render('recipes/show', {
+        recipe,
+        self,
+        isSelf,
+        title: ''
+      })
     })
   })
   .catch(err => {
@@ -101,6 +107,7 @@ function addComment(req,res){
   Recipe.findById(req.params.id)
   .then(recipe => {
     recipe.comments.push(req.body)
+    // recipe.comments.author=req.user
     recipe.save()
     .then(() => {
       res.redirect(`/recipes/${recipe._id}`)
@@ -129,15 +136,6 @@ function deleteComment(req, res) {
   })
 }
 
-function addToRecipe(req, res) {
-  Recipe.findById(req.params.id)
-  .then(ingredient => {
-    recipe.ingredients.push(req.body.ingredientId)
-    recipe.save()
-    .then(()=>
-    res.redirect(`/recipes/${recipe._id}/edit`))
-  })
-}
 
 export {
   index,
@@ -149,5 +147,4 @@ export {
   deleteRecipe as delete,
   addComment,
   deleteComment,
-  addToRecipe
 }
