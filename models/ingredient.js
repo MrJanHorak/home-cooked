@@ -11,7 +11,7 @@ const ingredientSchema = new Schema({
   timestamps: true
 })
 
-const Ingredient = mongoose.model('Ingredient', ingretientSchema)
+const Ingredient = mongoose.model('Ingredient', ingredientSchema)
 
 export {
   Ingredient

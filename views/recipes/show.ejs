@@ -12,6 +12,24 @@
           Cooking Time: <%=recipe.cookTime%><br/>
           Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
           Number of Portions: <%=recipe.yield%><br/>
+          <div id="ingredienList">
+            <% if (recipe.ingredient1!=='') {%><%=recipe.ingredient1%> <br/> <%}%>
+            <% if (recipe.ingredient2!=='') {%><%=recipe.ingredient2%> <br/> <%}%>
+            <% if (recipe.ingredient3!=='') {%><%=recipe.ingredient3%> <br/> <%}%>
+            <% if (recipe.ingredient4!=='') {%><%=recipe.ingredient4%> <br/> <%}%>
+            <% if (recipe.ingredient5!=='') {%><%=recipe.ingredient5%> <br/> <%}%>
+            <% if (recipe.ingredient6!=='') {%><%=recipe.ingredient6%> <br/> <%}%>
+            <% if (recipe.ingredient7!=='') {%><%=recipe.ingredient7%> <br/> <%}%>
+            <% if (recipe.ingredient8!=='') {%><%=recipe.ingredient8%> <br/> <%}%>
+            <% if (recipe.ingredient9!=='') {%><%=recipe.ingredient9%> <br/> <%}%>
+            <% if (recipe.ingredient10!=='') {%><%=recipe.ingredient10%> <br/> <%}%>
+            <% if (recipe.ingredient11!=='') {%><%=recipe.ingredient11%> <br/> <%}%>
+            <% if (recipe.ingredient12!=='') {%><%=recipe.ingredient12%> <br/> <%}%>
+            <% if (recipe.ingredient13!=='') {%><%=recipe.ingredient13%> <br/> <%}%>
+            <% if (recipe.ingredient14!=='') {%><%=recipe.ingredient14%> <br/> <%}%>
+            <% if (recipe.ingredient15!=='') {%><%=recipe.ingredient15%> <br/> <%}%>
+            <%console.log(recipe.ingredient11!=='')%>
+          </div>
           Cooking Instructions: <%=recipe.instructions%><br/>
         </p>
         <form>
@@ -43,7 +61,7 @@
       <div id="addRecipeComment">
         <form action="/recipes/<%=recipe._id%>/comments" method="post">
         <label>Leave a comment:<br/>
-          <textarea name="content"  cols="40" rows="15"></textarea>
+          <textarea name="content"  cols="40" rows="5"></textarea>
         </label>
         <br/>
         <button type="submit">Add Comment</button>

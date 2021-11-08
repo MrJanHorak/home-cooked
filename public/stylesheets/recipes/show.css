@@ -22,6 +22,8 @@ a {
 
 textarea {
   font-size: 1.5em;
+  resize: none;
+  border-radius: 5px;
 }
 
 #recipeComment {
@@ -60,6 +62,5 @@ textarea {
   background-color: rgb(0, 0, 0);
   color: white;
   font-size: 1.5em;
-  resize: none;
   text-align: center;
 }

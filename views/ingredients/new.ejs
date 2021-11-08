@@ -1,0 +1,17 @@
+<div id="addIngredients">
+  <form action="/ingredients/" method="post">
+    <label>Ingredient amount:
+      <input type="number" name="amount" id="ingredientAmount" min=0 required>
+    </label>
+    <select name="volume" id="IngredientVolume">
+      <option value="cup">cup</option>
+      <option value="teaspoon">teaspoon</option>
+      <option value="Tablespoon">Tablespoon</option>
+      <option value="ounces">ounces</option>
+      <option value="grams">grams</option>
+      <option value="ml">ml</option>
+    </select>
+    <input type="text" name="itemName">
+    <button type="submit">add ingredient</button>
+  </form>
+</div>
