@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const recipeComment = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
+  name: String,
   content: String,
 }, {
   timestamps: true

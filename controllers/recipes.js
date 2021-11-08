@@ -39,13 +39,17 @@ function show(req, res) {
   Recipe.findById(req.params.id)
   .populate("comments").exec()
   .then(recipe => {
+    console.log(recipe.comment)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(req.user.profile._id)
+      const name = self.name
       res.render('recipes/show', {
         recipe,
         self,
         isSelf,
+        name,
+        // date,
         title: ''
       })
     })
@@ -65,8 +69,6 @@ function edit (req, res) {
     })
   })
   }
-
-
 
 function update (req, res) {
   Recipe.findById(req.params.id)
@@ -105,7 +107,6 @@ function deleteRecipe(req, res) {
 }
 
 function addComment(req,res){
-  console.log(req.params.id)
   req.body.owner = req.user.profile._id
   Recipe.findById(req.params.id)
   .then(recipe => {
@@ -122,8 +123,6 @@ function addComment(req,res){
 }
 
 function deleteComment(req, res) {
-  console.log('deleting')
-  console.log(req.params)
   Recipe.findById(req.params.id)
   .then(recipe => {
     recipe.comments.remove({_id: req.params.commentId})
@@ -137,7 +136,6 @@ function deleteComment(req, res) {
     res.redirect(`/recipes/${req.params.id}`)
   })
 }
-
 
 export {
   index,

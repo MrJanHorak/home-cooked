@@ -39,9 +39,12 @@
       </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
-          <%=comment.content %>
-          <% console.log("comment",comment) %>
-          <% console.log("comment owner",comment.owner) %>
+          <%=comment.content %><br/>
+          <%=comment.name %> left a message on 
+          <%=comment.createdAt.toString().substring(0,15) %> at
+          <%=comment.createdAt.toString().substring(16, 21) %>
+          <% console.log("comment created At logged",comment.createdAt) %>
+          <% console.log("comment created At logged",comment.createdAt) %>
 
           <% if (comment.owner.equals(user?.profile._id)) { %>
             <form 
@@ -59,7 +62,7 @@
           <textarea name="content"  cols="40" rows="5"></textarea>
         </label>
         <br/>
-        <input hidden name="author" value="<%=self._id%>">
+        <input hidden name="name" value="<%=name%>">
         <button type="submit">Add Comment</button>
       </form>
       </div>
