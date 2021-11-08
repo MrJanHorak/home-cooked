@@ -11,7 +11,7 @@ const recipeComment = new Schema({
 
 const recipeSchema = new Schema({
   name: String,
-  ingredients: [{type: String}],
+  ingredients: [String],
   instructions: String,
   cookTime: Number,
   prepTime: Number,

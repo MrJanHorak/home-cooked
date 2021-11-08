@@ -11,7 +11,7 @@ function addFields(){
   input3.type = "text";
   // input1.name = "amount"
   // input2.name = "measurement"
-  input3.name = "ingredient";
+  input3.name = "ingredients";
   // container.appendChild(input1);
   // container.appendChild(input2);
   container.appendChild(input3);

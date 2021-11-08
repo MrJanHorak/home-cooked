@@ -13,8 +13,9 @@
           Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
           Number of Portions: <%=recipe.yield%><br/>
           <div id="ingredienList">
-            <% if (recipe.ingredient1!=='') {%><%=recipe.ingredient1%> <br/> <%}%>
-            
+            <% recipe.ingredients.forEach(ingredient => { %>
+              <%=ingredient %><br/>
+            <%});%>
           </div>
           Cooking Instructions: <%=recipe.instructions%><br/>
         </p>
