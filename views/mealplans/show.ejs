@@ -4,6 +4,14 @@
 
 <main>
   <div id="viewMealplan">
+  <div class="weekdayMealplanShow">
+    <h2> Monday's meals:</h2>
+    Breakfast: <%= mealplan.monday[0] %><br />
+    Lunch: <%= mealplan.monday[1] %><br />
+    Snack: <%= mealplan.monday[2] %><br />
+    Dinner: <%= mealplan.monday[3] %><br />
+      
+  </div>
   <h1><%= title %></h1>
     <% if (user?.profile._id) { %>
       <div id="showMealplan">
