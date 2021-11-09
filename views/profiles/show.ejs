@@ -13,12 +13,31 @@
     </div>
   <% } %>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-<% recipes.forEach(recipe => { %>
-  <%=recipe.name%><br/>
-
-
-<% }) %>
-
+<h1>Recipes added by <%= isSelf ? "you" : profile.name %> </h1>  
+<div id="recipesIndexView">
+  <% recipes.forEach(recipe =>{ %>
+    <div id="recipeIndexCard">
+      <% if (recipe.owner.equals(user?.profile._id)) { %>
+        <a href="/recipes/<%= recipe._id %>/edit">
+          <input value="Edit Recipe" type="submit"/>
+        </a>
+        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+          <button class="btn" type="submit">X</button>
+        </form>
+        <% } %>
+        <a href="/recipes/<%= recipe._id %>">
+          <h2><%=recipe.name%></h2>
+        <p>
+          Preperation Time: <%=recipe.PrepTime%><br/>
+          Cooking Time: <%=recipe.cookTime%><br/>
+          Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
+          Number of Portions: <%=recipe.yield%><br/>
+          Cooking Instructions: <%=recipe.instructions%><br/>
+        </p>
+      </a>
+      </div>
+    <%})%>
+</div>
 
 
 <% if (isSelf)  {%> 

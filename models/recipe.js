@@ -26,7 +26,7 @@ const recipeSchema = new Schema({
   datesUsed: Date,
   requested: [{type: Schema.Types.ObjectId, ref: "Profile"}],
   temp: Number,
-  likeLevel: Number,
+  likeLevel: [Number],
 }, {
   timestamps: true
 })

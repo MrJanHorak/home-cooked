@@ -7,10 +7,44 @@
   <h1><%= title %></h1>
     <% if (user?.profile._id) { %>
       <div id="showMealplan">
-        <h2>Choose a meal</h2>
-        <% recipes.forEach(recipe => { %>
-          <%= recipe.name %><br/>
-        <% }); %>
+        <div id="monday">
+          <form action="/mealplans/<%= mealplan._id %>/recipes" method="post">
+            <h2>Monday</h2>
+            <div id="breakfast">
+              <h2>Choose a Breakfast</h2>
+              <select name="monday" id="selectMeal">
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div id="lunch">
+              <h2>Choose a Lunch</h2>
+              <select name="monday" id="selectMeal">
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div id="snack">
+              <h2>Choose a Snack</h2>
+              <select name="monday" id="selectMeal">
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div id="supper">
+              <h2>Choose a Supper</h2>
+              <select name="monday" id="selectMeal">
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
     <% } else{ %>
       <h1>You must be Logged in to add mealplans!</h1>
     <% } %>

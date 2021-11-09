@@ -41,7 +41,6 @@ function show(req, res) {
   .then(mealplan => {
     Recipe.find({})
     .then(recipes => {
-      console.log("RECIPES: ", recipes)
       res.render("mealplans/show", {
       title: ``,
       mealplan,
@@ -105,17 +104,18 @@ function deleteMealplan(req, res) {
   })
 }
 
-function addToMealplan(req,res){
-  Mealplan.findById(req.params.mealplanId)
-  .then(mealplan => {
-    mealplan.monday.push(req.body.recipeId)
-    mealplan.save()
-    res.redirect(`/mealplans/${mealplan._id}`)
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/mealplans')
-  })
+async function addToMealplan(req, res) {
+  console.log("PARAMS.ID: ",req.params.id)
+  console.log("REQ.BODY: ",req.body)
+  try {
+    await Mealplan.updateOne({ _id: req.params.id },
+      {
+        $push: { monday: { $each: req.body.monday } }
+      })
+    res.redirect(`/mealplans/${req.params.id}`)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export {
