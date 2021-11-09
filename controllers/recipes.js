@@ -82,14 +82,31 @@ function show(req, res) {
 }
 
 function edit (req, res) {
+  
   Recipe.findById(req.params.id)
   .then(recipe => {
-    res.render('recipes/edit',{
-      title: '',
-      recipe,
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const owner = self._id
+      const isSelf = self._id.equals(req.user.profile._id)
+      const ownerName = self.name
+      const ownerAvatar = self.avatar
+      res.render('recipes/edit',{
+        self,
+        isSelf,
+        owner,
+        ownerName,
+        ownerAvatar,
+        title: '',
+        recipe,
     })
   })
-  }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/recipes')
+  })
+}
 
 function update (req, res) {
   Recipe.findById(req.params.id)

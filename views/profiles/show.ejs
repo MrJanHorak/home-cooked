@@ -13,6 +13,13 @@
     </div>
   <% } %>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+<% recipes.forEach(recipe => { %>
+  <%=recipe.name%><br/>
+
+
+<% }) %>
+
+
 
 <% if (isSelf)  {%> 
   Add a recipe?

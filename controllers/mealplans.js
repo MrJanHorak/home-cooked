@@ -37,7 +37,11 @@ function create(req, res) {
 
 function show(req, res) {
   Mealplan.findById(req.params.id)
-  Recipe.find({ name: Object.id })
+  Recipe.find({})
+  .then(recipes => {
+    console.log("RECIPES: ", recipes)
+    
+  })
   .then(mealplan => {
     res.render('mealplans/show', {
       mealplan,

@@ -40,8 +40,8 @@
             <button type="submit">Update Recipe</button>
           </form>
             <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-              <input hidden name="ownerName" value="<%=name%>">
-              <input hidden name="ownerAvatar" value="<%=avatar%>">
+              <input hidden name="ownerName" value="<%=ownerName%>">
+              <input hidden name="ownerAvatar" value="<%=ownerAvatar%>">
               <button class="btn" type="submit">Delete</button>
             </form>
             <% } %>
