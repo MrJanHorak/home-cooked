@@ -8,11 +8,6 @@
         <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealplanIndexCard">
           <h5><%=mealplan.name%></h5>
-          <% if (mealplan.owner.equals(user?.profile._id)) { %>
-          <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
-            <button class="btn" type="submit">x</button>
-          </form>
-          <% } %>
           <p>
             <table>
             <tr>

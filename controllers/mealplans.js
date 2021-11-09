@@ -55,8 +55,8 @@ function show(req, res) {
   Mealplan.findById(req.params.id)
   .populate("comments").exec()
   .then(mealplan => {
-    const ownerName = recipe.ownerName
-    const ownerAvatar = recipe.ownerAvatar
+    const ownerName = mealplan.ownerName
+    const ownerAvatar = mealplan.ownerAvatar
     Recipe.find({})
     .then(recipes => {
       Profile.findById(req.user.profile._id)
