@@ -8,12 +8,9 @@
     <% if (user?.profile._id) { %>
       <div id="showMealplan">
         <h2>Choose a meal</h2>
-        <form id="addToMEalPlan" action="/meaplans/<%= mealplan._id %>/recipes" method="POST">
-          <select name="monday">
-            <%- mealplan.monday.map(m => `<option value="${m._id}">${m.monday}</option>`).join('') %>
-          </select>
-          <button type="submit">Add to Plan</button>
-        </form>
+        <% recipes.forEach(recipe => { %>
+          <%= recipe.name %><br/>
+        <% }); %>
     <% } else{ %>
       <h1>You must be Logged in to add mealplans!</h1>
     <% } %>

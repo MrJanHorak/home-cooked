@@ -1,5 +1,6 @@
-import { Mealplan } from "../models/mealplan.js";
+import { Mealplan } from "../models/mealplan.js"
 import { Recipe } from "../models/recipe.js"
+import { Profile } from "../models/profile.js"
 
 function index(req, res) {
   // Find all mealplans
@@ -37,16 +38,16 @@ function create(req, res) {
 
 function show(req, res) {
   Mealplan.findById(req.params.id)
-  Recipe.find({})
-  .then(recipes => {
-    console.log("RECIPES: ", recipes)
-    
-  })
   .then(mealplan => {
-    res.render('mealplans/show', {
+    Recipe.find({})
+    .then(recipes => {
+      console.log("RECIPES: ", recipes)
+      res.render("mealplans/show", {
+      title: ``,
       mealplan,
-      title: '',
-    })
+      recipes
+          })
+        })
   })
   .catch(err => {
     console.log(err)
