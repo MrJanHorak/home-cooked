@@ -41,7 +41,6 @@ function newRecipe(req, res) {
 
 
 function create(req, res) {
-  
     Recipe.create(req.body)
     .then(recipe => {
       res.redirect('/recipes')
@@ -82,7 +81,6 @@ function show(req, res) {
 }
 
 function edit (req, res) {
-  
   Recipe.findById(req.params.id)
   .then(recipe => {
     Profile.findById(req.user.profile._id)

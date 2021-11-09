@@ -19,13 +19,28 @@ function index(req, res) {
 }
 
 function newMealplan(req, res) {
-  res.render('mealplans/new', {
-  title: "New Mealplan",
+  Profile.findById(req.user.profile._id)
+  .then(self => {
+    const owner = self._id
+    const isSelf = self._id.equals(req.user.profile._id)
+    const ownerName = self.name
+    const ownerAvatar = self.avatar
+    res.render('mealplans/new', {
+    title: "New Mealplan",
+    self,
+    isSelf,
+    owner,
+    ownerName,
+    ownerAvatar
+  })
+})
+.catch(err => {
+  console.log(err)
+  res.redirect('/recipes')
 })
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile._id
   Mealplan.create(req.body)
   .then(mealplan => {
     res.redirect('/mealplans')
@@ -38,16 +53,31 @@ function create(req, res) {
 
 function show(req, res) {
   Mealplan.findById(req.params.id)
+  .populate("comments").exec()
   .then(mealplan => {
+    const ownerName = recipe.ownerName
+    const ownerAvatar = recipe.ownerAvatar
     Recipe.find({})
     .then(recipes => {
-      res.render("mealplans/show", {
-      title: ``,
-      mealplan,
-      recipes
+      Profile.findById(req.user.profile._id)
+      .then(self => {
+        const isSelf = self._id.equals(req.user.profile._id)
+        const name = self.name
+        const avatar = self.avatar
+        res.render("mealplans/show", {
+        title: ``,
+        mealplan,
+        recipes,
+        ownerName,
+        ownerAvatar,
+        self,
+        isSelf,
+        avatar,
+        name,
           })
         })
-  })
+      })
+    })
   .catch(err => {
     console.log(err)
     res.redirect('/mealplans')
@@ -57,11 +87,23 @@ function show(req, res) {
 function edit (req, res) {
   Mealplan.findById(req.params.id)
   .then(mealplan => {
-    res.render('mealplans/edit', {
-      mealplan,
-      title: ""
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const owner = self._id
+      const isSelf = self._id.equals(req.user.profile._id)
+      const ownerName = self.name
+      const ownerAvatar = self.avatar
+      res.render('mealplans/edit', {
+        self,
+        isSelf,
+        owner,
+        ownerName,
+        ownerAvatar,
+        mealplan,
+        title: ""
+      })
     })
-  })
+  })  
   .catch(err => {
     console.log(err)
     res.redirect('/mealplans')
@@ -118,6 +160,37 @@ async function addToMealplan(req, res) {
   }
 }
 
+function addComment(req,res){
+  req.body.owner = req.user.profile._id
+  Recipe.findById(req.params.id)
+  .then(mealplan => {
+    mealplan.comments.push(req.body)
+    mealplan.save()
+    .then(() => {
+      res.redirect(`/mealplans/${mealplan._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/mealplans/${mealplan._id}`)
+  })
+}
+
+function deleteComment(req, res) {
+  Recipe.findById(req.params.id)
+  .then(mealplan => {
+    mealplan.comments.remove({_id: req.params.commentId})
+    mealplan.save()
+    .then(()=> {
+      res.redirect(`/mealplans/${req.params.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/mealplans/${req.params.id}`)
+  })
+}
+
 export {
   index,
   newMealplan as new,
@@ -126,5 +199,7 @@ export {
   edit,
   update,
   deleteMealplan as delete,
-  addToMealplan
+  addToMealplan,
+  addComment,
+  deleteComment
 }

@@ -7,12 +7,72 @@
       <% mealplans.forEach(mealplan =>{ %>
         <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealplanIndexCard">
-          <h2><%=mealplan.name%></h2>
+          <h5><%=mealplan.name%></h5>
+          <% if (mealplan.owner.equals(user?.profile._id)) { %>
           <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
-            <button class="btn" type="submit">Delete</button>
+            <button class="btn" type="submit">x</button>
           </form>
+          <% } %>
           <p>
-            mealplan content goes here.
+            <table>
+            <tr>
+              <th>Weekday</th>
+              <th>Breakfast</th>
+              <th>Lunch</th>
+              <th>Snack</th>
+              <th>Supper</th>
+            </tr> 
+            <tr>
+              <td>Monday:</td>
+              <td><%=mealplan.monday[0] %></td>
+              <td><%=mealplan.monday[1] %></td>
+              <td><%=mealplan.monday[2] %></td>
+              <td><%=mealplan.monday[3] %></td>
+            </tr>
+            <tr>
+              <td>Tuesday:</td>
+              <td><%=mealplan.tuesday[0] %></td>
+              <td><%=mealplan.tuesday[1] %></td>
+              <td><%=mealplan.tuesday[2] %></td>
+              <td><%=mealplan.tuesday[3] %></td>
+            </tr>
+            <tr>
+              <td>Wednesday:</td>
+              <td><%=mealplan.wednesday[0] %></td>
+              <td><%=mealplan.wednesday[1] %></td>
+              <td><%=mealplan.wednesday[2] %></td>
+              <td><%=mealplan.wednesday[3] %></td>
+            </tr>
+            <tr>
+              <td>Thursday:</td>
+              <td><%=mealplan.thursday[0] %></td>
+              <td><%=mealplan.thursday[1] %></td>
+              <td><%=mealplan.thursday[2] %></td>
+              <td><%=mealplan.thursday[3] %></td>
+            </tr>
+            <tr>
+              <td>Friday:</td>
+              <td><%=mealplan.friday[0] %></td>
+              <td><%=mealplan.friday[1] %></td>
+              <td><%=mealplan.friday[2] %></td>
+              <td><%=mealplan.friday[3] %></td>
+            </tr>
+            <tr>
+              <td>Saturday:</td>
+              <td><%=mealplan.saturday[0] %></td>
+              <td><%=mealplan.saturday[1] %></td>
+              <td><%=mealplan.saturday[2] %></td>
+              <td><%=mealplan.saturday[3] %></td>
+            </tr>
+            <tr>
+              <td>Sunday:</td>
+              <td><%=mealplan.sunday[0] %></td>
+              <td><%=mealplan.sunday[1] %></td>
+              <td><%=mealplan.sunday[2] %></td>
+              <td><%=mealplan.sunday[3] %></td>
+            </tr>
+          </table>
+
           </p>
         </div>
         </a>

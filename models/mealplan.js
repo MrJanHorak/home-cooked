@@ -4,11 +4,17 @@ const Schema = mongoose.Schema
 
 const mealplanComment = new Schema({
   author:  {type: Schema.Types.ObjectId, ref:"Profile"},
+  name: String,
+  avatar: String,
   content: String,
+}, {
+  timestamps: true
 })
 
 const mealSuggestion = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
+  name: String,
+  avatar: String,
   recipes: {type: Schema.Types.ObjectId, ref:"Recipe"},
 },{
   timestamps: true
@@ -16,6 +22,7 @@ const mealSuggestion = new Schema({
 
 const mealplanSchema = new Schema({
   weekOf: Date,
+  name: String,
   monday: [String],
   tuesday: [String],
   wednesday: [String],
@@ -28,6 +35,9 @@ const mealplanSchema = new Schema({
   isCurrent: String,
   highlighted: Boolean,
   suggestions: [mealSuggestion],
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"},
+  ownerName: String,
+  ownerAvatar: String,
 }, {
   timestamps: true
 })
