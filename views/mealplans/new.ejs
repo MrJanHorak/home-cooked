@@ -7,8 +7,9 @@
   <h1><%= title %></h1>
     <% if (user?.profile._id) { %>
       <div id="createMealplan">
-        <p>First specify a week you would like to plan</p>
         <form action="/mealplans" method="POST">
+          <p>What would you like to call this mealplan?</p>
+          <input type="text" name="name" id="mealplanNameInput">
           <button type="submit">Add Mealplan</button>
         </form>
       </div>

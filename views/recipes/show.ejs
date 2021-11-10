@@ -1,5 +1,7 @@
+<script defer src="/js/recipes/rating.js"></script>
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/recipes/show.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <%- include('../partials/nav') %>
 
 <main>
@@ -20,16 +22,18 @@
           Cooking Instructions: <%=recipe.instructions%><br/>
           Created by: <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
                 </p>
+                <div id="recipeButtons">
         <form>
           <input type="button" value="Go back" onclick="history.back()">
         </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
-          <a href="/recipes/<%= recipe._id %>/edit">
-            <input value="Edit Recipe" type="submit"/>
-          </a>
-          <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-            <button class="btn" type="submit">Delete</button>
-          </form>
+            <a href="/recipes/<%= recipe._id %>/edit">
+              <input value="Edit Recipe" type="submit"/>
+            </a>
+            <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+              <button class="btn" type="submit">Delete</button>
+            </form>
+        </div>
         <% } %>
       </div>
       <div id="ratingBox">
@@ -37,6 +41,14 @@
         <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
         <br/>Your Rating<br/>
         <div class="Stars" style="--rating: 4;" aria-label="Rating of this product is 2.3 out of 5."></div>
+        <div class="rating">
+          <span class="rating__result"></span> 
+          <i class="rating__star far fa-star"></i>
+          <i class="rating__star far fa-star"></i>
+          <i class="rating__star far fa-star"></i>
+          <i class="rating__star far fa-star"></i>
+          <i class="rating__star far fa-star"></i>
+        </div>
       </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">

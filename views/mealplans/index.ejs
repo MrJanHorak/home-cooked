@@ -7,7 +7,8 @@
       <% mealplans.forEach(mealplan =>{ %>
         <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealplanIndexCard">
-          <h5><%=mealplan.name%></h5>
+
+          <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
           <p>
             <table>
             <tr>
@@ -19,52 +20,52 @@
             </tr> 
             <tr>
               <td>Monday:</td>
-              <td><%=mealplan.monday[0] %></td>
-              <td><%=mealplan.monday[1] %></td>
-              <td><%=mealplan.monday[2] %></td>
-              <td><%=mealplan.monday[3] %></td>
+              <td><%=mealplan.meals[0] %></td>
+              <td><%=mealplan.meals[1] %></td>
+              <td><%=mealplan.meals[2] %></td>
+              <td><%=mealplan.meals[3] %></td>
             </tr>
             <tr>
               <td>Tuesday:</td>
-              <td><%=mealplan.tuesday[0] %></td>
-              <td><%=mealplan.tuesday[1] %></td>
-              <td><%=mealplan.tuesday[2] %></td>
-              <td><%=mealplan.tuesday[3] %></td>
+              <td><%=mealplan.meals[4] %></td>
+              <td><%=mealplan.meals[5] %></td>
+              <td><%=mealplan.meals[6] %></td>
+              <td><%=mealplan.meals[7] %></td>
             </tr>
             <tr>
               <td>Wednesday:</td>
-              <td><%=mealplan.wednesday[0] %></td>
-              <td><%=mealplan.wednesday[1] %></td>
-              <td><%=mealplan.wednesday[2] %></td>
-              <td><%=mealplan.wednesday[3] %></td>
+              <td><%=mealplan.meals[8] %></td>
+              <td><%=mealplan.meals[9] %></td>
+              <td><%=mealplan.meals[10] %></td>
+              <td><%=mealplan.meals[11] %></td>
             </tr>
             <tr>
               <td>Thursday:</td>
-              <td><%=mealplan.thursday[0] %></td>
-              <td><%=mealplan.thursday[1] %></td>
-              <td><%=mealplan.thursday[2] %></td>
-              <td><%=mealplan.thursday[3] %></td>
+              <td><%=mealplan.meals[12] %></td>
+              <td><%=mealplan.meals[13] %></td>
+              <td><%=mealplan.meals[14] %></td>
+              <td><%=mealplan.meals[15] %></td>
             </tr>
             <tr>
               <td>Friday:</td>
-              <td><%=mealplan.friday[0] %></td>
-              <td><%=mealplan.friday[1] %></td>
-              <td><%=mealplan.friday[2] %></td>
-              <td><%=mealplan.friday[3] %></td>
+              <td><%=mealplan.meals[16] %></td>
+              <td><%=mealplan.meals[17] %></td>
+              <td><%=mealplan.meals[18] %></td>
+              <td><%=mealplan.meals[19] %></td>
             </tr>
             <tr>
               <td>Saturday:</td>
-              <td><%=mealplan.saturday[0] %></td>
-              <td><%=mealplan.saturday[1] %></td>
-              <td><%=mealplan.saturday[2] %></td>
-              <td><%=mealplan.saturday[3] %></td>
+              <td><%=mealplan.meals[20] %></td>
+              <td><%=mealplan.meals[21] %></td>
+              <td><%=mealplan.meals[22] %></td>
+              <td><%=mealplan.meals[23] %></td>
             </tr>
             <tr>
               <td>Sunday:</td>
-              <td><%=mealplan.sunday[0] %></td>
-              <td><%=mealplan.sunday[1] %></td>
-              <td><%=mealplan.sunday[2] %></td>
-              <td><%=mealplan.sunday[3] %></td>
+              <td><%=mealplan.meals[24] %></td>
+              <td><%=mealplan.meals[25] %></td>
+              <td><%=mealplan.meals[26] %></td>
+              <td><%=mealplan.meals[27] %></td>
             </tr>
           </table>
 

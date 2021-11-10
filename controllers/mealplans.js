@@ -41,13 +41,16 @@ function newMealplan(req, res) {
 }
 
 function create(req, res) {
+  console.log("LOOKHEREITSPRINTINGSOMETHING:",req)
+  mealname=req.body
   Mealplan.create(req.body)
   .then(mealplan => {
-    res.redirect('/mealplans')
+    Mealplan.findById
+    res.redirect('/mealplans/')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/mealpans')
+    res.redirect('/mealpans/')
   })
 }
 
@@ -57,7 +60,7 @@ function show(req, res) {
   .then(mealplan => {
     const ownerName = mealplan.ownerName
     const ownerAvatar = mealplan.ownerAvatar
-    Recipe.find({})
+    Recipe.find({}).sort({name: 'asc'})
     .then(recipes => {
       Profile.findById(req.user.profile._id)
       .then(self => {
@@ -84,7 +87,40 @@ function show(req, res) {
   })
 }
 
-function edit (req, res) {
+function edit(req, res) {
+  Mealplan.findById(req.params.id)
+  .populate("comments").exec()
+  .then(mealplan => {
+    const ownerName = mealplan.ownerName
+    const ownerAvatar = mealplan.ownerAvatar
+    Recipe.find({}).sort({name: 'asc'})
+    .then(recipes => {
+      Profile.findById(req.user.profile._id)
+      .then(self => {
+        const isSelf = self._id.equals(req.user.profile._id)
+        const name = self.name
+        const avatar = self.avatar
+        res.render("mealplans/show", {
+        title: ``,
+        mealplan,
+        recipes,
+        ownerName,
+        ownerAvatar,
+        self,
+        isSelf,
+        avatar,
+        name,
+          })
+        })
+      })
+    })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/mealplans')
+  })
+}
+
+function edit2 (req, res) {
   Mealplan.findById(req.params.id)
   .then(mealplan => {
     Profile.findById(req.user.profile._id)
@@ -152,7 +188,7 @@ async function addToMealplan(req, res) {
   try {
     await Mealplan.updateOne({ _id: req.params.id },
       {
-        $push: { monday: { $each: req.body.monday } }
+        $push: { meals: { $each: req.body.meals } },
       })
     res.redirect(`/mealplans/${req.params.id}`)
   } catch (error) {

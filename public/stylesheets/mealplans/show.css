@@ -1,4 +1,13 @@
 
+p {
+  line-height:15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 #recipesDetailView {
   width: 450px;
   height: auto;
@@ -10,11 +19,30 @@
   background-color: blanchedalmond;
 }
 
-p {
-  line-height:15px;
+#mealplanShowView {
+  width: 70%;
+  font-size: 1.5em;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+#mealplanTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#mealplanTable td, #mealplanTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#mealplanTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#mealplanTable td:hover {background-color: rgb(68, 62, 62);}
+
+#mealplanTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
 }
