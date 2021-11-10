@@ -3,13 +3,16 @@ import { Recipe } from "../models/recipe.js"
 import { Mealplan } from "../models/mealplan.js"
 
 function index(req, res) {
-  // Find all profiles
   Profile.find({})
-  // When we have all the profiles
   .then(profiles => {
-    res.render("profiles/index", {
-      title: "Profiles",
-      profiles,
+    Recipe.find({})
+    .then(recipes =>{
+      console.log("RECIPES ",recipes)
+      res.render("profiles/index", {
+        title: "Profiles",
+        profiles,
+        recipes
+      })
     })
   })
   .catch(err => {

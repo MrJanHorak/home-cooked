@@ -1,26 +1,15 @@
 
-#recipesIndexView {
-  display:flex;
-  justify-content: center;
-  width: 70%;
-  margin: auto;
-  background-color: blueviolet;
-  flex-wrap: wrap;
+
+img {
+  width: 76px;
 }
 
-#recipeIndexCard:hover {
-  background-color: rgba(163, 110, 110, 0.7);
-}
-
-#recipeIndexCard {
-  width: 250px;
-  height: 150px;
-  margin: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 5px;
-  overflow:hidden;
+.userProfileIndex {
+  width: 400px;
   background-color: blanchedalmond;
+  margin: 15px;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 #profileShowViewButtons{

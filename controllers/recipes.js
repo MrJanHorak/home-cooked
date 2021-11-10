@@ -58,13 +58,11 @@ function show(req, res) {
     const ownerName = recipe.ownerName
     const ownerAvatar = recipe.ownerAvatar
     let total = 0
-    console.log(recipe.rating.length)
     recipe.rating.forEach(rate => {
       console.log(rate)
       total+=rate
     })
     let averageRating = ( total / recipe.rating.length)
-    console.log(averageRating)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(req.user.profile._id)
