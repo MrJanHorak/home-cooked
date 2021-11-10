@@ -198,7 +198,7 @@ async function addToMealplan(req, res) {
 
 function addComment(req,res){
   req.body.owner = req.user.profile._id
-  Recipe.findById(req.params.id)
+  Mealplan.findById(req.params.id)
   .then(mealplan => {
     mealplan.comments.push(req.body)
     mealplan.save()
@@ -213,7 +213,7 @@ function addComment(req,res){
 }
 
 function deleteComment(req, res) {
-  Recipe.findById(req.params.id)
+  Mealplan.findById(req.params.id)
   .then(mealplan => {
     mealplan.comments.remove({_id: req.params.commentId})
     mealplan.save()

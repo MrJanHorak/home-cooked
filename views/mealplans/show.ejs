@@ -69,12 +69,33 @@
         </div>
         </a>
     </div>
-    <% if (user?.profile._id) { %>
-      <a href="/mealplans/new">
-        <input value="add mealplan" type="submit"/>
-      </a>
-      <% } else { %>
-        <h1>You must be Logged in to add mealplans!</h1>
-        <% } %>
+      <% mealplan.comments.forEach(comment => { %>
+        <div id="mealplanComment">
+            <%=comment.content %><br/>
+            <img id="commentProfilePic" src="<%=comment.avatar%>">
+            <%=comment.name %> left a message on 
+            <%=comment.createdAt.toString().substring(0,15) %> at
+            <%=comment.createdAt.toString().substring(16, 21) %>
+            <% if (comment.owner.equals(user?.profile._id)) { %>
+              <form 
+                action="/mealplans/<%= mealplan._id %>/comments/<%=comment.id%>?_method=DELETE" 
+                method="POST"
+              >
+                <button type="submit">remove comment</button>
+              </form>
+              <% } %>
+            </div>
+        <% }) %> 
+        <div id="addMealplanComment">
+          <form action="/mealplans/<%=mealplan._id%>/comments" method="post">
+          <label>Leave a comment:<br/>
+            <textarea name="content"  cols="40" rows="5"></textarea>
+          </label>
+          <br/>
+          <input hidden name="name" value="<%=name%>">
+          <input hidden name="avatar" value="<%=avatar%>">
+          <button type="submit">Add Comment</button>
+        </form>
+        </div> 
 </main>
 <%- include('../partials/footer') %>

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const mealplanComment = new Schema({
-  author:  {type: Schema.Types.ObjectId, ref:"Profile"},
+  owner:  {type: Schema.Types.ObjectId, ref:"Profile"},
   name: String,
   avatar: String,
   content: String,
