@@ -24,6 +24,33 @@
   background-color: blanchedalmond;
 }
 
+#recipesIndexView {
+  display:flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  background-color: blueviolet;
+  flex-wrap: wrap;
+}
+
+#recipeIndexCard:hover {
+  background-color: rgba(163, 110, 110, 0.7);
+}
+
+#recipeIndexCard {
+  width: 250px;
+  height: 150px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  overflow:hidden;
+  background-color: blanchedalmond;
+}
+
+#profileShowViewButtons{
+  display: flex;
+}
 p {
   line-height:15px;
 }
@@ -31,4 +58,8 @@ p {
 a {
   text-decoration: none;
   color: black;
+}
+
+img {
+  width: 60px;
 }

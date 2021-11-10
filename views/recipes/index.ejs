@@ -10,6 +10,9 @@
           <a href="/recipes/<%= recipe._id %>">
           <div id="recipeIndexCard">
             <h2><%=recipe.name%></h2>
+            <% if (recipe.picture) {%>
+            <img src="<%=recipe.picture%>" alt="Picture of prepared food">
+            <% } %>
             <p>
               Preperation Time: <%=recipe.PrepTime%><br/>
               Cooking Time: <%=recipe.cookTime%><br/>

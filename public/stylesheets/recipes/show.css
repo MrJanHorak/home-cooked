@@ -13,6 +13,9 @@ a {
   color: black;
 }
 
+img {
+  width: 160px
+}
 textarea {
   font-size: 1.5em;
   resize: none;

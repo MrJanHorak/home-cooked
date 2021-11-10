@@ -8,7 +8,9 @@
   flex-wrap: wrap;
   
 }
-
+img{ 
+  width: 60px;
+}
 #recipeIndexCard:hover {
   background-color: rgba(163, 110, 110, 0.7);
 }
