@@ -21,6 +21,11 @@
   font-size: 6px;
 }
 
+#mealplanIndexCard:hover {
+  background-color: rgba(163, 110, 110, 0.7);
+}
+
+
 #mealPlanName{
   text-align: center;
 }

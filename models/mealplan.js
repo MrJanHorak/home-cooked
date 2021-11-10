@@ -24,7 +24,6 @@ const mealplanSchema = new Schema({
   weekOf: Date,
   name: String,
   meals: [String],
-  owner: String,
   comments: [mealplanComment],
   isCurrent: String,
   highlighted: Boolean,

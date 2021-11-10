@@ -20,22 +20,25 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
-  // .populate("recipes").exec()
   .then((profile) => {
     Recipe.find({owner: req.params.id})
     .then(recipes => {
-      Profile.findById(req.user.profile._id)
-      .then(self => {
-        const isSelf = self._id.equals(profile._id)
-        res.render("profiles/show", {
-          title: `${profile.name}'s profile`,
-          profile,
-          self,
-          isSelf,
-          recipes
+      Mealplan.find({owner: req.params.id})
+      .then(mealplans =>{
+        Profile.findById(req.user.profile._id)
+        .then(self => {
+          const isSelf = self._id.equals(profile._id)
+          res.render("profiles/show", {
+            title: `${profile.name}'s profile`,
+            mealplans,
+            profile,
+            self,
+            isSelf,
+            recipes
+          })
         })
       })
-    })
+      })
     })
   .catch((err) => {
     console.log(err)

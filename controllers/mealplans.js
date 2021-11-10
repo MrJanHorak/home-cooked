@@ -41,16 +41,16 @@ function newMealplan(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
   console.log("LOOKHEREITSPRINTINGSOMETHING:",req)
-  mealname=req.body
   Mealplan.create(req.body)
   .then(mealplan => {
     Mealplan.findById
-    res.redirect('/mealplans/')
+    res.redirect('/mealplans')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/mealpans/')
+    res.redirect('/mealpans')
   })
 }
 
