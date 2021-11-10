@@ -46,6 +46,15 @@
 <% mealplans.forEach(mealplan =>{ %>
   <div id="recipeIndexCard">
     <% if (mealplan.owner.equals(user?.profile._id)) { %>
+      <a href="/mealplans/<%= mealplan._id %>/edit">
+        <input value="Edit Mealplan" type="submit"/>
+      </a>
+      <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">x</button>
+      </form>
+
+  <% } %>
+    <% if (mealplan.owner.equals(user?.profile._id)) { %>
       <div id="mealplanIndexView">
         <% mealplans.forEach(mealplan =>{ %>
           <a href="/mealplans/<%= mealplan._id %>">

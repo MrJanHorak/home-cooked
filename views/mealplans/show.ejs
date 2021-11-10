@@ -3,6 +3,7 @@
 <%- include('../partials/nav') %>
 <h1><%= title %></h1>
   <main>
+
     <div id="mealplanShowView">
         <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
           <p>
@@ -69,6 +70,15 @@
         </div>
         </a>
     </div>
+    <% if (mealplan.owner.equals(user?.profile._id)) { %>
+      <a href="/mealplans/<%= mealplan._id %>/edit">
+        <input value="Edit Mealplan" type="submit"/>
+      </a>
+      <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete</button>
+      </form>
+  </div>
+  <% } %>
       <% mealplan.comments.forEach(comment => { %>
         <div id="mealplanComment">
             <%=comment.content %><br/>

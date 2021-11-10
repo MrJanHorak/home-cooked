@@ -183,8 +183,6 @@ function deleteMealplan(req, res) {
 }
 
 async function addToMealplan(req, res) {
-  console.log("PARAMS.ID: ",req.params.id)
-  console.log("REQ.BODY: ",req.body)
   try {
     await Mealplan.updateOne({ _id: req.params.id },
       {

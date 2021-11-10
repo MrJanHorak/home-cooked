@@ -9,6 +9,7 @@
     <% if (user?.profile._id) { %>
       <div id="recipesDetailView">
         <h2><%=recipe.name%></h2>
+        <img src="<%=recipe.picture%>" alt="Picture of prepared food">
         <p>
           Preperation Time: <%=recipe.PrepTime%><br/>
           Cooking Time: <%=recipe.cookTime%><br/>

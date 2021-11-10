@@ -13,6 +13,7 @@ const recipeComment = new Schema({
 
 const recipeSchema = new Schema({
   name: String,
+  picture: String,
   ingredients: [String],
   instructions: String,
   cookTime: Number,
