@@ -8,7 +8,7 @@
     <% if (user?.profile._id) { %>
       <div id="showMealplan">
         <p>To create a mealplan please choose a meal for each available selection in the dropdown menu. Click submit when you are finished selecting the meals for the week.</p>
-        <form action="/mealplans/<%= mealplan._id %>/recipes" method="post">
+        <form action="/mealplans/<%= mealplan._id %>?_method=PUT" method="POST">
         <div class="weekday" id="monday">
           <div class="dayName">
             <h1>Monday</h1>
@@ -16,6 +16,7 @@
             <div class="mealtime" id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[0]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -24,6 +25,7 @@
             <div class="mealtime" id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[1]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -32,6 +34,7 @@
             <div class="mealtime" id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[2]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -40,6 +43,7 @@
             <div class="mealtime" id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[3]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -54,6 +58,7 @@
             <div class="mealtime" id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[4]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -62,6 +67,7 @@
             <div class="mealtime" id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[5]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -70,6 +76,7 @@
             <div class="mealtime" id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[6]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -78,6 +85,7 @@
             <div class="mealtime" id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[7]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -92,6 +100,7 @@
             <div id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[8]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -100,6 +109,7 @@
             <div id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[9]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -108,6 +118,7 @@
             <div id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[10]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -116,6 +127,7 @@
             <div id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[11]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -130,6 +142,7 @@
             <div id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[12]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -138,6 +151,7 @@
             <div id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[13]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -146,6 +160,7 @@
             <div id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[14]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -154,6 +169,7 @@
             <div id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[15]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -168,6 +184,7 @@
             <div id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[16]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -176,6 +193,7 @@
             <div id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[17]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -184,6 +202,7 @@
             <div id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[18]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -192,6 +211,7 @@
             <div id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[19]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -206,6 +226,7 @@
             <div id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[20]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -214,6 +235,7 @@
             <div id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[21]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -222,6 +244,7 @@
             <div id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[22]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -230,6 +253,7 @@
             <div id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[23]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -244,6 +268,7 @@
             <div id="breakfast">
               <h2>Choose a Breakfast</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[24]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -252,6 +277,7 @@
             <div id="lunch">
               <h2>Choose a Lunch</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[25]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -260,6 +286,7 @@
             <div id="snack">
               <h2>Choose a Snack</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[26]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
@@ -268,6 +295,7 @@
             <div id="supper">
               <h2>Choose a Supper</h2>
               <select name="meals" id="selectMeal">
+                <option><%=mealplan.meals[27]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>

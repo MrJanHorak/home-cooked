@@ -1,16 +1,38 @@
 <%- include('./partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
 <%- include('./partials/nav') %>
 
 <main>
   <h1>Welcome, <%= user ? user.profile.name : "" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
+  <h1><%= title %></h1>
+  <%recipes.forEach(recipe => { %>
+    <div id="recipesDetailView">
+      <h2><%=recipe.name%></h2>
+      <% if (recipe.picture) {%>
+        <img src="<%=recipe.picture%>" alt="Picture of prepared food">
+        <% } %>
+      <p>
+        Preperation Time: <%=recipe.PrepTime%><br/>
+        Cooking Time: <%=recipe.cookTime%><br/>
+        Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
+        Number of Portions: <%=recipe.yield%><br/>
+        <div id="ingredienList">
+          <% recipe.ingredients.forEach(ingredient => { %>
+            <%=ingredient %><br/>
+          <%});%>
+        </div>
+        Cooking Instructions: <%=recipe.instructions%><br/>
+        Created by: <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
+              </p>
+
+    <div id="ratingBox">
+      Average Rating<br/>
+      <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
     </div>
-  <% } %>
+    </div>
+    
+    <% }) %> 
+
 </main>
 
 <%- include('./partials/footer') %>

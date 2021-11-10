@@ -40,19 +40,14 @@
         <% } %>
       </div>
       <div id="ratingBox">
-        Average Rating<br/>
-        <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
-        <br/>Your Rating<br/>
-        <div class="Stars" style="--rating: 4;" aria-label="Rating of this product is 2.3 out of 5."></div>
-        <div class="rating">
-          <span class="rating__result"></span> 
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
+      <% if (recipe.rating.length === 0) { %>
+        <p>Be the First to rate!</p>
+      <%} else { %>
+          Average Rating<br/>
+          <div class="Stars" style="--rating: <%=averageRating%>;" ></div>
+          <p>Out of <%=recipe.rating.length%> ratings.</p>
+          <% } %>
         </div>
-      </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
           <%=comment.content %><br/>
@@ -72,9 +67,19 @@
       <% }) %> 
       <div id="addRecipeComment">
         <form action="/recipes/<%=recipe._id%>/comments" method="post">
-        <label>Leave a comment:<br/>
+          <br/>Rate and Leave a comment<br/>
+          <div class="rating">
+            <span class="rating__result"></span> 
+            <select type="text" name="rating">
+              <option value="" selected></option>
+              <option value="1">⭐️</option>
+              <option value="2">⭐️⭐️</option>
+              <option value="3">⭐️⭐️⭐️</option>
+              <option value="4">⭐️⭐️⭐️⭐️</option>
+              <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+            </select><br><br>
+        </div>
           <textarea name="content"  cols="40" rows="5"></textarea>
-        </label>
         <br/>
         <input hidden name="name" value="<%=name%>">
         <input hidden name="avatar" value="<%=avatar%>">

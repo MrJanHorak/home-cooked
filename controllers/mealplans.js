@@ -42,15 +42,14 @@ function newMealplan(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  console.log("LOOKHEREITSPRINTINGSOMETHING:",req)
   Mealplan.create(req.body)
   .then(mealplan => {
     Mealplan.findById
-    res.redirect('/mealplans')
+    res.redirect(`/mealplans/${mealplan._id}/edit`)
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/mealpans')
+    res.redirect(`/mealplans/${mealplan._id}/edit`)
   })
 }
 
@@ -89,7 +88,6 @@ function show(req, res) {
 
 function edit(req, res) {
   Mealplan.findById(req.params.id)
-  .populate("comments").exec()
   .then(mealplan => {
     const ownerName = mealplan.ownerName
     const ownerAvatar = mealplan.ownerAvatar
@@ -100,7 +98,7 @@ function edit(req, res) {
         const isSelf = self._id.equals(req.user.profile._id)
         const name = self.name
         const avatar = self.avatar
-        res.render("mealplans/show", {
+        res.render("mealplans/edit", {
         title: ``,
         mealplan,
         recipes,
@@ -114,32 +112,6 @@ function edit(req, res) {
         })
       })
     })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/mealplans')
-  })
-}
-
-function edit2 (req, res) {
-  Mealplan.findById(req.params.id)
-  .then(mealplan => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const owner = self._id
-      const isSelf = self._id.equals(req.user.profile._id)
-      const ownerName = self.name
-      const ownerAvatar = self.avatar
-      res.render('mealplans/edit', {
-        self,
-        isSelf,
-        owner,
-        ownerName,
-        ownerAvatar,
-        mealplan,
-        title: ""
-      })
-    })
-  })  
   .catch(err => {
     console.log(err)
     res.redirect('/mealplans')
@@ -188,7 +160,7 @@ async function addToMealplan(req, res) {
       {
         $push: { meals: { $each: req.body.meals } },
       })
-    res.redirect(`/mealplans/${req.params.id}`)
+    res.redirect(`/mealplans/${req.params.id}/edit`)
   } catch (error) {
     console.log(error)
   }

@@ -57,6 +57,14 @@ function show(req, res) {
   .then(recipe => {
     const ownerName = recipe.ownerName
     const ownerAvatar = recipe.ownerAvatar
+    let total = 0
+    console.log(recipe.rating.length)
+    recipe.rating.forEach(rate => {
+      console.log(rate)
+      total+=rate
+    })
+    let averageRating = ( total / recipe.rating.length)
+    console.log(averageRating)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(req.user.profile._id)
@@ -65,6 +73,7 @@ function show(req, res) {
       res.render('recipes/show', {
         ownerName,
         ownerAvatar,
+        averageRating,
         recipe,
         self,
         isSelf,
@@ -143,9 +152,11 @@ function deleteRecipe(req, res) {
 }
 
 function addComment(req,res){
+  const recipeRating=req.body.rating
   req.body.owner = req.user.profile._id
   Recipe.findById(req.params.id)
   .then(recipe => {
+    recipe.rating.push(recipeRating)
     recipe.comments.push(req.body)
     recipe.save()
     .then(() => {
