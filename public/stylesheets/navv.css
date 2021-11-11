@@ -1,32 +1,22 @@
 body, html {
-  height: 100%;
   background-image: url("/images/lukas-blazek-f-TWhXOrLiU-unsplash.jpg");
   height: 100%;
-  
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.bg {
-  /* The image used */
-
-  /* Full height */
-}
-
-
 nav {
     margin: 0 auto;
     display: flex;
-    padding: 50px 0 0 0;  
+    padding: 35px 0 0 0;  
     text-align: center;
     font-size: 16px;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #E4E3E4;
+    background-color: rgba(228, 227, 228, .9);
   }
 
   h1 {
@@ -62,7 +52,7 @@ nav {
       visibility: hidden;
       opacity: 0;
       position: absolute;
-padding-left: 0;
+      padding-left: 0;
       left: 0;
       display: none;
       background: #E3E3E3;
@@ -73,7 +63,7 @@ padding-left: 0;
       visibility: visible;
       opacity: 1;
       display: block;
-      min-width: 250px;
+      min-width: 210px;
       text-align: left;
       padding-top: 20px;
       box-shadow: 0px 3px 5px -1px #ccc;
@@ -106,19 +96,78 @@ ul li ul li a { transition: all 0.5s ease; }
 #maintitle {
   position: fixed;
   z-index: 2;
-  margin-right: 60%;
+  margin-top: 7px;
+  margin-left: 10%;
+  display:flex;
+
 }
 
-#topSpaceBuffer {
-margin-bottom: 150px;
+#websiteTitle {
+  position: relative;
+  top: 18px;
+  left: 5px;
 }
 
-#welcomescreen {
-  width: 450px;
-  font-size: 1.8em;
-  background-color: grey;
-  border-radius: 10px;
-  padding: 15px;
-  color: white;
-  text-align: justify;
+#logo {
+  float: left;
+  width: 60px;
+  margin-top: 0;
+  margin-right:10px;
+  
+}
+
+#profilePic {
+  margin-left: 8px;
+  width: 30px;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1.2px solid rgb(112, 112, 112);
+  
+}
+  
+  #topSpaceBuffer {
+  margin-bottom: 150px;
+  }
+  
+  #welcomescreen {
+    width: 450px;
+    font-size: 1.8em;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    text-align: justify;
+  }
+
+  @media only screen and (max-width: 1360px) {
+
+    nav{
+      padding-top: 60px;
+      height: auto;
+    }
+
+    #maintitle {
+      width: 300px;
+      float: none;
+      text-align: center;
+      position:sticky;
+      display:flex;
+      margin: auto;
+    }
+  
+  }
+
+  @media only screen and (max-width: 560px) {
+  ul li {
+    z-index: 1;
+    list-style: none;
+    margin: 0 auto;
+    border-left: 2px solid #3ca0e7;
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-family: arvo;
+  }
 }

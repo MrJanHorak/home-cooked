@@ -1,10 +1,14 @@
 <link rel="stylesheet" href="/stylesheets/navv.css">
 <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
 </head>
-<nav >
+
+
   <div id="maintitle">
-  <h1>Homecooked.</h1>
+    <img id="logo" src="/images/Daco_4427061.png" alt="cooking pot">
+    <h1 id="websiteTitle">Homecooked.</h1>
   </div>
+
+  <nav >
   <ul>
     <% if (user) { %>
     <li><a href="/">Home</a></li>
@@ -23,7 +27,7 @@
   <li><a href="/profiles/">Cooks</a>
     <ul class="dropdown">
       <li><a href="/profiles/">All Profiles</a></li>
-      <li><a href="/profiles/<%=user.id%>">Your Profile<img src="<%= user.profile.avatar %>" 
+      <li><a href="/profiles/<%=user.id%>">Your Profile<img id="profilePic" src="<%= user.profile.avatar %>" 
         alt="<%= user.profile.name %> avatar"></a></li>
       <li><a href="/auth/logout">Logout</a></li>
     </ul>  
