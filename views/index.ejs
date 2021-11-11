@@ -4,9 +4,11 @@
 
 <main>
   <div id="topSpaceBuffer"></div>
+  <% if (!user) { %>
   <div id="welcomescreen">
     <p><b>Welcome to Homecooked.</b> For full access to the site, please login above. We promise not to track any of your information. We cannot promise through that your friends and family won't be tracking your calories though.</p>
   </div>
+  <% } %>
   <%recipes.forEach(recipe => { %>
     <div id="recipesDetailView">
       <h2><%=recipe.name%></h2>
