@@ -4,13 +4,14 @@
   justify-content: center;
   width: 70%;
   margin: auto;
-  background-color: blueviolet;
+  background-color: rgba(253, 253, 253, .8);;
   flex-wrap: wrap;
-  
 }
+
 img{ 
   width: 60px;
 }
+
 #recipeIndexCard:hover {
   background-color: rgba(163, 110, 110, 0.7);
 }

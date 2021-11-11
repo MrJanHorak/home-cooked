@@ -3,6 +3,7 @@
 <%- include('../partials/nav') %>
 <h1><%= title %></h1>
   <main>
+    <div id="topSpaceBuffer"></div>
     <div id="mealplanIndexView">
       <% mealplans.forEach(mealplan =>{ %>
         <a href="/mealplans/<%= mealplan._id %>">
