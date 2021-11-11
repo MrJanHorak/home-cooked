@@ -14,17 +14,23 @@
           <img src="<%=recipe.picture%>" alt="Picture of prepared food">
           <% } %>
         <p>
-          Preperation Time: <%=recipe.PrepTime%><br/>
-          Cooking Time: <%=recipe.cookTime%><br/>
-          Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
-          Number of Portions: <%=recipe.yield%><br/>
-          <div id="ingredienList">
+          <b>Prep Time:</b> <%=recipe.PrepTime%><br/>
+          <b>Cook Time:</b> <%=recipe.cookTime%><br/>
+          <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br/>
+          <b>Portions:</b> <%=recipe.yield%><br/>
+          <% if (recipe.ingredients.length) { %>
+          <br />
+          <b>Ingredients:</b>
+          <br/>
+            <div id="ingredienList">
             <% recipe.ingredients.forEach(ingredient => { %>
               <%=ingredient %><br/>
             <%});%>
           </div>
-          Cooking Instructions: <%=recipe.instructions%><br/>
-          Created by: <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
+          <% } %>
+          <br/>
+          <b>Instructions:</b> <%=recipe.instructions%><br/><br/>
+          <b>Created by:</b> <%=recipe.ownerName %>  <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>">
                 </p>
                 <div id="recipeButtons">
         <form>
@@ -51,16 +57,18 @@
         </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
-          <%=comment.content %><br/>
+          <%=comment.content %><br/><br/>
           <img id="commentProfilePic" src="<%=comment.avatar%>">
-          <%=comment.name %> left a message on 
+          <span id="commentator"><b><%=comment.name %></b> commented on 
           <%=comment.createdAt.toString().substring(0,15) %> at
           <%=comment.createdAt.toString().substring(16, 21) %>
           <% if (comment.owner.equals(user?.profile._id)) { %>
+          </span>
             <form 
               action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
               method="POST"
             >
+            <br/>
               <button type="submit">remove comment</button>
             </form>
             <% } %>
@@ -81,6 +89,7 @@
             </select><br><br>
         </div>
           <textarea name="content"  cols="40" rows="5"></textarea>
+        <br/>
         <br/>
         <input hidden name="name" value="<%=name%>">
         <input hidden name="avatar" value="<%=avatar%>">
