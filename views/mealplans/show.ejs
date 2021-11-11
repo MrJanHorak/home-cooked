@@ -67,40 +67,51 @@
           </table>
 
           </p>
+          <% if (mealplan.owner.equals(user?.profile._id)) { %>
+            <div id="mealplanButtons">
+            <a href="/mealplans/<%= mealplan._id %>/edit">
+              <input value="Edit Mealplan" type="submit"/>
+            </a>
+            &emsp;
+            <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
+              <button class="btn" type="submit">Delete</button>
+            </form>
+          </div>
+          </div>
         </div>
-        </a>
-    </div>
-    <% if (mealplan.owner.equals(user?.profile._id)) { %>
-      <a href="/mealplans/<%= mealplan._id %>/edit">
-        <input value="Edit Mealplan" type="submit"/>
-      </a>
-      <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
-        <button class="btn" type="submit">Delete</button>
-      </form>
   </div>
   <% } %>
+
       <% mealplan.comments.forEach(comment => { %>
         <div id="mealplanComment">
-            <%=comment.content %><br/>
+            <%=comment.content %>
+            <br/>
+            <br/>
+            <div id = "commentatorInfo">
             <img id="commentProfilePic" src="<%=comment.avatar%>">
-            <%=comment.name %> left a message on 
+            <b><%=comment.name %></b> made a suggestion on 
             <%=comment.createdAt.toString().substring(0,15) %> at
             <%=comment.createdAt.toString().substring(16, 21) %>
+            <br/>
             <% if (comment.owner.equals(user?.profile._id)) { %>
               <form 
                 action="/mealplans/<%= mealplan._id %>/comments/<%=comment.id%>?_method=DELETE" 
                 method="POST"
               >
-                <button type="submit">remove comment</button>
+                <button type="submit" id="delete">Delete</button>
               </form>
               <% } %>
+            </div>
             </div>
         <% }) %> 
         <div id="addMealplanComment">
           <form action="/mealplans/<%=mealplan._id%>/comments" method="post">
-          <label>Leave a comment:<br/>
+          <label>Feel free to make a suggestion or leave feedback:
+            <br/>
+            <br/>
             <textarea name="content"  cols="40" rows="5"></textarea>
           </label>
+          <br/>
           <br/>
           <input hidden name="name" value="<%=name%>">
           <input hidden name="avatar" value="<%=avatar%>">

@@ -58,6 +58,7 @@
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
           <%=comment.content %><br/><br/>
+          <div id="commentatorInfo">
           <img id="commentProfilePic" src="<%=comment.avatar%>">
           <span id="commentator"><b><%=comment.name %></b> commented on 
           <%=comment.createdAt.toString().substring(0,15) %> at
@@ -72,6 +73,7 @@
               <button type="submit">remove comment</button>
             </form>
             <% } %>
+          </div>
           </div>
       <% }) %> 
       <div id="addRecipeComment">
