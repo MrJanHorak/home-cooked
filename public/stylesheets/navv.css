@@ -4,9 +4,17 @@ nav {
     padding: 50px 0 0 0;  
     text-align: center;
     font-size: 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  h1 {
+    margin: 0px;
   }
 
     ul li {
+      z-index: 1;
       list-style: none;
       margin: 0 auto;
       border-left: 2px solid #3ca0e7;
@@ -70,10 +78,13 @@ a {
 
     text-decoration: none;
 }
-    a:hover {
-        color: #3CA0E7;
-    }
-
-
-
+a:hover {
+  color: #3CA0E7;
+}
 ul li ul li a { transition: all 0.5s ease; }
+
+#maintitle {
+  position: fixed;
+  z-index: 2;
+  margin-right: 60%;
+}
