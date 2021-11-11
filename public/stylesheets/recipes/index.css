@@ -40,7 +40,7 @@ p {
   width: 70%;
   margin: auto;
   background-color: rgba(253, 253, 253, .8);
-box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   flex-wrap: wrap;
   border-radius: 6px;
   padding: 25px;

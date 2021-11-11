@@ -1,86 +1,75 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/mealplans/index.css">
 <%- include('../partials/nav') %>
+<link rel="stylesheet" href="/stylesheets/mealplans/index.css" />
 <h1><%= title %></h1>
-  <main>
-    <div id="topSpaceBuffer"></div>
-    <div id="mealplanIndexView">
-      <% mealplans.forEach(mealplan =>{ %>
-        <a href="/mealplans/<%= mealplan._id %>">
-        <div id="mealplanIndexCard">
-
-          <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
-          <p>
-            <table>
-            <tr>
-              <th>Weekday</th>
-              <th>Breakfast</th>
-              <th>Lunch</th>
-              <th>Snack</th>
-              <th>Supper</th>
-            </tr> 
-            <tr>
-              <td>Monday:</td>
-              <td><%=mealplan.meals[0] %></td>
-              <td><%=mealplan.meals[1] %></td>
-              <td><%=mealplan.meals[2] %></td>
-              <td><%=mealplan.meals[3] %></td>
-            </tr>
-            <tr>
-              <td>Tuesday:</td>
-              <td><%=mealplan.meals[4] %></td>
-              <td><%=mealplan.meals[5] %></td>
-              <td><%=mealplan.meals[6] %></td>
-              <td><%=mealplan.meals[7] %></td>
-            </tr>
-            <tr>
-              <td>Wednesday:</td>
-              <td><%=mealplan.meals[8] %></td>
-              <td><%=mealplan.meals[9] %></td>
-              <td><%=mealplan.meals[10] %></td>
-              <td><%=mealplan.meals[11] %></td>
-            </tr>
-            <tr>
-              <td>Thursday:</td>
-              <td><%=mealplan.meals[12] %></td>
-              <td><%=mealplan.meals[13] %></td>
-              <td><%=mealplan.meals[14] %></td>
-              <td><%=mealplan.meals[15] %></td>
-            </tr>
-            <tr>
-              <td>Friday:</td>
-              <td><%=mealplan.meals[16] %></td>
-              <td><%=mealplan.meals[17] %></td>
-              <td><%=mealplan.meals[18] %></td>
-              <td><%=mealplan.meals[19] %></td>
-            </tr>
-            <tr>
-              <td>Saturday:</td>
-              <td><%=mealplan.meals[20] %></td>
-              <td><%=mealplan.meals[21] %></td>
-              <td><%=mealplan.meals[22] %></td>
-              <td><%=mealplan.meals[23] %></td>
-            </tr>
-            <tr>
-              <td>Sunday:</td>
-              <td><%=mealplan.meals[24] %></td>
-              <td><%=mealplan.meals[25] %></td>
-              <td><%=mealplan.meals[26] %></td>
-              <td><%=mealplan.meals[27] %></td>
-            </tr>
-          </table>
-
-          </p>
-        </div>
-        </a>
-        <%})%>
-    </div>
-    <% if (user?.profile._id) { %>
-      <a href="/mealplans/new">
-        <input value="add mealplan" type="submit"/>
-      </a>
-      <% } else { %>
-        <h1>You must be Logged in to add mealplans!</h1>
-        <% } %>
+<main>
+  <div id="topSpaceBuffer"></div>
+  <div id="mealplanIndexView">
+    <% mealplans.forEach(mealplan =>{ %>
+    <a href="/mealplans/<%= mealplan._id %>">
+      <div id="mealplanIndexCard">
+        <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
+        <table>
+          <tr>
+            <th>Weekday</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Snack</th>
+            <th>Supper</th>
+          </tr>
+          <tr>
+            <td>Monday:</td>
+            <td><%=mealplan.meals[0] %></td>
+            <td><%=mealplan.meals[1] %></td>
+            <td><%=mealplan.meals[2] %></td>
+            <td><%=mealplan.meals[3] %></td>
+          </tr>
+          <tr>
+            <td>Tuesday:</td>
+            <td><%=mealplan.meals[4] %></td>
+            <td><%=mealplan.meals[5] %></td>
+            <td><%=mealplan.meals[6] %></td>
+            <td><%=mealplan.meals[7] %></td>
+          </tr>
+          <tr>
+            <td>Wednesday:</td>
+            <td><%=mealplan.meals[8] %></td>
+            <td><%=mealplan.meals[9] %></td>
+            <td><%=mealplan.meals[10] %></td>
+            <td><%=mealplan.meals[11] %></td>
+          </tr>
+          <tr>
+            <td>Thursday:</td>
+            <td><%=mealplan.meals[12] %></td>
+            <td><%=mealplan.meals[13] %></td>
+            <td><%=mealplan.meals[14] %></td>
+            <td><%=mealplan.meals[15] %></td>
+          </tr>
+          <tr>
+            <td>Friday:</td>
+            <td><%=mealplan.meals[16] %></td>
+            <td><%=mealplan.meals[17] %></td>
+            <td><%=mealplan.meals[18] %></td>
+            <td><%=mealplan.meals[19] %></td>
+          </tr>
+          <tr>
+            <td>Saturday:</td>
+            <td><%=mealplan.meals[20] %></td>
+            <td><%=mealplan.meals[21] %></td>
+            <td><%=mealplan.meals[22] %></td>
+            <td><%=mealplan.meals[23] %></td>
+          </tr>
+          <tr>
+            <td>Sunday:</td>
+            <td><%=mealplan.meals[24] %></td>
+            <td><%=mealplan.meals[25] %></td>
+            <td><%=mealplan.meals[26] %></td>
+            <td><%=mealplan.meals[27] %></td>
+          </tr>
+        </table>
+      </div>
+    </a>
+    <%})%>
+  </div>
 </main>
 <%- include('../partials/footer') %>

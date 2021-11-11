@@ -1,35 +1,4 @@
 
-#mealplanIndexView {
-  display:flex;
-  justify-content: center;
-  width: 70%;
-  margin: auto;
-  background-color: blueviolet;
-  flex-wrap: wrap;
-  
-}
-
-#mealplanIndexCard {
-  width: 250px;
-  height: 150px;
-  margin: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 5px;
-  overflow:hidden;
-  background-color: blanchedalmond;
-  font-size: 6px;
-}
-
-#mealplanIndexCard:hover {
-  background-color: rgba(163, 110, 110, 0.7);
-}
-
-
-#mealPlanName{
-  text-align: center;
-}
-
 p {
   line-height:15px;
 }
@@ -37,4 +6,40 @@ p {
 a {
   text-decoration: none;
   color: black;
+}
+
+a:hover {
+  color:rgba(71, 71, 71, 0.8)
+}
+
+#mealplanIndexView {
+  display:flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  background-color: rgba(253, 253, 253, .8);
+  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+  flex-wrap: wrap;
+  border-radius: 6px;
+  padding: 25px;
+}
+
+#mealplanIndexCard {
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
+  border-radius: 4px;
+  padding: 10px;
+  overflow:hidden;
+  background-color: rgba(255, 240, 217, 0.61);
+  font-size: .6em;
+}
+
+#mealplanIndexCard:hover {
+  background-color: rgba(240, 240, 240, 0.986);
+}
+
+#mealPlanName{
+  text-align: center;
 }
