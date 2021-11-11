@@ -3,8 +3,10 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Welcome, <%= user ? user.profile.name : "" %></h1>
-  <h1><%= title %></h1>
+  <div id="topSpaceBuffer"></div>
+  <div id="welcomescreen">
+    <p><b>Welcome to Homecooked.</b> For full access to the site, please login above. We promise not to track any of your information. We cannot promise through that your friends and family won't be tracking your calories though.</p>
+  </div>
   <%recipes.forEach(recipe => { %>
     <div id="recipesDetailView">
       <h2><%=recipe.name%></h2>
@@ -22,12 +24,12 @@
           <%});%>
         </div>
         Cooking Instructions: <%=recipe.instructions%><br/>
-        Created by: <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
+        Created by: <img id="createdByProfilePic" src="<%=recipe.ownerAvatar%>"> <%=recipe.ownerName %> 
               </p>
 
     <div id="ratingBox">
       Average Rating<br/>
-      <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
+      <div class="Stars" style="--rating: 2.3;" aria-label="Rating"></div>
     </div>
     </div>
     
