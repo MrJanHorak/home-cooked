@@ -10,32 +10,41 @@
     <% if (user?.profile._id) { %>
       <div id="createRecipe">
         <form action="/recipes" method="POST">
-          <label>Recipe Title:
-            <input type="text" name="name" placeholder="Recipe Name" required>
+          <label><b>Recipe Title:</b>
+            <input type="text" name="name" placeholder="Recipe Name" required size="43">
           </label>
-          <label>Preperation Time: 
-            <input type="number" name="prepTime">
+          <br/><br/>
+          <label><b>Prep Time:
+            <input type="number" name="prepTime" id="number">
+            Minutes</b> 
           </label>
-          <label>Cooking Time:
-            <input type="number" name="cookTime" required>
+          <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cook Time:
+            <input type="number" name="cookTime" id="number" required>
+           Minutes</b></label>
+          <br/><br/>
+          <label><b>Temperature: 
+            <input type="number" name="temp"  id="number">
+           in Fahrenheit</b></label>
+          <label><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portions:</b> 
+            <input type="number" name="yield" min=1 required id="number">
           </label>
-          <label>Cooking Temperature: 
-            <input type="number" name="temp"  id="">
-          </label>
-          <label>Number of portions: 
-            <input type="number" name="yield" min=1 required>
-          </label>
-          <br/>
+          <br/><br/>
           <div id="ingredienList">
-            <input type="text" name="ingredients"><br/>
-            <a href="#" id="addIngredientLink" onclick="addFields()">Add more Ingredients</a>
+          <label><b>Ingredients:</b>
+            <input type="text" name="ingredients" size="43"><br/><br/>
+            <button><a href="#" id="addIngredientLink" onclick="addFields()">Add more Ingredients</a></button>
+            <br/>
             <div id="container"></div>
           </div>
-          <label>Preperation Instructions: 
+        </label>
+        <br/><br/>
+          <label><b>Preperation Instructions:</b> 
             <textarea name="instructions" cols="50" rows="15" required spellcheck="true"></textarea>
-            <label>Picture URL:
+            <br/><br/>
+            <label><b>Picture URL:</b>
               <input type="text" name="picture" id="pictureUrl">
             </label>
+            <br/><br/>
           </label>
           <input hidden name="owner" value="<%=owner%>">
           <input hidden name="ownerName" value="<%=ownerName%>">
