@@ -1,38 +1,32 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/recipes/index.css">
 <%- include('../partials/nav') %>
+<link rel="stylesheet" href="/stylesheets/recipes/index.css">
 
 <main>
   <div id="topSpaceBuffer"></div>
-  <h1><%= title %></h1>
-    
-      <div id="recipesIndexView">
+  <% if (user?.profile._id) { %>
+  <div id="recipesIndexView">
         <% recipes.forEach(recipe =>{ %>
           <a href="/recipes/<%= recipe._id %>">
           <div id="recipeIndexCard">
             <h2><%=recipe.name%></h2>
             <% if (recipe.picture) {%>
-            <img src="<%=recipe.picture%>" alt="Picture of prepared food">
+            <img id="recipePic" src="<%=recipe.picture%>" alt="Picture of prepared food">
             <% } %>
             <p>
-              Preperation Time: <%=recipe.PrepTime%><br/>
-              Cooking Time: <%=recipe.cookTime%><br/>
-              Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
-              Number of Portions: <%=recipe.yield%><br/>
-              Cooking Instructions: <%=recipe.instructions%><br/>
+              <b>Cook Time:</b> <%=recipe.cookTime%>  
+              <b>Prep Time:</b> <%=recipe.PrepTime%><br/>
+              <b>Temp:</b> <%=recipe.temp%> Fahrenheit<br/>
+              <b>Portions:</b> <%=recipe.yield%><br/>
+              <b>Instructions:</b> <%=recipe.instructions%>
             </p>
           </div>
           <%})%>
       </div>
-      <div>
-        <% if (user?.profile._id) { %>
-        <a href="/recipes/new">
-          <input value="add recipe" type="submit"/>
-        </a>
-        <% } else { %>
-          <h1>You must be Logged in to add recipes!</h1>
+
+
           <% } %>
-        </div>
+
 </main>
 
 <%- include('../partials/footer') %>
