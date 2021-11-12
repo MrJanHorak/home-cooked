@@ -1,315 +1,268 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/mealplans/new.css">
+<link rel="stylesheet" href="/stylesheets/mealplans/edit.css">
 <%- include('../partials/nav') %>
-
-<main>
-  <div id="topSpaceBuffer"></div>
-  <div id="viewMealplan">
-  <h1><%= title %></h1>
-    <% if (user?.profile._id) { %>
-      <div id="showMealplan">
-        <p>To create a mealplan please choose a meal for each available selection in the dropdown menu. Click submit when you are finished selecting the meals for the week.</p>
-        <form action="/mealplans/<%= mealplan._id %>?_method=PUT" method="POST">
-        <div class="weekday" id="monday">
-          <div class="dayName">
-            <h1>Monday</h1>
-          </div> 
-            <div class="mealtime" id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[0]%></option>
+<h1><%= title %></h1>
+  <main>
+    <div id="topSpaceBuffer"></div>
+    <div id="mealplanShowView">
+      <% if (user?.profile._id) { %>
+        <div id="showMealplan">
+          <p>To create or edit a mealplan please choose a meal for each day from the corresponding dropdown menu. <br/>
+          Click submit when you are finished selecting the meals for the week.</p>
+          <form action="/mealplans/<%= mealplan._id %>?_method=PUT" method="POST">
+        <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
+          <p>
+            <table id="mealplanTable">
+            <tr>
+              <th>Weekday</th>
+              <th>Breakfast</th>
+              <th>Lunch</th>
+              <th>Snack</th>
+              <th>Supper</th>
+            </tr> 
+            <tr>
+              <td>Monday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[0]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[1]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[1]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[2]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[3]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Tuesday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[4]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[2]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[5]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[6]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[7]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Wednesday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[8]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[3]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[9]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[10]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[11]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Thursday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[12]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="tuesday">
-          <div class="dayName">
-            <h1>Tuesday</h1>
-          </div>
-            <div class="mealtime" id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[4]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[13]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[14]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[15]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Friday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[16]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[5]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[17]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[18]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[19]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Saturday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[20]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[6]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[21]%></option>
+                <% recipes.forEach(recipe => { %>
+                  <option><%= recipe.name %></option>
+                <% }); %>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[22]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[23]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Sunday:</td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[24]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
               </select>
-            </div>
-            <div class="mealtime" id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[7]%></option>
+            </td>
+              <td><select name="meals"  id="selectMeal">
+                <option ><%=mealplan.meals[25]%></option>
                 <% recipes.forEach(recipe => { %>
                   <option><%= recipe.name %></option>
                 <% }); %>
-              </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="wednesday">
-          <div class="dayName">
-            <h1>Wednesday</h1>
-          </div> 
-            <div id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[8]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[9]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[10]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[11]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="thursday">
-          <div class="dayName">
-            <h1>Thursday</h1>
-          </div> 
-            <div id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[12]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[13]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[14]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[15]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="friday">
-          <div class="dayName">
-            <h1>Friday</h1>
-          </div> 
-            <div id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[16]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[17]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[18]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[19]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="saturday">
-          <div class="dayName">
-            <h1>Saturday</h1>
-          </div> 
-            <div id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[20]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[21]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[22]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[23]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-        </div>
-
-        <div class="weekday" id="sunday">
-          <div class="dayName">
-            <h1>Sunday</h1>
-          </div> 
-            <div id="breakfast">
-              <h2>Choose a Breakfast</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[24]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="lunch">
-              <h2>Choose a Lunch</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[25]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="snack">
-              <h2>Choose a Snack</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[26]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-            <div id="supper">
-              <h2>Choose a Supper</h2>
-              <select name="meals" id="selectMeal">
-                <option><%=mealplan.meals[27]%></option>
-                <% recipes.forEach(recipe => { %>
-                  <option><%= recipe.name %></option>
-                <% }); %>
-              </select>
-            </div>
-          </div>
+              </select></td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[26]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+              <td>
+                <select name="meals"  id="selectMeal">
+                  <option ><%=mealplan.meals[27]%></option>
+                  <% recipes.forEach(recipe => { %>
+                    <option><%= recipe.name %></option>
+                  <% }); %>
+                </select>
+              </td>
+            </tr>
+          </table>
+          </p>
           <button type="submit">Submit</button>
         </form>
 
     <% } else{ %>
       <h1>You must be Logged in to add mealplans!</h1>
     <% } %>
+          </div>
+        </div>
   </div>
-</main>
 
+
+</main>
 <%- include('../partials/footer') %>
