@@ -67,10 +67,10 @@
         <br/>
         <div id="buttonDiv">
           <form>
-            <input type="button" class="btn" value="👈🏼Go back!" onclick="history.back()" />
+            <input type="button" class="btn" value="Go back!" onclick="history.back()" />
           </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
-        <button class="btn" type="submit">arrowUpdate Recipe</button>
+        <button class="btn" type="submit">Update Recipe</button>
       </form>
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
         <input hidden name="ownerName" value="<%=ownerName%>" />
