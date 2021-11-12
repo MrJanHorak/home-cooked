@@ -1,142 +1,140 @@
-<%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/profiles/show.css">
-<%- include('../partials/nav') %>
+<%- include('../partials/html-head') %> <%- include('../partials/nav') %>
+<link rel="stylesheet" href="/stylesheets/profiles/show.css" />
 
 <main>
   <div id="topSpaceBuffer"></div>
   <% if (profile.avatar) { %>
-    <div>
-      <img 
-        class="profile-avatar"
-        src="<%= profile.avatar %>" 
-        alt="<%= profile.name %> avatar"
-      >
-    </div>
+  <div>
+    <img
+      class="profile-avatar"
+      src="<%= profile.avatar %>"
+      alt="<%= profile.name %> avatar"
+    />
+  </div>
+
   <% } %>
-  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-<h2>Recipes added by <%= isSelf ? "you" : profile.name %> </h2>  
+  <h1>Recipes added by <%= isSelf ? "you" : profile.name %></h1>
+  <br />
   <div id="recipesIndexView">
-  <% recipes.forEach(recipe =>{ %>
+    <% recipes.forEach(recipe =>{ %>
     <div id="recipeIndexCard">
-      <% if (recipe.owner.equals(user?.profile._id)) { %>
-        <div id="profileShowViewButtons">
+      <% if (recipe.owner.equals(profile._id)) { %>
+      <div id="profileShowViewButtons">
+        <% if(isSelf) { %>
+
         <a href="/recipes/<%= recipe._id %>/edit">
-          <input value="Edit Recipe" type="submit"/>
+          <input value="Edit Recipe" type="submit" />
         </a>
         <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
           <button class="btn" type="submit">X</button>
         </form>
         <% } %>
       </div>
-        <a href="/recipes/<%= recipe._id %>">
-          <h2><%=recipe.name%></h2>
-          <% if (recipe.picture) {%>
-            <img src="<%=recipe.picture%>" alt="Picture of prepared food">
-            <% } %>
-          <p>
-          Preperation Time: <%=recipe.PrepTime%><br/>
-          Cooking Time: <%=recipe.cookTime%><br/>
-          Cooking Temperature: <%=recipe.temp%> Fahrenheit<br/>
-          Number of Portions: <%=recipe.yield%><br/>
-          Cooking Instructions: <%=recipe.instructions%><br/>
+      <a href="/recipes/<%= recipe._id %>">
+        <h2><%=recipe.name%></h2>
+        <% if (recipe.picture) {%>
+        <img
+          src="<%=recipe.picture%>"
+          id="recipePic"
+          alt="Picture of prepared food"
+        />
+        <% } %>
+        <p>
+          <b>Cook Time:</b> <%=recipe.cookTime%>
+          <b>Prep Time:</b> <%=recipe.PrepTime%><br />
+          <b>Temp:</b> <%=recipe.temp%> Fahrenheit<br />
+          <b>Portions:</b> <%=recipe.yield%><br />
+          <b>Instructions:</b> <%=recipe.instructions%>
         </p>
       </a>
-      </div>
-    <%})%>
-</div>
+    </div>
+    <%}})%>
+  </div>
 
-<h2>Mealplans created by <%= isSelf ? "you" : profile.name %> </h2>  
-
-<% mealplans.forEach(mealplan =>{ %>
-  <div id="recipeIndexCard">
-    <% if (mealplan.owner.equals(user?.profile._id)) { %>
+  <br />
+  <h1>Mealplans created by <%= isSelf ? "you" : profile.name %></h1>
+  <br />
+  <div id="mealplanIndexView">
+    <% mealplans.forEach(mealplan =>{ %>
+    <div id="mealplanIndexCard">
+      <% if (mealplan.owner.equals(user?.profile._id)) { %>
+        <div id="profileShowViewButtons">
       <a href="/mealplans/<%= mealplan._id %>/edit">
-        <input value="Edit Mealplan" type="submit"/>
+        <input value="Edit Mealplan" type="submit" />
       </a>
-      <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
+      <form
+        action="/mealplans/<%= mealplan._id %>?_method=DELETE"
+        method="POST"
+      >
         <button class="btn" type="submit">x</button>
       </form>
-
-  <% } %>
-    <% if (mealplan.owner.equals(user?.profile._id)) { %>
-      <div id="mealplanIndexView">
-        <% mealplans.forEach(mealplan =>{ %>
-          <a href="/mealplans/<%= mealplan._id %>">
-          <div id="mealplanIndexCard">
-
-            <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
-            <p>
-              <table>
-              <tr>
-                <th>Weekday</th>
-                <th>Breakfast</th>
-                <th>Lunch</th>
-                <th>Snack</th>
-                <th>Supper</th>
-              </tr> 
-              <tr>
-                <td>Monday:</td>
-                <td><%=mealplan.meals[0] %></td>
-                <td><%=mealplan.meals[1] %></td>
-                <td><%=mealplan.meals[2] %></td>
-                <td><%=mealplan.meals[3] %></td>
-              </tr>
-              <tr>
-                <td>Tuesday:</td>
-                <td><%=mealplan.meals[4] %></td>
-                <td><%=mealplan.meals[5] %></td>
-                <td><%=mealplan.meals[6] %></td>
-                <td><%=mealplan.meals[7] %></td>
-              </tr>
-              <tr>
-                <td>Wednesday:</td>
-                <td><%=mealplan.meals[8] %></td>
-                <td><%=mealplan.meals[9] %></td>
-                <td><%=mealplan.meals[10] %></td>
-                <td><%=mealplan.meals[11] %></td>
-              </tr>
-              <tr>
-                <td>Thursday:</td>
-                <td><%=mealplan.meals[12] %></td>
-                <td><%=mealplan.meals[13] %></td>
-                <td><%=mealplan.meals[14] %></td>
-                <td><%=mealplan.meals[15] %></td>
-              </tr>
-              <tr>
-                <td>Friday:</td>
-                <td><%=mealplan.meals[16] %></td>
-                <td><%=mealplan.meals[17] %></td>
-                <td><%=mealplan.meals[18] %></td>
-                <td><%=mealplan.meals[19] %></td>
-              </tr>
-              <tr>
-                <td>Saturday:</td>
-                <td><%=mealplan.meals[20] %></td>
-                <td><%=mealplan.meals[21] %></td>
-                <td><%=mealplan.meals[22] %></td>
-                <td><%=mealplan.meals[23] %></td>
-              </tr>
-              <tr>
-                <td>Sunday:</td>
-                <td><%=mealplan.meals[24] %></td>
-                <td><%=mealplan.meals[25] %></td>
-                <td><%=mealplan.meals[26] %></td>
-                <td><%=mealplan.meals[27] %></td>
-              </tr>
-            </table>
-
-            </p>
-          </div>
-          </a>
-          <%})%>
+</div>
+      <% } %> <% if (mealplan.owner.equals(profile._id)) { %>
+      <a href="/mealplans/<%= mealplan._id %>">
+        <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
+        <table id="mealplanTable">
+          <tr>
+            <th>Weekday</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Snack</th>
+            <th>Supper</th>
+          </tr>
+          <tr>
+            <td>Monday:</td>
+            <td><%=mealplan.meals[0] %></td>
+            <td><%=mealplan.meals[1] %></td>
+            <td><%=mealplan.meals[2] %></td>
+            <td><%=mealplan.meals[3] %></td>
+          </tr>
+          <tr>
+            <td>Tuesday:</td>
+            <td><%=mealplan.meals[4] %></td>
+            <td><%=mealplan.meals[5] %></td>
+            <td><%=mealplan.meals[6] %></td>
+            <td><%=mealplan.meals[7] %></td>
+          </tr>
+          <tr>
+            <td>Wednesday:</td>
+            <td><%=mealplan.meals[8] %></td>
+            <td><%=mealplan.meals[9] %></td>
+            <td><%=mealplan.meals[10] %></td>
+            <td><%=mealplan.meals[11] %></td>
+          </tr>
+          <tr>
+            <td>Thursday:</td>
+            <td><%=mealplan.meals[12] %></td>
+            <td><%=mealplan.meals[13] %></td>
+            <td><%=mealplan.meals[14] %></td>
+            <td><%=mealplan.meals[15] %></td>
+          </tr>
+          <tr>
+            <td>Friday:</td>
+            <td><%=mealplan.meals[16] %></td>
+            <td><%=mealplan.meals[17] %></td>
+            <td><%=mealplan.meals[18] %></td>
+            <td><%=mealplan.meals[19] %></td>
+          </tr>
+          <tr>
+            <td>Saturday:</td>
+            <td><%=mealplan.meals[20] %></td>
+            <td><%=mealplan.meals[21] %></td>
+            <td><%=mealplan.meals[22] %></td>
+            <td><%=mealplan.meals[23] %></td>
+          </tr>
+          <tr>
+            <td>Sunday:</td>
+            <td><%=mealplan.meals[24] %></td>
+            <td><%=mealplan.meals[25] %></td>
+            <td><%=mealplan.meals[26] %></td>
+            <td><%=mealplan.meals[27] %></td>
+          </tr>
+        </table>
       </div>
-  <%}})%>
-
-<% if (isSelf)  {%> 
-  Add a recipe?
-<% } %>
-
-
+      </a>
+      <%}})%>
+    </div>
+    <br/>
+  </div>
 </main>
-
-<%- include('../partials/footer') %>
+<%-include('../partials/footer') %>

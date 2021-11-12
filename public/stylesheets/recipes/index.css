@@ -9,6 +9,7 @@ img{
 
 p {
   line-height:15px;
+  text-align: justify ;
 }
 
 a {
@@ -18,10 +19,6 @@ a {
 
 a:hover {
   color:rgba(71, 71, 71, 0.8)
-}
-
-p {
-  text-align: justify ;
 }
 
 #recipePic {

@@ -5,8 +5,8 @@
 <main>
   <div id="topSpaceBuffer"></div>
   <% profiles.forEach(profile => { %>
-    <a href="/profiles/<%= profile._id %>">
-  <div class="userProfileIndex">
+  <a href="/profiles/<%= profile._id %>">
+    <div class="userProfileIndex">
       <% if (profile.avatar) { %>
       <img
         class="card-img-top"
@@ -27,15 +27,15 @@
         <% let total=0 %> <% let profileI = `${profile._id}` %> <%
         recipes.forEach(recipe => { %> <% let rOwner = `${recipe.owner}` %> <%
         if (rOwner===profileI) { %> <% total+=1 %> <%} %> <% })%>
-        <p><b>Recipes contributed: <%=total %></b> </p>
+        <p><b>Recipes contributed: <%=total %></b></p>
         <% let total2=0 %> <% let profileM = `${profile._id}` %> <%
-        mealplans.forEach(mealplan => { %> <% let mOwner = `${mealplan.owner}` %> 
-        <%if (mOwner===profileM) { %> <% total2+=1 %> <%} %> <% })%>
-        <p><b>Mealplans contributed: <%=total2 %></b> </p>
+        mealplans.forEach(mealplan => { %> <% let mOwner = `${mealplan.owner}`
+        %> <%if (mOwner===profileM) { %> <% total2+=1 %> <%} %> <% })%>
+        <p><b>Mealplans contributed: <%=total2 %></b></p>
         <p><b>Joined: <%=profile.createdAt.toString().substring(0,15)%></b></p>
       </div>
-      </div>
-      </a>
+    </div>
+  </a>
   <% }) %>
 </main>
 
