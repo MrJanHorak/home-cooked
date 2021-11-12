@@ -1,25 +1,38 @@
-
-
 img {
   width: 76px;
 }
 
 .userProfileIndex {
-  width: 400px;
-  background-color: blanchedalmond;
-  margin: 15px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  width: 550px;
+  height: auto;
+  margin: 17px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 4px;
   padding: 10px;
+  overflow: hidden;
+  background-color: rgba(253, 253, 253, 0.8);
+  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+  font-size: 1.5em;
 }
 
-#profileShowViewButtons{
-  display: flex;
-}
+
 p {
-  line-height:15px;
+  line-height: 15px;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.card-img-top {
+  width: 150px;
+  float: left;
+  margin: 25px;
+  padding: 4px;
+  border: 2px solid wheat;
+  border-radius: 9px;
+
 }

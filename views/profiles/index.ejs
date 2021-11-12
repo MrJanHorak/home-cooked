@@ -1,43 +1,42 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/profiles/index.css">
+<link rel="stylesheet" href="/stylesheets/profiles/index.css" />
 <%- include('../partials/nav') %>
 
-<main >
+<main>
   <div id="topSpaceBuffer"></div>
-      <% profiles.forEach(profile => { %>
-        <div class="userProfileIndex">
-
-          <a  href="/profiles/<%= profile._id %>">
-
-              <% if (profile.avatar) { %>
-                <img
-                  class="card-img-top"
-                  src="<%= profile.avatar %>"
-                  alt="<%= profile.name %>'s avatar"
-                  width="100%"
-                />
-              <% } else {%>
-                <img
-                  class="card-img-top"
-                  src="/images/icons/user.png"
-                  alt="A placeholder avatar"
-                  width="100%"
-                />
-              <% } %>
-                <h2>Chef <%= profile.name %></h2>
-                <% let total=0 %>
-                <% let profileI = `${profile._id}` %>
-                <% recipes.forEach(recipe => { %>
-                <% let rOwner = `${recipe.owner}` %>
-                  <% if (rOwner===profileI) { %>
-                    <% total+=1 %>
-                    <%} %>
-                    <% })%>
-                    <p>Has contributed <%=total %> recipes</p>                  
-          </a>
-        </div>
-      <% }) %>
-
+  <% profiles.forEach(profile => { %>
+    <a href="/profiles/<%= profile._id %>">
+  <div class="userProfileIndex">
+      <% if (profile.avatar) { %>
+      <img
+        class="card-img-top"
+        src="<%= profile.avatar %>"
+        alt="<%= profile.name %>'s avatar"
+        width="100%"
+      />
+      <% } else { %>
+      <img
+        class="card-img-top"
+        src="/images/icons/user.png"
+        alt="A placeholder avatar"
+        width="100%"
+      />
+      <% } %>
+      <div id="userInfo">
+        <h2><%= profile.name %></h2>
+        <% let total=0 %> <% let profileI = `${profile._id}` %> <%
+        recipes.forEach(recipe => { %> <% let rOwner = `${recipe.owner}` %> <%
+        if (rOwner===profileI) { %> <% total+=1 %> <%} %> <% })%>
+        <p><b>Recipes contributed: <%=total %></b> </p>
+        <% let total2=0 %> <% let profileM = `${profile._id}` %> <%
+        mealplans.forEach(mealplan => { %> <% let mOwner = `${mealplan.owner}` %> 
+        <%if (mOwner===profileM) { %> <% total2+=1 %> <%} %> <% })%>
+        <p><b>Mealplans contributed: <%=total2 %></b> </p>
+        <p><b>Joined: <%=profile.createdAt.toString().substring(0,15)%></b></p>
+      </div>
+      </div>
+      </a>
+  <% }) %>
 </main>
 
 <%- include('../partials/footer') %>

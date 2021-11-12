@@ -5,9 +5,8 @@
 }
 
 p {
-  line-height:25px;
+  line-height: 25px;
 }
-
 
 #ratingBox {
   width: 98%;
@@ -29,8 +28,8 @@ p {
   border: 1px solid rgb(201, 201, 201);
   border-radius: 4px;
   padding: 10px;
-  overflow:hidden;
-  background-color: rgba(253, 253, 253, .8);
+  overflow: hidden;
+  background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   font-size: 1.5em;
 }
@@ -40,42 +39,46 @@ p {
   border-radius: 50%;
   border: 1px solid #ddd;
   vertical-align: middle;
-  }
+}
 
-  
-  #recipeComment {
-    width: 98%;
-    height: auto;
-    margin-top: 10px;
-    margin: 3px;
-    border-radius: 4px;
-    padding: 13px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background-color: rgba(121, 102, 74, 0.6);
-    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
-    color: white;
-    font-size: 1em;
-  }
-  
-  #commentatorInfo {
-    margin-top: 13px;
-    text-align: center;
-    font-size: .6em;
-    margin-bottom: 13px;
-  }
+#recipeComment {
+  width: 98%;
+  height: auto;
+  margin-top: 10px;
+  margin: 3px;
+  border-radius: 4px;
+  padding: 13px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: rgba(121, 102, 74, 0.6);
+  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+  color: white;
+  font-size: 1em;
+}
 
-  .Stars {
-    --percent: calc(var(--rating) / 5 * 100%);
-    display: inline-block;
-    font-size: var(--star-size);
-    font-family: Times; 
-    line-height: 1;}
-    
-    .Stars::before {
-      content: '★★★★★';
-      letter-spacing: 3px;
-      background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+#commentatorInfo {
+  margin-top: 13px;
+  text-align: center;
+  font-size: 0.6em;
+  margin-bottom: 13px;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+
+.Stars::before {
+  content: "★★★★★";
+  letter-spacing: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
