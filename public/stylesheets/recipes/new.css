@@ -23,5 +23,28 @@ a {
 }
 
 #number {
-  width: 3em;
+  width: 3.5em;
+}
+
+textarea {
+  resize: none;
+  white-space: pre-wrap;
+}
+
+.btn {
+  border: none;
+  background-color: rgba(185, 181, 173, 0.6);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 9px;
+  height: 35px;
+}
+
+.btn:hover {
+  background-color: rgba(179, 167, 145, 0.6) ;
+  color: white;
+}
+
+#buttonDiv{
+  display:flex;
 }

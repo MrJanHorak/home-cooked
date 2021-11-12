@@ -11,7 +11,7 @@
       <div id="recipesDetailView">
         <h2><%=recipe.name%></h2>
         <% if (recipe.picture) {%>
-          <img src="<%=recipe.picture%>" alt="Picture of prepared food">
+          <img id="recipeFoodPic" src="<%=recipe.picture%>" alt="Picture of prepared food">
           <% } %>
         <p>
           <b>Prep Time:</b> <%=recipe.PrepTime%><br/>
@@ -34,11 +34,11 @@
                 </p>
                 <div id="recipeButtons">
         <form>
-          <input type="button" value="Go back" onclick="history.back()">
+          <input class="btn" type="button" value="Go back" onclick="history.back()">
         </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
             <a href="/recipes/<%= recipe._id %>/edit">
-              <input value="Edit Recipe" type="submit"/>
+              <input class="btn" value="Edit Recipe" type="submit"/>
             </a>
             <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
               <button class="btn" type="submit">Delete</button>
@@ -57,7 +57,7 @@
         </div>
       <% recipe.comments.forEach(comment => { %>
       <div id="recipeComment">
-          <%=comment.content %><br/><br/>
+          <%=comment.content %><br/>
           <div id="commentatorInfo">
           <img id="commentProfilePic" src="<%=comment.avatar%>">
           <span id="commentator"><b><%=comment.name %></b> commented on 
@@ -70,7 +70,7 @@
               method="POST"
             >
             <br/>
-              <button type="submit">remove comment</button>
+              <button class="btn" type="submit">remove comment</button>
             </form>
             <% } %>
           </div>
@@ -95,7 +95,7 @@
         <br/>
         <input hidden name="name" value="<%=name%>">
         <input hidden name="avatar" value="<%=avatar%>">
-        <button type="submit">Add Comment</button>
+        <button class="btn" type="submit">Add Comment</button>
       </form>
       </div>
     <% } %>  

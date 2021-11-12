@@ -28,6 +28,20 @@ a:hover {
   border: 2px solid wheat;
 }
 
+.btn {
+  border: none;
+  background-color: rgba(185, 181, 173, 0.6);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 9px;
+  height: 25px;
+}
+
+.btn:hover {
+  background-color: rgba(179, 167, 145, 0.6) ;
+  color: white;
+}
+
 #recipePic {
   float: right;
   margin: 1px;

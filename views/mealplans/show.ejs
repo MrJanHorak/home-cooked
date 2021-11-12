@@ -70,7 +70,7 @@
           <% if (mealplan.owner.equals(user?.profile._id)) { %>
             <div id="mealplanButtons">
             <a href="/mealplans/<%= mealplan._id %>/edit">
-              <input value="Edit Mealplan" type="submit"/>
+              <input class="btn" value="Edit Mealplan" type="submit"/>
             </a>
             &emsp;
             <form action="/mealplans/<%= mealplan._id %>?_method=DELETE" method="POST">
@@ -98,7 +98,7 @@
                 action="/mealplans/<%= mealplan._id %>/comments/<%=comment.id%>?_method=DELETE" 
                 method="POST"
               >
-                <button type="submit" id="delete">Delete</button>
+                <button class="btn" type="submit" id="delete">Delete</button>
               </form>
               <% } %>
             </div>
@@ -115,7 +115,7 @@
           <br/>
           <input hidden name="name" value="<%=name%>">
           <input hidden name="avatar" value="<%=avatar%>">
-          <button type="submit">Add Comment</button>
+          <button class="btn" type="submit">Add Comment</button>
         </form>
         </div> 
 </main>

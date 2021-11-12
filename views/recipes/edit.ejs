@@ -57,12 +57,20 @@
 <%=recipe.instructions%></textarea
           >
         </label>
+        <br/>
+        <br/>
         <label
           >Picture URL:
-          <input type="text" name="picture" id="pictureUrl" />
+          <input type="text" name="picture" value="<%=recipe.picture%>" id="pictureUrl" size="44" />
         </label>
+        <br/>
+        <br/>
+        <div id="buttonDiv">
+          <form>
+            <input type="button" class="btn" value="👈🏼Go back!" onclick="history.back()" />
+          </form>
         <% if (recipe.owner.equals(user?.profile._id)) { %>
-        <button type="submit">Update Recipe</button>
+        <button class="btn" type="submit">arrowUpdate Recipe</button>
       </form>
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
         <input hidden name="ownerName" value="<%=ownerName%>" />
@@ -70,9 +78,7 @@
         <button class="btn" type="submit">Delete</button>
       </form>
       <% } %>
-      <form>
-        <input type="button" value="Go back!" onclick="history.back()" />
-      </form>
+    </div>
     </div>
     <% } else{ %>
     <h1>You must be Logged in to add recipes!</h1>

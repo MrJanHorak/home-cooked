@@ -25,7 +25,7 @@
         <% if(isSelf) { %>
 
         <a href="/recipes/<%= recipe._id %>/edit">
-          <input value="Edit Recipe" type="submit" />
+          <input class="btn" value="Edit Recipe" type="submit" />
         </a>
         <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
           <button class="btn" type="submit">X</button>
@@ -66,7 +66,7 @@
       <% if (mealplan.owner.equals(user?.profile._id)) { %>
         <div id="profileShowViewButtons">
       <a href="/mealplans/<%= mealplan._id %>/edit">
-        <input value="Edit Mealplan" type="submit" />
+        <input class="btn" value="Edit Mealplan" type="submit" />
       </a>
       <form
         action="/mealplans/<%= mealplan._id %>?_method=DELETE"

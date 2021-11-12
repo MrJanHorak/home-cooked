@@ -109,6 +109,16 @@ form {
   width: 25px;
 }
 
+#recipeFoodPic {
+  float: right;
+  width: 98%;
+  padding: 4px;
+  border-radius: 4px;
+  border: 2px solid wheat;
+  margin-bottom: 15px;
+
+}
+
 .rating__result {
   position: absolute;
   top: 0;
