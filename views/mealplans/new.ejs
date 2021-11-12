@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/mealplans/new.css">
+<link rel="stylesheet" href="/stylesheets/mealplans/new.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -7,18 +7,24 @@
   <h1><%= title %></h1>
   <div id="newMealplan">
     <% if (user?.profile._id) { %>
-      <div id="createMealplan">
-        <form action="/mealplans" method="POST">
-          <p>Please chose a name and a date for your new meal plan</p>
-          <input type="text" name="name" size="50" id="mealplanNameInput" required>
-          <input type="date" name="weekOf" id="date"  required>
-          <br/>
-          <br/>
-          <button type="submit">Add Mealplan</button>
-        </form>
-      </div>
+    <div id="createMealplan">
+      <form action="/mealplans" method="POST">
+        <p>Please chose a name and a date for your new meal plan</p>
+        <input
+          type="text"
+          name="name"
+          size="50"
+          id="mealplanNameInput"
+          required
+        />
+        <input type="date" name="weekOf" id="date" required />
+        <br />
+        <br />
+        <button type="submit">Add Mealplan</button>
+      </form>
+    </div>
     <% } else{ %>
-      <h1>You must be Logged in to add mealplans!</h1>
+    <h1>You must be Logged in to add mealplans!</h1>
     <% } %>
   </div>
 </main>

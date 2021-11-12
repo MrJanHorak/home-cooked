@@ -1,10 +1,8 @@
-import { Router } from 'express'
-import * as indexCtrl from '../controllers/index.js'
+import { Router } from "express";
+import * as indexCtrl from "../controllers/index.js";
 
-const router = Router()
+const router = Router();
 
-router.get('/',  indexCtrl.index)
+router.get("/", indexCtrl.index);
 
-export {
-  router
-}
+export { router };

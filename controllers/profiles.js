@@ -25,21 +25,23 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
     .then((profile) => {
-      Recipe.find({ owner: req.params.id }).then((recipes) => {
-        Mealplan.find({ owner: req.params.id }).then((mealplans) => {
-          Profile.findById(req.user.profile._id).then((self) => {
-            const isSelf = self._id.equals(profile._id);
-            res.render("profiles/show", {
-              title: `${profile.name}'s profile`,
-              mealplans,
-              profile,
-              self,
-              isSelf,
-              recipes,
+      Recipe.find({ owner: req.params.id })
+        .sort({ name: "asc" })
+        .then((recipes) => {
+          Mealplan.find({ owner: req.params.id }).then((mealplans) => {
+            Profile.findById(req.user.profile._id).then((self) => {
+              const isSelf = self._id.equals(profile._id);
+              res.render("profiles/show", {
+                title: `${profile.name}'s profile`,
+                mealplans,
+                profile,
+                self,
+                isSelf,
+                recipes,
+              });
             });
           });
         });
-      });
     })
     .catch((err) => {
       console.log(err);

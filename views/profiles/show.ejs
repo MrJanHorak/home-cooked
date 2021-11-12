@@ -16,9 +16,11 @@
   <h1>Recipes added by <%= isSelf ? "you" : profile.name %></h1>
   <br />
   <div id="recipesIndexView">
+    <% let recipeTotal=0 %>
     <% recipes.forEach(recipe =>{ %>
     <div id="recipeIndexCard">
       <% if (recipe.owner.equals(profile._id)) { %>
+        <% recipeTotal+=1 %>
       <div id="profileShowViewButtons">
         <% if(isSelf) { %>
 
@@ -47,6 +49,9 @@
           <b>Instructions:</b> <%=recipe.instructions%>
         </p>
       </a>
+      <% if (recipeTotal===0) { %>
+        <h2>This user has not added any recipes yet.</h2>
+      <% } %>
     </div>
     <%}})%>
   </div>
@@ -55,6 +60,7 @@
   <h1>Mealplans created by <%= isSelf ? "you" : profile.name %></h1>
   <br />
   <div id="mealplanIndexView">
+    <% let mealplanTotal = 0 %>
     <% mealplans.forEach(mealplan =>{ %>
     <div id="mealplanIndexCard">
       <% if (mealplan.owner.equals(user?.profile._id)) { %>
@@ -70,6 +76,7 @@
       </form>
 </div>
       <% } %> <% if (mealplan.owner.equals(profile._id)) { %>
+        <% mealplanTotal+=1 %>
       <a href="/mealplans/<%= mealplan._id %>">
         <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
         <table id="mealplanTable">
@@ -133,6 +140,9 @@
       </div>
       </a>
       <%}})%>
+      <% if (mealplanTotal===0) { %>
+      <h2>There are currently no meal plans created by this user.</h2>
+      <% } %>
     </div>
     <br/>
   </div>

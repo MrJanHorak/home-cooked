@@ -21,7 +21,7 @@ a:hover {
 }
 
 .profile-avatar {
-  width:150px;
+  width: 150px;
   border-radius: 9px;
   margin: 15px;
   padding: 4px;
@@ -71,11 +71,11 @@ a:hover {
 }
 
 #mealplanIndexView {
-  display:flex;
+  display: flex;
   justify-content: center;
   width: 70%;
   margin: auto;
-  background-color: rgba(253, 253, 253, .8);
+  background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   flex-wrap: wrap;
   border-radius: 6px;
@@ -86,19 +86,19 @@ a:hover {
   width: 250px;
   height: 150px;
   margin: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
   padding: 10px;
-  overflow:hidden;
+  overflow: hidden;
   background-color: rgba(255, 240, 217, 0.61);
-  font-size: .6em;
+  font-size: 0.6em;
 }
 
 #mealplanIndexCard:hover {
   background-color: rgba(240, 240, 240, 0.986);
 }
 
-#mealPlanName{
+#mealPlanName {
   text-align: center;
 }
 
@@ -108,12 +108,15 @@ a:hover {
   width: 100%;
 }
 
-#mealplanTable td, #mealplanTable th {
+#mealplanTable td,
+#mealplanTable th {
   border: 1px solid #ddd;
   padding: 2px;
 }
 
-#mealplanTable tr:nth-child(even){background-color: #f2f2f2;}
+#mealplanTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 #mealplanTable th {
   padding-top: 2px;
