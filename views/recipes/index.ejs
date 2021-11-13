@@ -9,7 +9,6 @@
     <% recipes.forEach(recipe =>{ %>
       <% if (recipe.visible) { %> 
         <a href="/recipes/<%= recipe._id %>">
-          <%=recipe.visible %>
           <div id="recipeIndexCard">
             <h2><%=recipe.name%></h2>
             <% if (recipe.picture) {%>

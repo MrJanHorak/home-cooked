@@ -31,12 +31,14 @@ function show(req, res) {
           Mealplan.find({ owner: req.params.id }).then((mealplans) => {
             Profile.findById(req.user.profile._id).then((self) => {
               const isSelf = self._id.equals(profile._id);
+              const role = self.role
               res.render("profiles/show", {
                 title: `${profile.name}'s profile`,
                 mealplans,
                 profile,
                 self,
                 isSelf,
+                role,
                 recipes,
               });
             });

@@ -18,12 +18,12 @@
   <div id="recipesIndexView">
     <% let recipeTotal=0 %>
     <% recipes.forEach(recipe =>{ %>
+      <% if (recipe.visible) { %> 
     <div id="recipeIndexCard">
       <% if (recipe.owner.equals(profile._id)) { %>
         <% recipeTotal+=1 %>
       <div id="profileShowViewButtons">
         <% if(isSelf) { %>
-
         <a href="/recipes/<%= recipe._id %>/edit">
           <input class="btn" value="Edit Recipe" type="submit" />
         </a>
@@ -53,9 +53,45 @@
         <h2>This user has not added any recipes yet.</h2>
       <% } %>
     </div>
+    <%}%>
     <%}})%>
   </div>
 
+  <br />
+  <br />
+  <%if (role==="admin") { %>
+  <div  id="recipesIndexView">
+  <h2>Only Visible to Admin and in Mealplan dropdown</h2>
+  <% recipes.forEach(recipe =>{ %>
+  <% if (recipe.visible===false) { %>
+    <div id="recipeIndexCard">
+      <div id="profileShowViewButtons">
+    <a href="/recipes/<%= recipe._id %>/edit">
+      <input class="btn" value="Edit Recipe" type="submit" />
+    </a>
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">X</button>
+    </form>
+    </div>
+  <a href="/recipes/<%= recipe._id %>">
+    <h2><%=recipe.name%></h2>
+    <% if (recipe.picture) {%>
+    <img
+      src="<%=recipe.picture%>"
+      id="recipePic"
+      alt="Picture of prepared food"
+    />
+    <% } %>
+    <p>
+      <b>Cook Time:</b> <%=recipe.cookTime%>
+      <b>Prep Time:</b> <%=recipe.PrepTime%><br />
+      <b>Temp:</b> <%=recipe.temp%> Fahrenheit<br />
+      <b>Portions:</b> <%=recipe.yield%><br />
+      <b>Instructions:</b> <%=recipe.instructions%>
+    </p>
+  </div> 
+  <% }})} %>
+</div>
   <br />
   <h1>Mealplans created by <%= isSelf ? "you" : profile.name %></h1>
   <br />
