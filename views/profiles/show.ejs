@@ -41,8 +41,10 @@
   <h1>Recipes added by <%= isSelf ? "you" : profile.name %></h1>
   <br />
   <div id="recipesIndexView">
+    <% let recipeInvisible=0 %>
     <% let recipeTotal=0 %>
     <% recipes.forEach(recipe =>{ %>
+      <% if (recipe.visible === false) { recipeInvisible+=1 } %>
       <% if (recipe.visible) { %> 
     <div id="recipeIndexCard">
       <% if (recipe.owner.equals(profile._id)) { %>
@@ -74,19 +76,22 @@
           <b>Instructions:</b> <%=recipe.instructions%>
         </p>
       </a>
+      
+      </div>
+      <%}%>
+      <%}})%>
       <% if (recipeTotal===0) { %>
         <h2>This user has not added any recipes yet.</h2>
       <% } %>
-    </div>
-    <%}%>
-    <%}})%>
   </div>
 
   <br />
+  <%if (recipeInvisible>0) { %>
+  <h2 id="adminH2">Only Visible to Admin and in Mealplan dropdown</h2>
+  <% } %>
   <br />
   <%if (role==="admin") { %>
   <div  id="recipesIndexView">
-  <h2>Only Visible to Admin and in Mealplan dropdown</h2>
   <% recipes.forEach(recipe =>{ %>
   <% if (recipe.visible===false) { %>
     <div id="recipeIndexCard">
@@ -117,6 +122,7 @@
   </div> 
   <% }})} %>
 </div>
+
   <br />
   <h1>Mealplans created by <%= isSelf ? "you" : profile.name %></h1>
   <br />
