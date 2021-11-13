@@ -32,6 +32,7 @@ const recipeSchema = new Schema(
     requested: [{ type: Schema.Types.ObjectId, ref: "Profile" }],
     temp: Number,
     rating: [Number],
+    visible: {type: Boolean, default: true}
   },
   {
     timestamps: true,

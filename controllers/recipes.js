@@ -20,6 +20,7 @@ function index(req, res) {
 function newRecipe(req, res) {
   Profile.findById(req.user.profile._id)
     .then((self) => {
+      const role = self.role;
       const owner = self._id;
       const isSelf = self._id.equals(req.user.profile._id);
       const ownerName = self.name;
@@ -28,6 +29,7 @@ function newRecipe(req, res) {
         title: "New Recipes",
         self,
         isSelf,
+        role,
         owner,
         ownerName,
         ownerAvatar,
@@ -40,6 +42,7 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
+  req.body.visible = !!req.body.visible
   Recipe.create(req.body)
     .then((recipe) => {
       res.redirect("/recipes");
@@ -89,6 +92,7 @@ function edit(req, res) {
   Recipe.findById(req.params.id)
     .then((recipe) => {
       Profile.findById(req.user.profile._id).then((self) => {
+        const role = self.role;
         const owner = self._id;
         const isSelf = self._id.equals(req.user.profile._id);
         const ownerName = self.name;
@@ -99,7 +103,8 @@ function edit(req, res) {
           owner,
           ownerName,
           ownerAvatar,
-          title: "",
+          role,
+          title: "Edit Recipe",
           recipe,
         });
       });
@@ -114,6 +119,7 @@ function update(req, res) {
   Recipe.findById(req.params.id)
     .then((recipe) => {
       if (recipe.owner.equals(req.user.profile._id)) {
+        req.body.visible = !!req.body.visible
         recipe.updateOne(req.body, { new: true }).then(() => {
           res.redirect(`/recipes/${recipe._id}`);
         });

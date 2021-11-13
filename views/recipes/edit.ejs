@@ -64,6 +64,10 @@
           <input type="text" name="picture" value="<%=recipe.picture%>" id="pictureUrl" size="44" />
         </label>
         <br/>
+        <% if(role==="admin") { %>
+          <br/>Make recipe invisible to the index view by deselcting the visibility checkbox. Visible?
+          <input type="checkbox" name="visible" checked>
+        <% } %>
         <br/>
         <div id="buttonDiv">
           <form>

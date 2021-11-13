@@ -6,9 +6,10 @@ const profileSchema = new Schema(
   {
     name: String,
     avatar: String,
+    role: { type:String, default:"user"},
+    likeLevel: Number,
     recipes: [{ type: Schema.Types.ObjectId, ref: "Recipe" }],
     mealplans: [{ type: Schema.Types.ObjectId, ref: "MealPlan" }],
-    likeLevel: Number,
   },
   {
     timestamps: true,
