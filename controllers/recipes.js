@@ -78,7 +78,7 @@ function show(req, res) {
           isSelf,
           avatar,
           name,
-          title: "",
+          title: "Recipe Details",
         });
       });
     })

@@ -42,6 +42,30 @@ a:hover {
   color: white;
 }
 
+.userProfileIndex {
+  display: flex;
+  flex-direction: row;
+  width: 550px;
+  height: auto;
+  margin: 17px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 4px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: rgba(253, 253, 253, 0.8);
+  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+  font-size: 1.5em;
+}
+
+.card-img-top {
+  width: 150px;
+  float: left;
+  margin: 25px;
+  padding: 4px;
+  border: 2px solid wheat;
+  border-radius: 9px;
+}
+
 #recipePic {
   float: right;
   margin: 1px;

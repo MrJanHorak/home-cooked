@@ -68,7 +68,7 @@ function show(req, res) {
             const name = self.name;
             const avatar = self.avatar;
             res.render("mealplans/show", {
-              title: ``,
+              title: 'Mealplan Details',
               mealplan,
               recipes,
               ownerName,
@@ -100,7 +100,7 @@ function edit(req, res) {
             const name = self.name;
             const avatar = self.avatar;
             res.render("mealplans/edit", {
-              title: ``,
+              title: 'Edit Mealplan',
               mealplan,
               recipes,
               ownerName,

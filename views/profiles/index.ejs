@@ -26,7 +26,7 @@
         <h2><%= profile.name %></h2>
         <% let total=0 %> <% let profileI = `${profile._id}` %> <%
         recipes.forEach(recipe => { %> <% let rOwner = `${recipe.owner}` %> <%
-        if (rOwner===profileI) { %> <% total+=1 %> <%} %> <% })%>
+        if (rOwner===profileI && recipe.visible) { %> <% total+=1 %> <%} %> <% })%>
         <p><b>Recipes contributed: <%=total %></b></p>
         <% let total2=0 %> <% let profileM = `${profile._id}` %> <%
         mealplans.forEach(mealplan => { %> <% let mOwner = `${mealplan.owner}`

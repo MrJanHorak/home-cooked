@@ -4,13 +4,38 @@
 <main>
   <div id="topSpaceBuffer"></div>
   <% if (profile.avatar) { %>
-  <div>
-    <img
-      class="profile-avatar"
-      src="<%= profile.avatar %>"
-      alt="<%= profile.name %> avatar"
-    />
-  </div>
+    <div class="userProfileIndex">
+      <% if (profile.avatar) { %>
+      <img
+        class="card-img-top"
+        src="<%= profile.avatar %>"
+        alt="<%= profile.name %>'s avatar"
+        width="100%"
+      />
+      <% } else { %>
+      <img
+        class="card-img-top"
+        src="/images/icons/user.png"
+        alt="A placeholder avatar"
+        width="100%"
+      />
+      <% } %>
+      <div id="userInfo">
+        <br/>
+        <br/>
+        <h2><%= profile.name %></h2>
+        <% let total=0 %> <% let profileI = `${profile._id}` %> <%
+        recipes.forEach(recipe => { %> <% let rOwner = `${recipe.owner}` %> <%
+        if (rOwner===profileI && recipe.visible) { %> <% total+=1 %> <%} %> <% })%>
+        <p><b>Recipes contributed: <%=total %></b></p>
+        <% let total2=0 %> <% let profileM = `${profile._id}` %> <%
+        mealplans.forEach(mealplan => { %> <% let mOwner = `${mealplan.owner}`
+        %> <%if (mOwner===profileM) { %> <% total2+=1 %> <%} %> <% })%>
+        <p><b>Mealplans contributed: <%=total2 %></b></p>
+        <p><b>Joined: <%=profile.createdAt.toString().substring(0,15)%></b></p>
+      </div>
+    </div>
+
 
   <% } %>
   <h1>Recipes added by <%= isSelf ? "you" : profile.name %></h1>
