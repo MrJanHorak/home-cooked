@@ -103,6 +103,10 @@ a:hover {
   padding: 25px;
 }
 
+#cookInstructions {
+  white-space: pre-line;
+}
+
 #profileShowViewButtons {
   display: flex;
   float: right;

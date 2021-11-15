@@ -57,3 +57,7 @@ a:hover {
   overflow:hidden;
   background-color: rgba(255, 240, 217, 0.61);
 }
+
+#cookInstructions {
+  white-space: pre-line;
+}

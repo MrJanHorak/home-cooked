@@ -71,6 +71,10 @@ p {
   border: 2px solid wheat;
 }
 
+#cookInstructions {
+  white-space: pre-line;
+}
+
 .Stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
