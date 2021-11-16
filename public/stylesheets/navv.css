@@ -148,9 +148,9 @@ ul li ul li a { transition: all 0.5s ease; }
 
     #maintitle {
       width: 300px;
-      float: none;
+      float:none;
       text-align: center;
-      position:sticky;
+      position: ;
       display:flex;
       margin: auto;
     }
