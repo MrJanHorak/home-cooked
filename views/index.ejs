@@ -24,10 +24,13 @@
       alt="Picture of prepared food"
     />
     <% } %>
+
+    <div id="prepInfo">
     <b>Prep Time:</b> <%=recipe.PrepTime%><br />
     <b>Cook Time:</b> <%=recipe.cookTime%><br />
     <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br />
     <b>Portions:</b> <%=recipe.yield%><br />
+    </div>
     <% if (recipe.ingredients.length) { %>
     <br />
     <b>Ingredients:</b>

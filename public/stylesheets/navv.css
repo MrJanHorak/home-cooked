@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   background-image: url("/images/lukas-blazek-f-TWhXOrLiU-unsplash.jpg");
   height: 100%;
   background-position: center;
@@ -8,98 +9,97 @@ body, html {
 }
 
 nav {
-    margin: 0 auto;
-    display: flex;
-    padding: 35px 0 0 0;  
-    text-align: center;
-    font-size: 16px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(228, 227, 228, .9);
-  }
+  margin: 0 auto;
+  display: flex;
+  padding: 35px 0 0 0;
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(228, 227, 228, 0.9);
+}
 
-  h1 {
-    margin: 0px;
-  }
+h1 {
+  margin: 0px;
+}
 
-    ul li {
-      z-index: 1;
-      list-style: none;
-      margin: 0 auto;
-      border-left: 2px solid #3ca0e7;
-      display: inline-block;
-      padding: 0 30px;
-      position: relative;
-      text-decoration: none;
-      text-align: center;
-      font-family: arvo;
-    }
+ul li {
+  z-index: 1;
+  list-style: none;
+  margin: 0 auto;
+  border-left: 2px solid #3ca0e7;
+  display: inline-block;
+  padding: 0 30px;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  font-family: arvo;
+}
 
-    li a {
-      color: black;
-    }
+li a {
+  color: black;
+}
 
-    li a:hover {
-      color: #3ca0e7;
-    }
+li a:hover {
+  color: #3ca0e7;
+}
 
-    li:hover {
-      cursor: pointer;
-    }
+li:hover {
+  cursor: pointer;
+}
 
-    ul li ul {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      padding-left: 0;
-      left: 0;
-      display: none;
-      background: #E3E3E3;
-    }
+ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding-left: 0;
+  left: 0;
+  display: none;
+  background: #e3e3e3;
+}
 
-    ul li:hover > ul,
-    ul li ul:hover {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-      min-width: 210px;
-      text-align: left;
-      padding-top: 20px;
-      box-shadow: 0px 3px 5px -1px #ccc;
-    }
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  min-width: 210px;
+  text-align: left;
+  padding-top: 20px;
+  box-shadow: 0px 3px 5px -1px #ccc;
+}
 
-    ul li ul li {
-      clear: both;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 20px;
-      border-style: none;
-    }
+ul li ul li {
+  clear: both;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  border-style: none;
+}
 
-    ul li ul li a:hover {
-      padding-left: 10px;
-      border-left: 2px solid #3ca0e7;
-      transition: all 0.3s ease;
-    }
-
+ul li ul li a:hover {
+  padding-left: 10px;
+  border-left: 2px solid #3ca0e7;
+  transition: all 0.3s ease;
+}
 
 a {
-
-    text-decoration: none;
+  text-decoration: none;
 }
 a:hover {
-  color: #3CA0E7;
+  color: #3ca0e7;
 }
-ul li ul li a { transition: all 0.5s ease; }
+ul li ul li a {
+  transition: all 0.5s ease;
+}
 
 #maintitle {
   position: fixed;
   z-index: 2;
   margin-top: 7px;
   margin-left: 10%;
-  display:flex;
-
+  display: flex;
 }
 
 #websiteTitle {
@@ -112,8 +112,7 @@ ul li ul li a { transition: all 0.5s ease; }
   float: left;
   width: 60px;
   margin-top: 0;
-  margin-right:10px;
-  
+  margin-right: 10px;
 }
 
 #profilePic {
@@ -122,50 +121,20 @@ ul li ul li a { transition: all 0.5s ease; }
   vertical-align: middle;
   border-radius: 50%;
   border: 1.2px solid rgb(112, 112, 112);
-  
 }
-  
-  #topSpaceBuffer {
+
+#topSpaceBuffer {
   margin-bottom: 150px;
-  }
-  
-  #welcomescreen {
-    width: 450px;
-    font-size: 1.8em;
-    background-color: grey;
-    border-radius: 10px;
-    padding: 15px;
-    color: white;
-    text-align: justify;
-  }
+}
 
-  @media only screen and (max-width: 1360px) {
-
-    nav{
-      padding-top: 60px;
-      height: auto;
-    }
-
-    #maintitle {
-      width: 300px;
-      float:none;
-      text-align: center;
-      position: ;
-      display:flex;
-      margin: auto;
-    }
-
-    #topSpaceBuffer {
-      margin-bottom: 80px;
-      }
-  
-  }
-
-
-  @media only screen and (max-width: 560px) {
-  ul li {
-    padding: 0 20px;
-  }
+#welcomescreen {
+  width: 450px;
+  font-size: 1.8em;
+  background-color: grey;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  text-align: justify;
 }
 
 .btn {
@@ -178,34 +147,42 @@ ul li ul li a { transition: all 0.5s ease; }
 }
 
 .btn:hover {
-  background-color: rgba(179, 167, 145, 0.6) ;
+  background-color: rgba(179, 167, 145, 0.6);
   color: white;
 }
 
-#buttonDiv{
-  display:flex;
+#buttonDiv {
+  display: flex;
+}
+
+@media only screen and (max-width: 1360px) {
+  nav {
+    padding-top: 60px;
+    height: auto;
+  }
+
+  #maintitle {
+    width: 300px;
+    float: none;
+    text-align: center;
+    position: fixed;
+    display: flex;
+    margin: auto;
+  }
+
+  #topSpaceBuffer {
+    margin-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  ul li {
+    padding: 0 20px;
+  }
 }
 
 @media only screen and (max-width: 476px) {
   ul li {
     padding: 0 10px;
   }
-}
-
-.btn {
-  border: none;
-  background-color: rgba(185, 181, 173, 0.6);
-  padding: 2px;
-  margin: 2px;
-  border-radius: 9px;
-  height: 35px;
-}
-
-.btn:hover {
-  background-color: rgba(179, 167, 145, 0.6) ;
-  color: white;
-}
-
-#buttonDiv{
-  display:flex;
 }

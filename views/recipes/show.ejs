@@ -1,107 +1,131 @@
 <script defer src="/js/recipes/rating.js"></script>
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/recipes/show.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="/stylesheets/recipes/show.css" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+  integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+  crossorigin="anonymous"
+/>
 <%- include('../partials/nav') %>
 
 <main>
   <div id="topSpaceBuffer"></div>
   <h1><%= title %></h1>
-    <% if (user?.profile._id) { %>
-      <div id="recipesDetailView">
-        <h2><%=recipe.name%></h2>
-        <% if (recipe.picture) {%>
-          <img id="recipeFoodPic" src="<%=recipe.picture%>" alt="Picture of prepared food">
-          <% } %>
-        <p>
-          <b>Prep Time:</b> <%=recipe.PrepTime%><br/>
-          <b>Cook Time:</b> <%=recipe.cookTime%><br/>
-          <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br/>
-          <b>Portions:</b> <%=recipe.yield%><br/>
-          <% if (recipe.ingredients.length) { %>
-          <br />
-          <b>Ingredients:</b>
-          <br/>
-            <div id="ingredienList">
-            <% recipe.ingredients.forEach(ingredient => { %>
-              <%=ingredient %><br/>
-            <%});%>
-          </div>
-          <% } %>
-          <br/>
-          <div id ="cookInstructions" >
-          <b>Instructions:</b> <%=recipe.instructions%><br/><br/>
-        </div>
-          <b>Created by:</b> <%=recipe.ownerName %>  <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>">
-                </p>
-                <div id="recipeButtons">
-        <form>
-          <input class="btn" type="button" value="Go back" onclick="history.back()">
-        </form>
-        <% if (recipe.owner.equals(user?.profile._id)) { %>
-            <a href="/recipes/<%= recipe._id %>/edit">
-              <input class="btn" value="Edit Recipe" type="submit"/>
-            </a>
-            <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-              <button class="btn" type="submit">Delete</button>
-            </form>
-            <% } %>
-        </div>
-      </div>
+  <% if (user?.profile._id) { %>
+  <div id="recipesDetailView">
+    <h2><%=recipe.name%></h2>
+    <% if (recipe.picture) {%>
+    <img
+      id="recipeFoodPic"
+      src="<%=recipe.picture%>"
+      alt="Picture of prepared food"
+    />
+    <% } %>
 
-      <div id="ratingBox">
-      <% if (recipe.rating.length === 0) { %>
-        <p>Be the First to rate!</p>
-      <%} else { %>
-          Average Rating<br/>
-          <div class="Stars" style="--rating: <%=averageRating%>;" ></div>
-          <p>Out of <%=recipe.rating.length%> ratings.</p>
-          <% } %>
-        </div>
-      <% recipe.comments.forEach(comment => { %>
-      <div id="recipeComment">
-          <%=comment.content %><br/>
-          <div id="commentatorInfo">
-          <img id="commentProfilePic" src="<%=comment.avatar%>">
-          <span id="commentator"><b><%=comment.name %></b> commented on 
-          <%=comment.createdAt.toString().substring(0,15) %> at
-          <%=comment.createdAt.toString().substring(16, 21) %>
-          <% if (comment.owner.equals(user?.profile._id)) { %>
-          </span>
-            <form 
-              action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE" 
-              method="POST"
-            >
-            <br/>
-              <button class="btn" type="submit">remove comment</button>
-            </form>
-            <% } %>
-          </div>
-          </div>
-      <% }) %> 
-      <div id="addRecipeComment">
-        <form action="/recipes/<%=recipe._id%>/comments" method="post">
-          <br/>Rate and Leave a comment<br/>
-          <div class="rating">
-            <span class="rating__result"></span> 
-            <select type="text" name="rating">
-              <option value="" selected></option>
-              <option value="1">⭐️</option>
-              <option value="2">⭐️⭐️</option>
-              <option value="3">⭐️⭐️⭐️</option>
-              <option value="4">⭐️⭐️⭐️⭐️</option>
-              <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
-            </select><br><br>
-        </div>
-          <textarea name="content"  cols="40" rows="5"></textarea>
-        <br/>
-        <br/>
-        <input hidden name="name" value="<%=name%>">
-        <input hidden name="avatar" value="<%=avatar%>">
-        <button class="btn" type="submit">Add Comment</button>
+    <div id="prepInfo">
+      <p>
+        <b>Prep Time:</b> <%=recipe.PrepTime%><br />
+        <b>Cook Time:</b> <%=recipe.cookTime%><br />
+        <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br />
+        <b>Portions:</b> <%=recipe.yield%><br />
+      </p>
+    </div>
+
+    <% if (recipe.ingredients.length) { %>
+    <br />
+    <div id="ingredienList">
+      <b>Ingredients:</b>
+      <br />
+      <% recipe.ingredients.forEach(ingredient => { %> <%=ingredient %><br />
+      <%});%>
+    </div>
+    <% } %>
+
+    <br />
+
+    <div id="cookInstructions">
+      <b>Instructions:</b> <%=recipe.instructions%><br /><br />
+    </div>
+    
+    <b>Created by:</b> <%=recipe.ownerName %>
+    <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>" />
+
+    <div id="recipeButtons">
+      <form>
+        <input
+          class="btn"
+          type="button"
+          value="Go back"
+          onclick="history.back()"
+        />
       </form>
+
+      <% if (recipe.owner.equals(user?.profile._id)) { %>
+      <a href="/recipes/<%= recipe._id %>/edit">
+        <input class="btn" value="Edit Recipe" type="submit" />
+      </a>
+      <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete</button>
+      </form>
+      <% } %>
+
+    </div>
+  </div>
+
+  <div id="ratingBox">
+    <% if (recipe.rating.length === 0) { %>
+    <p>Be the First to rate!</p>
+    <%} else { %> Average Rating<br />
+    <div class="Stars" style="--rating: <%=averageRating%>"></div>
+    <p>Out of <%=recipe.rating.length%> ratings.</p>
+    <% } %>
+  </div>
+  <% recipe.comments.forEach(comment => { %>
+  <div id="recipeComment">
+    <%=comment.content %><br />
+    <div id="commentatorInfo">
+      <img id="commentProfilePic" src="<%=comment.avatar%>" />
+      <span id="commentator"
+        ><b><%=comment.name %></b> commented on
+        <%=comment.createdAt.toString().substring(0,15) %> at
+        <%=comment.createdAt.toString().substring(16, 21) %> <% if
+        (comment.owner.equals(user?.profile._id)) { %>
+      </span>
+      <form
+        action="/recipes/<%= recipe._id %>/comments/<%=comment.id%>?_method=DELETE"
+        method="POST"
+      >
+        <br />
+        <button class="btn" type="submit">remove comment</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+  <% }) %>
+  <div id="addRecipeComment">
+    <form action="/recipes/<%=recipe._id%>/comments" method="post">
+      <br />Rate and Leave a comment<br />
+      <div class="rating">
+        <span class="rating__result"></span>
+        <select type="text" name="rating">
+          <option value="" selected></option>
+          <option value="1">⭐️</option>
+          <option value="2">⭐️⭐️</option>
+          <option value="3">⭐️⭐️⭐️</option>
+          <option value="4">⭐️⭐️⭐️⭐️</option>
+          <option value="5">⭐️⭐️⭐️⭐️⭐️</option></select
+        ><br /><br />
       </div>
-    <% } %>  
+      <textarea name="content" cols="40" rows="5"></textarea>
+      <br />
+      <br />
+      <input hidden name="name" value="<%=name%>" />
+      <input hidden name="avatar" value="<%=avatar%>" />
+      <button class="btn" type="submit">Add Comment</button>
+    </form>
+  </div>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>
