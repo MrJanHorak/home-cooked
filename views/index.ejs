@@ -13,8 +13,7 @@
       that your friends and family won't be tracking your calories though.
     </p>
   </div>
-  <% } %> <%recipes.forEach(recipe => { %>
-    <% if (recipe.visible) { %>
+  <% } %> <%recipes.forEach(recipe => { %> <% if (recipe.visible) { %>
   <div id="recipesDetailView">
     <h2><%=recipe.name%></h2>
     <% if (recipe.picture) {%>
@@ -26,10 +25,10 @@
     <% } %>
 
     <div id="prepInfo">
-    <b>Prep Time:</b> <%=recipe.PrepTime%><br />
-    <b>Cook Time:</b> <%=recipe.cookTime%><br />
-    <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br />
-    <b>Portions:</b> <%=recipe.yield%><br />
+      <b>Prep Time:</b> <%=recipe.PrepTime%><br />
+      <b>Cook Time:</b> <%=recipe.cookTime%><br />
+      <b>Temperature:</b> <%=recipe.temp%> Fahrenheit<br />
+      <b>Portions:</b> <%=recipe.yield%><br />
     </div>
     <% if (recipe.ingredients.length) { %>
     <br />
@@ -41,11 +40,13 @@
     </div>
     <% } %>
     <br />
-    <div id="cookInstructions"><b>Instructions:</b> <%=recipe.instructions%></div>
+    <div id="cookInstructions">
+      <b>Instructions:</b> <%=recipe.instructions%>
+    </div>
     <br />
     <br />
     <% if (user) { %>
-    <div id="commentatorInfo">
+    <div id="cookInfo">
       Created by:
       <img id="profilePic" src="<%=recipe.ownerAvatar%>" /> <%=recipe.ownerName
       %>
@@ -54,8 +55,7 @@
     rate %> <% }) %> <% let averageRating = total / recipe.rating.length %>
     <div id="ratingBox">
       Average Rating<br />
-      <% if (recipe.rating.length ===0) { %>
-        There are currently no ratings yet.
+      <% if (recipe.rating.length ===0) { %> There are currently no ratings yet.
       <% } %>
       <div
         class="Stars"
@@ -69,15 +69,14 @@
       <br />
       <div id="commentatorInfo">
         <img id="profilePic" src="<%=comment.avatar%>" />
-        <span id="commentator"
-          ><b><%=comment.name %></b> commented on
+        <span id="commentator">
+          <b><%=comment.name %></b> commented on
           <%=comment.createdAt.toString().substring(0,15) %> at
-          <%=comment.createdAt.toString().substring(16, 21) %> 
-        </div>
+          <%=comment.createdAt.toString().substring(16, 21) %>
+        </span>
       </div>
-    <% }) %>
-  <% } %>
-  <% } %>
-</div>
-<% }) %> 
+    </div>
+    <% }) %> <% } %> <% } %>
+  </div>
+  <% }) %>
 </main>
