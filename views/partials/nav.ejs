@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/navv.css">
 <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-</head>
+<!-- </head> -->
 
 
   <div id="maintitle">
@@ -8,41 +8,41 @@
     <h1 id="websiteTitle">Homecooked.</h1>
   </div>
 
-  <nav >
-  <ul>
-    <% if (user) { %>
-    <li><a href="/">Home</a></li>
-    <li><a href="/recipes">Recipes</a>
-      <ul class="dropdown">
-        <li><a href="/recipes/">View All</a></li>
-        <li><a href="/recipes/new">Add One</a></li>
-      </ul>
-    </li>
-    <li><a href="/mealplans">Meal Plan</a>
-      <ul class="dropdown">
-        <li><a href="/mealplans">View All</a></li>
-      <li><a href="/mealplans/new">Add One</a></li>
-    </ul>
-  </li>
-  <li><a href="/profiles/">Cooks</a>
-    <ul class="dropdown">
-      <li><a href="/profiles/">All Profiles</a></li>
-      <li><a href="/profiles/<%=user.profile.id%>">Your Profile<img id="profilePic" src="<%= user.profile.avatar %>" 
+  <nav>
+    <ul>
+      <% if (user) { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/recipes">Recipes</a>
+          <ul class="dropdown">
+            <li><a href="/recipes/">View All</a></li>
+            <li><a href="/recipes/new">Add One</a></li>
+          </ul>
+        </li>
+        <li><a href="/mealplans">Meal Plan</a>
+          <ul class="dropdown">
+            <li><a href="/mealplans">View All</a></li>
+            <li><a href="/mealplans/new">Add One</a></li>
+          </ul>
+        </li>
+        <li><a href="/profiles/">Cooks</a>
+          <ul class="dropdown">
+            <li><a href="/profiles/">All Profiles</a></li>
+            <li><a href="/profiles/<%=user.profile.id%>">Your Profile<img id="profilePic" src="<%= user.profile.avatar %>" 
         alt="<%= user.profile.name %> avatar"></a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-    </ul>  
-    </li>
-  </ul>
-</nav>
-</div>
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>  
+        </li>
+    </ul>
+  </nav>
+<!-- </div> -->
 
-<% } else { %>
-  <a href="/auth/google" class="siwg-link">
-    <button type="submit" class="siwg">
-      <img id="siwg-image" alt="Sign in with Google" />
-    </button>
-  </a>
-  <% } %>
-</nav>
+      <% } else { %>
+        <a href="/auth/google" class="siwg-link">
+          <button type="submit" class="siwg">
+            <img id="siwg-image" alt="Sign in with Google" />
+          </button>
+        </a>
+      <% } %>
+  </nav>
 </div>
 <body>
