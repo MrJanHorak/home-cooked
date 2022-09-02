@@ -13,6 +13,7 @@
         <label>
           <b>Recipe Title:</b>
           <input
+            class="formInput"
             id="recipeTitle"
             type="text"
             name="name"
@@ -50,7 +51,6 @@
           </div>
         </div>
         <br />
-        <br />
         <div class="partialFormContainer">
           <div>
             <label>
@@ -69,11 +69,16 @@
           </div>
         </div>
         <br />
-        <br />
         <div id="ingredienList">
           <label>
             <b>Ingredients:</b>
-            <input type="text" name="ingredients" size="43" />
+            <input
+              class="formInput"
+              id="ingredients"
+              type="text"
+              name="ingredients"
+              size="43"
+            />
             <br />
             <div id="container"></div>
             <br />
@@ -85,7 +90,6 @@
             <br />
           </label>
         </div>
-        <br />
         <br />
         <label>
           <b>Preperation Instructions:</b>
@@ -104,7 +108,13 @@
           <br />
           <label>
             <b>Picture URL:</b>
-            <input type="text" name="picture" size="43" id="pictureUrl" />
+            <input
+              class="formInput"
+              type="text"
+              name="picture"
+              size="43"
+              id="pictureUrl"
+            />
           </label>
           <% if(role==="admin") { %>
           <br />Make recipe invisible to the index view by deselcting the
