@@ -13,6 +13,7 @@
         <label>
           <b>Recipe Title:</b>
           <input
+            id="recipeTitle"
             type="text"
             name="name"
             placeholder="Recipe Name"
@@ -22,33 +23,51 @@
         </label>
         <br />
         <br />
-        <label>
-          <b
-            >Prep Time:
-            <input type="number" name="prepTime" id="number" min="0"/> Minutes
-          </b>
-        </label>
-        <label>
-          <b
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cook Time:
-            <input type="number" name="cookTime" id="number" min="0" required />
-            Minutes</b
-          >
-        </label>
+        <div class="partialFormContainer">
+          <div>
+            <label>
+              <b
+                >Prep Time:
+                <input type="number" name="prepTime" id="number" min="0" />
+                Minutes
+              </b>
+            </label>
+          </div>
+          <div>
+            <label>
+              <b
+                >Cook Time:
+                <input
+                  type="number"
+                  name="cookTime"
+                  id="number"
+                  min="0"
+                  required
+                />
+                Minutes</b
+              >
+            </label>
+          </div>
+        </div>
         <br />
         <br />
-        <label>
-          <b
-            >Temperature: <input type="number" name="temp" id="number" min="0" />in
-            Fahrenheit</b
-          >
-        </label>
-        <label>
-          <b
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portions:</b
-          >
-          <input type="number" name="yield" min="1" required id="number" />
-        </label>
+        <div class="partialFormContainer">
+          <div>
+            <label>
+              <b
+                >Temperature:
+                <input type="number" name="temp" id="number" min="0" />in
+                Fahrenheit</b
+              >
+            </label>
+          </div>
+          <div>
+            <label>
+              <b>Portions:</b>
+              <input type="number" name="yield" min="1" required id="number" />
+            </label>
+          </div>
+        </div>
         <br />
         <br />
         <div id="ingredienList">
@@ -57,7 +76,7 @@
             <input type="text" name="ingredients" size="43" />
             <br />
             <div id="container"></div>
-            <br/>
+            <br />
             <button class="btn">
               <a href="#" id="addIngredientLink" onclick="addFields()"
                 >Add more Ingredients</a
@@ -70,10 +89,10 @@
         <br />
         <label>
           <b>Preperation Instructions:</b>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <textarea
-          placeholder="Recipe instructions go here."
+            placeholder="Recipe instructions go here."
             name="instructions"
             cols="53"
             rows="17"
@@ -88,8 +107,9 @@
             <input type="text" name="picture" size="43" id="pictureUrl" />
           </label>
           <% if(role==="admin") { %>
-            <br/>Make recipe invisible to the index view by deselcting the visibility checkbox. Visible?
-            <input type="checkbox" name="visible" checked>
+          <br />Make recipe invisible to the index view by deselcting the
+          visibility checkbox. Visible?
+          <input type="checkbox" name="visible" checked />
           <% } %>
           <br />
           <br />

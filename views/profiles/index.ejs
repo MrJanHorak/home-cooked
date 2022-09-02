@@ -4,6 +4,7 @@
 
 <main>
   <div id="topSpaceBuffer"></div>
+  <div class="indexContainer">
   <% profiles.forEach(profile => { %>
   <a href="/profiles/<%= profile._id %>">
     <div class="userProfileIndex">
@@ -37,6 +38,7 @@
     </div>
   </a>
   <% }) %>
+</div>
 </main>
 
 <%- include('../partials/footer') %>

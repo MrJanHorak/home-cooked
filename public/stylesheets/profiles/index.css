@@ -2,6 +2,21 @@ img {
   width: 76px;
 }
 
+p {
+  line-height: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#indexContainer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .userProfileIndex {
   display: flex;
   flex-direction: row;
@@ -17,15 +32,6 @@ img {
   font-size: 1.5em;
 }
 
-p {
-  line-height: 15px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
 .card-img-top {
   width: 150px;
   float: left;
@@ -33,4 +39,23 @@ a {
   padding: 4px;
   border: 2px solid wheat;
   border-radius: 9px;
+}
+
+@media only screen and (max-width: 560px) {
+  .userProfileIndex{
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 476px) {
+  .userProfileIndex{
+    width: 410px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .userProfileIndex{
+    width: 360px;
+    font-size: 1.1rem;
+  }
 }
