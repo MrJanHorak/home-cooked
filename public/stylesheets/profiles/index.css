@@ -11,12 +11,13 @@ a {
   color: black;
 }
 
-#topSpaceBuffer{
+#topSpaceBuffer {
   height: 45px;
 }
 
-#indexContainer{
+#indexContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
 }
@@ -29,7 +30,7 @@ a {
   margin: 17px;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 4px;
-  padding: 10px;
+  /* padding: 10px; */
   overflow: hidden;
   background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
@@ -46,20 +47,28 @@ a {
 }
 
 @media only screen and (max-width: 560px) {
-  .userProfileIndex{
-    width: 450px;
+  .userProfileIndex {
+    width: 100%;
+    font-size: 0.9rem;
   }
+
+  #indexContainer {
+    width: 85%;
+  }
+
+  #userInfo{
+    margin-top: 15px;
+  }
+
+
 }
 
 @media only screen and (max-width: 476px) {
-  .userProfileIndex{
-    width: 410px;
+  .userProfileIndex {
   }
 }
 
 @media only screen and (max-width: 420px) {
-  .userProfileIndex{
-    width: 360px;
-    font-size: 1.1rem;
+  .userProfileIndex {
   }
 }

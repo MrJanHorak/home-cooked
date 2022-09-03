@@ -1,6 +1,5 @@
-
 p {
-  line-height:15px;
+  line-height: 15px;
 }
 
 a {
@@ -9,20 +8,20 @@ a {
 }
 
 a:hover {
-  color:rgba(71, 71, 71, 0.8)
+  color: rgba(71, 71, 71, 0.8);
 }
 
-#topSpaceBuffer{
+#topSpaceBuffer {
   height: 45px;
 }
 
 #mealplanIndexView {
-  display:flex;
+  display: flex;
   justify-content: center;
-  width:60%;
+  width: 60%;
   margin: auto;
   margin-bottom: 15px;
-  background-color: rgba(253, 253, 253, .8);
+  background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   flex-wrap: wrap;
   border-radius: 6px;
@@ -33,19 +32,19 @@ a:hover {
   width: 30rem;
   height: 170px;
   margin: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
   padding: 10px;
-  overflow:hidden;
+  overflow: hidden;
   background-color: rgba(255, 240, 217, 0.61);
-  font-size: .6em;
+  font-size: 0.6em;
 }
 
 #mealplanIndexCard:hover {
   background-color: rgba(240, 240, 240, 0.986);
 }
 
-#mealPlanName{
+#mealPlanName {
   text-align: center;
 }
 
@@ -55,12 +54,15 @@ a:hover {
   width: 100%;
 }
 
-#mealplanTable td, #mealplanTable th {
+#mealplanTable td,
+#mealplanTable th {
   border: 1px solid #ddd;
   padding: 2px;
 }
 
-#mealplanTable tr:nth-child(even){background-color: #f2f2f2;}
+#mealplanTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 #mealplanTable th {
   padding-top: 2px;
@@ -71,21 +73,17 @@ a:hover {
 }
 
 @media only screen and (max-width: 560px) {
-  #mealplanIndexView{
-    width: 350px;
+  #mealplanIndexView {
+    width: 85%;
   }
 
-    #mealplanIndexCard{
-      width: 29rem;
-    }
+  #mealplanIndexCard {
+    width: 29rem;
   }
-
+}
 
 @media only screen and (max-width: 476px) {
- 
 }
 
 @media only screen and (max-width: 420px) {
-  
-  }
 }

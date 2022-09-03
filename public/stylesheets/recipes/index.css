@@ -66,3 +66,17 @@ a:hover {
 #cookInstructions {
   white-space: pre-line;
 }
+
+@media only screen and (max-width: 842px) {
+
+  #recipeIndexCard{
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  #recipesIndexView {
+    width: 85%;
+  }
+
+}

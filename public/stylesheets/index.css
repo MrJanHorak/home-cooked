@@ -8,8 +8,8 @@ p {
   line-height: 25px;
 }
 
-#topSpaceBuffer{
-  height: 75px;
+#topSpaceBuffer {
+  height: 35px;
 }
 
 #welcomescreen {
@@ -130,7 +130,6 @@ p {
 }
 
 @media only screen and (max-width: 560px) {
-
   #welcomescreen {
     width: 400px;
   }
@@ -153,7 +152,7 @@ p {
   }
 
   #recipesDetailView {
-    width: 400px;
+    width: 85%;
     height: auto;
     margin: 5px;
     border: 1px solid rgb(201, 201, 201);
@@ -206,7 +205,6 @@ p {
     white-space: pre-line;
     width: 88%;
   }
-
 }
 
 @media only screen and (max-width: 476px) {
@@ -219,15 +217,8 @@ p {
   }
 
   #recipesDetailView {
-    width: 340px;
     height: auto;
     margin: 5px;
-    border: 1px solid rgb(201, 201, 201);
-    border-radius: 4px;
-    padding: 15px;
-    overflow: hidden;
-    background-color: rgba(253, 253, 253, 0.8);
-    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
     font-size: 1.5em;
   }
 }
