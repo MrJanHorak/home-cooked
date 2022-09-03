@@ -11,6 +11,10 @@ a {
   color: black;
 }
 
+#topSpaceBuffer{
+  height: 45px;
+}
+
 #indexContainer{
   display: flex;
   justify-content: center;
