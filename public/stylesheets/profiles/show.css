@@ -22,6 +22,7 @@ a:hover {
 
 .profile-avatar {
   width: 150px;
+  height: 150px;
   border-radius: 9px;
   margin: 15px;
   padding: 4px;
@@ -38,7 +39,7 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: rgba(179, 167, 145, 0.6) ;
+  background-color: rgba(179, 167, 145, 0.6);
   color: white;
 }
 
@@ -64,6 +65,10 @@ a:hover {
   padding: 4px;
   border: 2px solid wheat;
   border-radius: 9px;
+}
+
+#topSpaceBuffer{
+  height: 55px;
 }
 
 #recipePic {
@@ -166,4 +171,35 @@ a:hover {
   text-align: left;
   background-color: #0d8c11;
   color: white;
+}
+
+@media only screen and (max-width: 842px) {
+  .section-headers{
+    font-size: 2.1rem;
+  }
+  #recipeIndexCard{
+    width: 90%;
+    height: 250px;
+  }
+
+  #mealplanIndexCard{
+    width: 90%;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .userProfileIndex {
+    width: 85%;
+    height: auto;
+    font-size: 1.1em;
+  }
+
+  #recipesIndexView {
+    width: 85%;
+  }
+
+  #mealplanIndexView {
+    width: 85%;
+  }
 }
