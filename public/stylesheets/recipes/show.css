@@ -13,15 +13,19 @@ img {
   width: 160px;
 }
 
-textarea {
+#commentText {
   font-size: 1.5em;
   resize: none;
   border-radius: 5px;
-  width: 500px;
+  width: 88%;
 }
 
 form {
   text-align: center;
+}
+
+#topSpaceBuffer {
+  height: 45px;
 }
 
 #recipeComment {
@@ -162,4 +166,77 @@ form {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 560px) {
+  #prepInfo {
+    margin-left: 44px;
+  }
+
+  #ratingBox {
+    width: 88%;
+    height: auto;
+    margin-bottom: 15px;
+    margin: 3px;
+    border-radius: 4px;
+    padding: 7px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  #recipesDetailView {
+    width: 88%;
+    height: auto;
+    margin: 5px;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 4px;
+    padding: 15px;
+    overflow: hidden;
+    background-color: rgba(253, 253, 253, 0.8);
+    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+    font-size: 1.5em;
+  }
+
+  #profilePic {
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+  }
+
+  #recipeComment {
+    width: 88%;
+    height: auto;
+  }
+
+  #recipeFoodPic {
+    width: 90%;
+  }
+
+  #cookInstructions {
+    white-space: pre-line;
+    width: 88%;
+  }
+
+  #addRecipeComment {
+    width: 88%;
+  }
+
+  #commentText {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 476px) {
+  ul li {
+    padding: 0 5px;
+  }
+
+  #recipesDetailView {
+    height: auto;
+    margin: 5px;
+    font-size: 1.5em;
+  }
 }

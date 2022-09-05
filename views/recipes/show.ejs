@@ -47,7 +47,7 @@
     <div id="cookInstructions">
       <b>Instructions:</b> <%=recipe.instructions%><br /><br />
     </div>
-    
+
     <b>Created by:</b> <%=recipe.ownerName %>
     <img id="commentProfilePic" src="<%=recipe.ownerAvatar%>" />
 
@@ -69,10 +69,8 @@
         <button class="btn" type="submit">Delete</button>
       </form>
       <% } %>
-
     </div>
   </div>
-
   <div id="ratingBox">
     <% if (recipe.rating.length === 0) { %>
     <p>Be the First to rate!</p>
@@ -117,7 +115,7 @@
           <option value="5">⭐️⭐️⭐️⭐️⭐️</option></select
         ><br /><br />
       </div>
-      <textarea name="content" cols="40" rows="5"></textarea>
+      <textarea id="commentText" name="content"  rows="5"></textarea>
       <br />
       <br />
       <input hidden name="name" value="<%=name%>" />
