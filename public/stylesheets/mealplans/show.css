@@ -22,7 +22,19 @@ textarea {
   width: 500px;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#please-rotate {
+  display: none;
+}
+
 #mealplanShowView {
+  visibility: visible;
   min-width: 550px;
   max-width: 75%;
   height: auto;
@@ -60,6 +72,7 @@ textarea {
 }
 
 #mealplanComment {
+  visibility: visible;
   width: 550px;
   margin: 7px;
   border-radius: 4px;
@@ -78,6 +91,7 @@ textarea {
   }
 
 #addMealplanComment {
+  visibility: visible;
   width: 550px;
   height: auto;
   margin: 7px;
@@ -100,4 +114,41 @@ textarea {
 #commentatorInfo {
   margin-top: 13px;
   text-align: center;
+}
+
+@media only screen and (max-width: 560px) {
+
+  .title{
+    display: none;
+  }
+
+  #please-rotate{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    margin-top: 50%;
+  }
+  #please-rotate img{
+    width: 200px;
+    height: 200px;
+  }
+  #mealplanShowView {
+    display:none;
+  }
+
+  #mealplanComment {
+    display: none;
+  }
+  #addMealplanComment {
+    display: none;
+}
+
+@media only screen and (max-width: 476px) {
+
+}
+
+@media only screen and (max-width: 420px) {
+
 }
