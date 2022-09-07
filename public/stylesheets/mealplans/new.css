@@ -1,7 +1,11 @@
 
+#topSpaceBuffer{
+  height: 30px;
+}
+
 #newMealplan {
-  min-width: 550px;
-  max-width: 75%;
+  width: 85%;
+  max-width: 650px;
   height: auto;
   margin: 7px;
   border: 1px solid rgb(201, 201, 201);
@@ -11,6 +15,11 @@
   background-color: rgba(253, 253, 253, .8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   font-size: 1.5em;
+}
+
+#mealplanNameInput{
+  width: 90%;
+  max-width: 560px;
 }
 
 #viewMealplan {

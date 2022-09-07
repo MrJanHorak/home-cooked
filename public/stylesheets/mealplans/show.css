@@ -3,7 +3,7 @@ body {
 }
 
 p {
-  line-height:15px;
+  line-height: 15px;
 }
 
 a {
@@ -11,7 +11,7 @@ a {
   color: black;
 }
 
-form{
+form {
   text-align: center;
 }
 
@@ -22,7 +22,7 @@ textarea {
   width: 500px;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,8 +42,8 @@ main{
   border: 1px solid rgb(201, 201, 201);
   border-radius: 4px;
   padding: 15px;
-  overflow:hidden;
-  background-color: rgba(253, 253, 253, .8);
+  overflow: hidden;
+  background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   font-size: 1.5em;
 }
@@ -54,14 +54,19 @@ main{
   width: 100%;
 }
 
-#mealplanTable td, #mealplanTable th {
+#mealplanTable td,
+#mealplanTable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#mealplanTable tr:nth-child(even){background-color: #f2f2f2;}
+#mealplanTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#mealplanTable td:hover {background-color: rgb(68, 62, 62);}
+#mealplanTable td:hover {
+  background-color: rgb(68, 62, 62);
+}
 
 #mealplanTable th {
   padding-top: 12px;
@@ -77,7 +82,7 @@ main{
   margin: 7px;
   border-radius: 4px;
   padding: 13px;
-  background-color: rgba(121, 102, 74, .8);
+  background-color: rgba(121, 102, 74, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   color: white;
   font-size: 1.5em;
@@ -88,7 +93,7 @@ main{
   border-radius: 50%;
   border: 1px solid #ddd;
   vertical-align: middle;
-  }
+}
 
 #addMealplanComment {
   visibility: visible;
@@ -97,7 +102,7 @@ main{
   margin: 7px;
   border-radius: 4px;
   padding: 9px;
-  background-color: rgba(97, 92, 85, .9);
+  background-color: rgba(97, 92, 85, 0.9);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   color: white;
   font-size: 1.5em;
@@ -105,7 +110,7 @@ main{
   text-align: center;
 }
 
-#mealplanButtons{
+#mealplanButtons {
   display: flex;
   margin: 5px;
   justify-content: center;
@@ -117,12 +122,11 @@ main{
 }
 
 @media only screen and (max-width: 560px) {
-
-  .title{
+  .title {
     display: none;
   }
 
-  #please-rotate{
+  #please-rotate {
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -130,25 +134,21 @@ main{
     align-items: center;
     margin-top: 50%;
   }
-  #please-rotate img{
+  
+  #please-rotate img {
     width: 200px;
     height: 200px;
   }
+
   #mealplanShowView {
-    display:none;
+    display: none;
   }
 
   #mealplanComment {
     display: none;
   }
+
   #addMealplanComment {
     display: none;
-}
-
-@media only screen and (max-width: 476px) {
-
-}
-
-@media only screen and (max-width: 420px) {
-
+  }
 }
