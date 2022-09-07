@@ -1,6 +1,5 @@
-
 p {
-  line-height:15px;
+  line-height: 15px;
 }
 
 a {
@@ -8,13 +7,19 @@ a {
   color: black;
 }
 
-form{
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
   text-align: center;
 }
 
 select {
   width: 130px;
 }
+
 textarea {
   font-size: 1.5em;
   resize: none;
@@ -23,35 +28,55 @@ textarea {
 }
 
 #mealplanShowView {
-  min-width: 550px;
-  max-width: 75%;
+  /* min-width: 550px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  max-width: 95%;
   height: auto;
   margin: 7px;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 4px;
   padding: 15px;
-  overflow:hidden;
-  background-color: rgba(253, 253, 253, .8);
+  overflow: hidden;
+  background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
   font-size: 1.5em;
 }
 
-#mealplanTable {
+.mealplanTable table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
 }
 
-#mealplanTable td, #mealplanTable th {
+#wide {
+  width: 90%;
+}
+
+#narrow {
+  display: none;
+}
+
+.mealplanTable td,
+.mealplanTable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#mealplanTable tr:nth-child(even){background-color: #f2f2f2;}
+.mealplanTable td {
+  width: auto;
+}
+.mealplanTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#mealplanTable td:hover {background-color: rgb(68, 62, 62);}
+.mealplanTable td:hover {
+  background-color: rgb(68, 62, 62);
+}
 
-#mealplanTable th {
+.mealplanTable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -59,45 +84,31 @@ textarea {
   color: white;
 }
 
-#mealplanComment {
-  width: 550px;
-  margin: 7px;
-  border-radius: 4px;
-  padding: 13px;
-  background-color: rgba(121, 102, 74, .8);
-  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
-  color: white;
-  font-size: 1.5em;
-}
-
-#commentProfilePic {
-  width: 25px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  vertical-align: middle;
+@media only screen and (max-width: 847px) {
+  #wide td,
+  #wide th {
+    border: 1px solid #ddd;
+    padding: 2px;
   }
-
-#addMealplanComment {
-  width: 550px;
-  height: auto;
-  margin: 7px;
-  border-radius: 4px;
-  padding: 9px;
-  background-color: rgba(97, 92, 85, .9);
-  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
-  color: white;
-  font-size: 1.5em;
-  resize: none;
-  text-align: center;
 }
 
-#mealplanButtons{
-  display: flex;
-  margin: 5px;
-  justify-content: center;
-}
-
-#commentatorInfo {
-  margin-top: 13px;
-  text-align: center;
+@media only screen and (max-width: 670px) {
+  #mealplanShowView {
+    width: 85%;
+  }
+  #wide {
+    display: none;
+  }
+  #narrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  #narrow td,
+  #narrow th {
+    border: 1px solid #ddd;
+    padding: 15px;
+  }
 }
