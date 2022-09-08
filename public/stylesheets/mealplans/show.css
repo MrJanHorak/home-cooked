@@ -19,7 +19,7 @@ textarea {
   font-size: 1.5em;
   resize: none;
   border-radius: 5px;
-  width: 500px;
+  width: 90%;
 }
 
 main {
@@ -29,6 +29,14 @@ main {
   align-items: center;
 }
 
+#narrow {
+  display: none;
+}
+
+#topSpaceBuffer {
+  height: 44px;
+}
+
 #please-rotate {
   display: none;
 }
@@ -36,7 +44,7 @@ main {
 #mealplanShowView {
   visibility: visible;
   min-width: 550px;
-  max-width: 75%;
+  max-width: 90%;
   height: auto;
   margin: 7px;
   border: 1px solid rgb(201, 201, 201);
@@ -48,28 +56,29 @@ main {
   font-size: 1.5em;
 }
 
-#mealplanTable {
+.mealplanTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#mealplanTable td,
-#mealplanTable th {
+.mealplanTable td,
+.mealplanTable th {
   border: 1px solid #ddd;
   padding: 8px;
   width: 10%;
 }
 
-#mealplanTable tr:nth-child(even) {
+.mealplanTable tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#mealplanTable td:hover {
+.mealplanTable td:hover {
   background-color: rgb(68, 62, 62);
+  color: #f2f2f2;
 }
 
-#mealplanTable th {
+.mealplanTable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -123,33 +132,55 @@ main {
 }
 
 @media only screen and (max-width: 560px) {
-  .title {
+  #wide {
     display: none;
   }
 
-  #please-rotate {
+  #mealplanShowView {
+    min-width: 350px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  #narrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+  }
+
+  #mealplanComment {
+    width: 85%;
+  }
+
+  #addMealplanComment {
+    width: 85%;
+  }
+
+  /* #please-rotate {
     display: flex;
     flex-direction: column;
     justify-self: center;
     justify-items: center;
     align-items: center;
     margin-top: 50%;
-  }
-  
-  #please-rotate img {
+  } */
+
+  /* #please-rotate img {
     width: 200px;
     height: 200px;
-  }
+  } */
 
-  #mealplanShowView {
+  /* #mealplanComment {
     display: none;
-  }
+  } */
 
-  #mealplanComment {
+  /* #addMealplanComment {
     display: none;
-  }
-
-  #addMealplanComment {
-    display: none;
-  }
+  } */
 }
