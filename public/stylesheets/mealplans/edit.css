@@ -17,8 +17,22 @@ form {
 }
 
 select {
-  width: 130px;
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 130px;
+    position: relative;
+    z-index: 10;
+    font-size: 1em;
+    color: inherit;
 }
+
+option {
+  color: black;
+}
+
 
 textarea {
   font-size: 1.5em;
@@ -74,6 +88,7 @@ textarea {
 
 .mealplanTable td:hover {
   background-color: rgb(68, 62, 62);
+  color:#f2f2f2;
 }
 
 .mealplanTable th {
@@ -93,6 +108,7 @@ textarea {
 }
 
 @media only screen and (max-width: 670px) {
+
   #mealplanShowView {
     width: 85%;
   }
@@ -109,6 +125,7 @@ textarea {
   #narrow td,
   #narrow th {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 6px;
+    width: auto;
   }
 }

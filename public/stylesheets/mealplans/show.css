@@ -58,6 +58,7 @@ main {
 #mealplanTable th {
   border: 1px solid #ddd;
   padding: 8px;
+  width: 10%;
 }
 
 #mealplanTable tr:nth-child(even) {
