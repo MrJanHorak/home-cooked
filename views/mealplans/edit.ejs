@@ -12,10 +12,14 @@
         corresponding dropdown menu. <br />
         Click submit when you are finished selecting the meals for the week.
       </p>
-      <form action="/mealplans/<%= mealplan._id %>?_method=PUT" method="POST">
+      <form
+        id="wide"
+        action="/mealplans/<%= mealplan._id %>?_method=PUT"
+        method="POST"
+      >
         <div id="mealPlanName"><h3><%=mealplan.name%></h3></div>
         <p></p>
-        <table class="mealplanTable" id="wide">
+        <table class="mealplanTable">
           <tr>
             <th>Weekday</th>
             <th>Breakfast</th>
@@ -269,7 +273,13 @@
             </td>
           </tr>
         </table>
-
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <form
+        id="narrow"
+        action="/mealplans/<%= mealplan._id %>?_method=PUT"
+        method="POST"
+      >
         <table class="mealplanTable" id="narrow">
           <tr>
             <th>Monday</th>

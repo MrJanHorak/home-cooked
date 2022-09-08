@@ -33,7 +33,6 @@ option {
   color: black;
 }
 
-
 textarea {
   font-size: 1.5em;
   resize: none;
@@ -63,9 +62,6 @@ textarea {
 .mealplanTable table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-}
-
-#wide {
   width: 90%;
 }
 
@@ -115,6 +111,7 @@ textarea {
   #wide {
     display: none;
   }
+  
   #narrow {
     display: flex;
     flex-direction: column;
