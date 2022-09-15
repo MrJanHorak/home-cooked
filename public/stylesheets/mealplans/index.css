@@ -19,7 +19,7 @@ a:hover {
   display: flex;
   justify-content: center;
   width: 60%;
-  margin: auto;
+  /* margin: auto; */
   margin-bottom: 15px;
   background-color: rgba(253, 253, 253, 0.8);
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
