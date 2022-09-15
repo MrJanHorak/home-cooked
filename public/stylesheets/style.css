@@ -30,6 +30,7 @@ nav {
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
+  z-index: 10;
 }
 
 main {
@@ -37,6 +38,8 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  min-height: 100vh;
 }
 
 h1 {

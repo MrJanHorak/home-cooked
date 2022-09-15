@@ -96,7 +96,7 @@ ul li ul li a {
 
 #maintitle {
   position: fixed;
-  z-index: 2;
+  z-index: 11;
   margin-top: 7px;
   margin-left: 10%;
   display: flex;
@@ -146,6 +146,9 @@ ul li ul li a {
 }
 
 footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: rgba(228, 227, 228, 0.9);
   text-align: center;
   font-size: large;
@@ -180,7 +183,6 @@ footer a{
 @media only screen and (max-width: 560px) {
   #maintitle {
     position: fixed;
-    z-index: 2;
     margin-top: 7px;
     margin-left: 13%;
     display: flex;
@@ -205,7 +207,6 @@ footer a{
 @media only screen and (max-width: 476px) {
   #maintitle {
     position: fixed;
-    z-index: 2;
     margin-top: 7px;
     margin-left: 13%;
     display: flex;
