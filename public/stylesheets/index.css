@@ -128,7 +128,10 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+@media only screen and (max-width: 672px) {
+  #recipesDetailView {
+    width: 85%;
+}
 @media only screen and (max-width: 560px) {
   #welcomescreen {
     width: 400px;
