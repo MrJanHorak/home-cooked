@@ -191,8 +191,14 @@ footer a {
   }
 }
 
+@media only screen and (max-width: 645px) {
+  ul li ul {
+    left: -30px;
+  }
+}
+
 @media only screen and (max-width: 560px) {
-  nav{
+  nav {
     padding-top: 50px;
   }
   #websiteTitle {
@@ -204,15 +210,21 @@ footer a {
     width: 60px;
   }
 
+  ul li ul {
+    left: -50px;
+  }
+  
   ul li {
     padding: 0 20px;
   }
+
 }
 
 @media only screen and (max-width: 476px) {
-  nav{
+  nav {
     padding-top: 45px;
   }
+
   #websiteTitle {
     top: 1rem;
     font-size: 3.2rem;
@@ -226,8 +238,9 @@ footer a {
     padding: 0 10px;
   }
 }
+
 @media only screen and (max-width: 425px) {
-  nav{
+  nav {
     padding-top: 40px;
   }
   #websiteTitle {
