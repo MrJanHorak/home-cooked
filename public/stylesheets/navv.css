@@ -171,6 +171,10 @@ footer a {
     height: auto;
   }
 
+  #topSpaceBuffer {
+    height: 35px;
+  }
+
   #maintitle {
     position: fixed;
     width: 100%;

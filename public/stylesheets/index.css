@@ -8,10 +8,6 @@ p {
   line-height: 25px;
 }
 
-#topSpaceBuffer {
-  height: 35px;
-}
-
 #welcomescreen {
   width: 650px;
   font-size: 1.8em;
@@ -131,7 +127,9 @@ p {
 @media only screen and (max-width: 672px) {
   #recipesDetailView {
     width: 85%;
+  }
 }
+
 @media only screen and (max-width: 560px) {
   #welcomescreen {
     width: 400px;
